@@ -6,7 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,16 +20,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eyt-EO-gqS">
-                                <rect key="frame" x="0.0" y="20" width="375" height="298"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="eyt-EO-gqS" secondAttribute="height" multiplier="375:298" id="Db0-FN-e6q"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="20" width="375" height="289"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="eyt-EO-gqS" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="JL0-CQ-pDk"/>
                             <constraint firstItem="eyt-EO-gqS" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="X3A-dZ-FbT"/>
+                            <constraint firstItem="eyt-EO-gqS" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" multiplier="0.5" id="ndK-fx-TuK"/>
                             <constraint firstItem="eyt-EO-gqS" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="vTz-mF-GlC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
