@@ -49,6 +49,7 @@
 		A2B7C8B81FC526100012167F /* FuelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FuelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B7C8BC1FC526100012167F /* FuelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelUITests.swift; sourceTree = "<group>"; };
 		A2B7C8BE1FC526100012167F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2B7C8CB1FC5337C0012167F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +84,7 @@
 				A2B7C8B01FC526100012167F /* FuelTests */,
 				A2B7C8BB1FC526100012167F /* FuelUITests */,
 				A2B7C8981FC526100012167F /* Products */,
+				A2B7C8CA1FC5337B0012167F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +128,14 @@
 				A2B7C8BE1FC526100012167F /* Info.plist */,
 			);
 			path = FuelUITests;
+			sourceTree = "<group>";
+		};
+		A2B7C8CA1FC5337B0012167F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2B7C8CB1FC5337C0012167F /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
