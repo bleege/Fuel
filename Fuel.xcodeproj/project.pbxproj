@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2B121B31FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2B121B11FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld */; };
 		A2B7C89B1FC526100012167F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C89A1FC526100012167F /* AppDelegate.swift */; };
 		A2B7C89D1FC526100012167F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C89C1FC526100012167F /* FirstViewController.swift */; };
 		A2B7C89F1FC526100012167F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C89E1FC526100012167F /* SecondViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A2B121B21FCD1BFB000C3EE0 /* FuelStops.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FuelStops.xcdatamodel; sourceTree = "<group>"; };
 		A2B7C8971FC526100012167F /* Fuel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B7C89A1FC526100012167F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2B7C89C1FC526100012167F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				A2B7C89A1FC526100012167F /* AppDelegate.swift */,
+				A2B121B11FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld */,
 				A2B7C89C1FC526100012167F /* FirstViewController.swift */,
 				A2B7C89E1FC526100012167F /* SecondViewController.swift */,
 				A2B7C8A01FC526100012167F /* Main.storyboard */,
@@ -275,6 +278,7 @@
 				A2B7C89F1FC526100012167F /* SecondViewController.swift in Sources */,
 				A2B7C89B1FC526100012167F /* AppDelegate.swift in Sources */,
 				A2B7C89D1FC526100012167F /* FirstViewController.swift in Sources */,
+				A2B121B31FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +576,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A2B121B11FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A2B121B21FCD1BFB000C3EE0 /* FuelStops.xcdatamodel */,
+			);
+			currentVersion = A2B121B21FCD1BFB000C3EE0 /* FuelStops.xcdatamodel */;
+			path = FuelStops.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A2B7C88F1FC526100012167F /* Project object */;
 }
