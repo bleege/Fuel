@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A266444F1FD3269A000DDFED /* FuelStopsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A266444E1FD3269A000DDFED /* FuelStopsDataManager.swift */; };
 		A2B121B31FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2B121B11FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld */; };
 		A2B7C89B1FC526100012167F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C89A1FC526100012167F /* AppDelegate.swift */; };
 		A2B7C89D1FC526100012167F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C89C1FC526100012167F /* FirstViewController.swift */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A266444E1FD3269A000DDFED /* FuelStopsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelStopsDataManager.swift; sourceTree = "<group>"; };
+		A26644501FD32883000DDFED /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A2B121B21FCD1BFB000C3EE0 /* FuelStops.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FuelStops.xcdatamodel; sourceTree = "<group>"; };
 		A2B7C8971FC526100012167F /* Fuel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B7C89A1FC526100012167F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +114,7 @@
 				A2B7C8A31FC526100012167F /* Assets.xcassets */,
 				A2B7C8A51FC526100012167F /* LaunchScreen.storyboard */,
 				A2B7C8A81FC526100012167F /* Info.plist */,
+				A266444E1FD3269A000DDFED /* FuelStopsDataManager.swift */,
 			);
 			path = Fuel;
 			sourceTree = "<group>";
@@ -136,6 +140,7 @@
 		A2B7C8CA1FC5337B0012167F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A26644501FD32883000DDFED /* CoreData.framework */,
 				A2B7C8CB1FC5337C0012167F /* MapKit.framework */,
 			);
 			name = Frameworks;
@@ -279,6 +284,7 @@
 				A2B7C89B1FC526100012167F /* AppDelegate.swift in Sources */,
 				A2B7C89D1FC526100012167F /* FirstViewController.swift in Sources */,
 				A2B121B31FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld in Sources */,
+				A266444F1FD3269A000DDFED /* FuelStopsDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

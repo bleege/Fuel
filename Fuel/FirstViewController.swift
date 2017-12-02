@@ -10,9 +10,14 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
+    let dataManager = FuelStopsDataManager(completionClosure: { print("Failure") } )
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let fuelStops = dataManager.getAllFuelStops()
+        print("number of fuelStops found = \(fuelStops.count)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,4 +27,3 @@ class FirstViewController: UIViewController {
 
 
 }
-
