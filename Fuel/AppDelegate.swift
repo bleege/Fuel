@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Preload Data
+        preloadData()
+        
         return true
     }
 
@@ -41,6 +45,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func preloadData() {
+        
+        guard let filePath = Bundle.main.path(forResource: "2016-VW-Jetta-Fuel-Tracking", ofType: ".csv")
+            else {
+                print("Couldn't load data file")
+                return
+            }
 
+        do {
+            let csvContent = try String(contentsOfFile: filePath, encoding: .utf8)
+            print(csvContent)
+        } catch {
+            print("Couldn't load data file")
+            return
+        }
+    }
+    
 }
 
