@@ -31,4 +31,20 @@ class FuelStopsDataManager {
             fatalError("Error loading FuelStops: \(error)")
         }
     }
+    
+    func deleteFuelStop(fuelStop: FuelStopsMO) {
+        persistentContainer.viewContext.delete(fuelStop)
+    }
+    
+    func deleteAllFuelStops() {
+        let stops = getAllFuelStops()
+            
+        for fuelStop in stops {
+            persistentContainer.viewContext.delete(fuelStop)
+        }
+    }
+    
+    func addFuelStop(fuelStop: FuelStopsMO) {
+        persistentContainer.viewContext.insert(fuelStop)
+    }
 }
