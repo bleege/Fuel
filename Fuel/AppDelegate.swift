@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let dataManager = FuelStopsDataManager(completionClosure: { print("Failure to create Data Manager.") } )
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -56,10 +57,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         do {
             let csvContent = try String(contentsOfFile: filePath, encoding: .utf8)
             print(csvContent)
+            let lines: [String] = csvContent.components(separatedBy: .newlines)
+            
+            for line in lines {
+                let values = line.components(separatedBy: ",")
+                if (values.count > 1) {
+                    dataManager.addFuelStop(csv: values)
+                }
+            }
+        
         } catch {
             print("Couldn't load data file")
             return
         }
+        
     }
     
 }

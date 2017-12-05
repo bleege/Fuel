@@ -47,4 +47,27 @@ class FuelStopsDataManager {
     func addFuelStop(fuelStop: FuelStopsMO) {
         persistentContainer.viewContext.insert(fuelStop)
     }
+    
+    func addFuelStop(csv: [String]) {
+        let stop = FuelStopsMO.init(entity: NSEntityDescription.entity(forEntityName: "FuelStops", in: persistentContainer.viewContext)!, insertInto: persistentContainer.viewContext) as FuelStopsMO
+        
+        let df: DateFormatter = DateFormatter()
+        df.locale = Locale(identifier: "en_US")
+        df.setLocalizedDateFormatFromTemplate("M/D/YYYY")
+        
+//        stop.fuelstops_id
+        stop.gallons = Double(csv[4])!
+        stop.latitude = Double(csv[1])!
+        stop.longitude = Double(csv[2])!
+        stop.mpg = Double(csv[9])!
+        stop.octane = Int16(csv[3])!
+        stop.odometer = Int16(csv[8])!
+        stop.price = Double(csv[6].replacingOccurrences(of: "$", with: ""))!
+        stop.price_per_gallon = Double(csv[5])!
+//        stop.stop_date = df.date(from: csv[0])!
+        stop.trip_odometer = Double(csv[7])!
+
+        persistentContainer.viewContext.insert(stop)
+    }
+    
 }

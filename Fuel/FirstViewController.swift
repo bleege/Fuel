@@ -9,8 +9,8 @@
 import UIKit
 
 class FirstViewController: UIViewController {
-
-    let dataManager = FuelStopsDataManager(completionClosure: { print("Failure") } )
+    
+    let dataManager = (UIApplication.shared.delegate as! AppDelegate).dataManager
     
     override func viewDidLoad() {
         super.viewDidLoad()
