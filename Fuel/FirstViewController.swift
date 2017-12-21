@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class OverviewViewController: UIViewController {
     
     let dataManager = (UIApplication.shared.delegate as! AppDelegate).dataManager
     
