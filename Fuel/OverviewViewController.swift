@@ -10,16 +10,24 @@ import UIKit
 
 class OverviewViewController: UIViewController {
     
-    let dataManager = (UIApplication.shared.delegate as! AppDelegate).dataManager
-    
+    var presenter: OverviewPresenter?
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        let fuelStops = dataManager.getAllFuelStops()
-        print("number of fuelStops found = \(fuelStops.count)")
+        presenter = OverviewPresenter()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.onAttach(viewController: self)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        presenter?.onDetach()
+        super.viewWillDisappear(animated)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
