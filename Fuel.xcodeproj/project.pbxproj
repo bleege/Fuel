@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A250C6B21FECB0230025A962 /* OverviewStopTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A250C6B11FECB0230025A962 /* OverviewStopTableCell.swift */; };
 		A266444F1FD3269A000DDFED /* FuelStopsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A266444E1FD3269A000DDFED /* FuelStopsDataManager.swift */; };
 		A26E5EE11FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv in Resources */ = {isa = PBXBuildFile; fileRef = A26E5EE01FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv */; };
 		A2B121B31FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2B121B11FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A250C6B11FECB0230025A962 /* OverviewStopTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewStopTableCell.swift; sourceTree = "<group>"; };
 		A266444E1FD3269A000DDFED /* FuelStopsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelStopsDataManager.swift; sourceTree = "<group>"; };
 		A26644501FD32883000DDFED /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A26E5EE01FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2016-VW-Jetta-Fuel-Tracking.csv"; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				A26E5EE01FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv */,
 				A2EFB6281FEB60A300AE7A98 /* OverviewPresenter.swift */,
 				A2B7C89C1FC526100012167F /* OverviewViewController.swift */,
+				A250C6B11FECB0230025A962 /* OverviewStopTableCell.swift */,
 				A2B7C89E1FC526100012167F /* SecondViewController.swift */,
 				A2B7C8A01FC526100012167F /* Main.storyboard */,
 				A2B7C8A31FC526100012167F /* Assets.xcassets */,
@@ -293,6 +296,7 @@
 				A2B121B31FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld in Sources */,
 				A266444F1FD3269A000DDFED /* FuelStopsDataManager.swift in Sources */,
 				A2EFB6291FEB60A300AE7A98 /* OverviewPresenter.swift in Sources */,
+				A250C6B21FECB0230025A962 /* OverviewStopTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
