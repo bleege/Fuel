@@ -11,7 +11,7 @@ import UIKit
 
 class OverviewPresenter {
     
-    private var view: UIViewController?
+    private var view: OverviewViewController?
     
     let dataManager = (UIApplication.shared.delegate as! AppDelegate).dataManager
     
@@ -19,15 +19,19 @@ class OverviewPresenter {
         // No Op
     }
     
-    func onAttach(viewController: UIViewController) {
+    func onAttach(viewController: OverviewViewController) {
         self.view = viewController
-        
-        let fuelStops = dataManager.getAllFuelStops()
-        print("number of fuelStops found = \(fuelStops.count)")
+        loadFuelStops()
     }
     
     func onDetach() {
         self.view = nil
     }
     
+    func loadFuelStops() {
+        let fuelStops = dataManager.getAllFuelStops()
+        print("number of fuelStops found = \(fuelStops.count)")
+        view?.fuelStops.removeAll()
+        view?.fuelStops.append(contentsOf: fuelStops)
+    }
 }
