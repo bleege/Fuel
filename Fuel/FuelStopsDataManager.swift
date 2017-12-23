@@ -24,6 +24,8 @@ class FuelStopsDataManager {
     
     func getAllFuelStops() -> [FuelStopsMO] {
         let allStopsRequest = NSFetchRequest<FuelStopsMO>(entityName: "FuelStops")
+        let sort = NSSortDescriptor(key: "stop_date", ascending: false)
+        allStopsRequest.sortDescriptors = [sort]
         
         do {
             return try persistentContainer.viewContext.fetch(allStopsRequest)
