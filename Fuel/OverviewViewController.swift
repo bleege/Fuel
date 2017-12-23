@@ -21,7 +21,7 @@ class OverviewViewController: UIViewController, UITableViewDelegate, UITableView
         // Do any additional setup after loading the view, typically from a nib.
         presenter = OverviewPresenter()
         dateFormatter.locale = Locale(identifier: "en_US")
-        dateFormatter.setLocalizedDateFormatFromTemplate("MM/DD/YYYY")
+        dateFormatter.setLocalizedDateFormatFromTemplate("MM/dd/yyyy")
         gallonFormatter.locale = Locale(identifier: "en_US")
         gallonFormatter.minimumSignificantDigits = 4
         priceFormatter.locale = Locale(identifier: "en_US")
@@ -54,7 +54,7 @@ class OverviewViewController: UIViewController, UITableViewDelegate, UITableView
         let stopData = fuelStops[indexPath.row]
         
         // TODO - Fix data loading of stop date from Core Data
-//        cell.stopDate.text = dateFormatter.string(from: stopData.stop_date!)
+        cell.stopDate.text = dateFormatter.string(from: stopData.stop_date!)
         cell.gallonsFilled.text = gallonFormatter.string(from: stopData.gallons as NSNumber)
         cell.totalPrice.text = priceFormatter.string(from: stopData.price as NSNumber)
         

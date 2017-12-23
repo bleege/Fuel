@@ -53,7 +53,7 @@ class FuelStopsDataManager {
         
         let df: DateFormatter = DateFormatter()
         df.locale = Locale(identifier: "en_US")
-        df.setLocalizedDateFormatFromTemplate("M/D/YYYY")
+        df.setLocalizedDateFormatFromTemplate("MM/dd/yyyy")
         
 //        stop.fuelstops_id
         stop.gallons = Double(csv[4])!
@@ -64,7 +64,7 @@ class FuelStopsDataManager {
         stop.odometer = Int16(csv[8])!
         stop.price = Double(csv[6].replacingOccurrences(of: "$", with: ""))!
         stop.price_per_gallon = Double(csv[5])!
-//        stop.stop_date = df.date(from: csv[0])!
+        stop.stop_date = df.date(from: csv[0])!
         stop.trip_odometer = Double(csv[7])!
 
         persistentContainer.viewContext.insert(stop)
