@@ -14,7 +14,7 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     
     @IBOutlet weak var mapView: MKMapView!
 
-    var presenter: OverviewPresenter?
+    var presenter: OverviewContractPresenter?
     var fuelStops = [FuelStopsMO]()
     var fuelStopAnnotations = [MKPointAnnotation]()
     let dateFormatter = DateFormatter()

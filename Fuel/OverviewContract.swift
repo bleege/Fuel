@@ -13,5 +13,7 @@ protocol OverviewContractView {
 }
 
 protocol OverviewContractPresenter {
-        func loadFuelStops()
+    func onAttach(view: OverviewContractView)
+    func onDetach()
+    func loadFuelStops()
 }

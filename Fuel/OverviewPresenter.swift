@@ -19,6 +19,8 @@ class OverviewPresenter: OverviewContractPresenter {
         // No Op
     }
     
+    // MARK: OverviewContractPresenter
+    
     func onAttach(view: OverviewContractView) {
         self.view = view
         loadFuelStops()
@@ -27,8 +29,6 @@ class OverviewPresenter: OverviewContractPresenter {
     func onDetach() {
         self.view = nil
     }
-    
-    // MARK: OverviewContractPresenter
     
     func loadFuelStops() {
         let fuelStops = dataManager.getAllFuelStops()
