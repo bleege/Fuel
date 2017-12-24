@@ -57,12 +57,24 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
 
     func refreshMap() {
         mapView.removeAnnotations(mapView.annotations)
-        
+
+        var mapRect = MKMapRectNull
         fuelStops.map({(value: FuelStopsMO) in
             let pin = MKPointAnnotation()
             pin.coordinate = CLLocationCoordinate2DMake(value.latitude, value.longitude)
             mapView.addAnnotation(pin)
+            let annPoint = MKMapPointForCoordinate(pin.coordinate)
+            let pointRect = MKMapRectMake(annPoint.x, annPoint.y, 0.0, 0.0)
+            if (MKMapRectIsNull(mapRect)) {
+                mapRect = pointRect
+            } else {
+                mapRect = MKMapRectUnion(mapRect, pointRect)
+            }
         })
+        if (!MKMapRectIsNull(mapRect)) {
+            let padding = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
+            mapView.setVisibleMapRect(mapRect, edgePadding: padding, animated: false)
+        }
     }
     
     // MARK: UITableViewDataSource
