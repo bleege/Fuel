@@ -65,7 +65,7 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
         })
     }
     
-    // MARK: UITableViewDelegate
+    // MARK: UITableViewDataSource
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fuelStops.count
@@ -76,7 +76,6 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
 
         let stopData = fuelStops[indexPath.row]
         
-        // TODO - Fix data loading of stop date from Core Data
         cell.stopDate.text = dateFormatter.string(from: stopData.stop_date!)
         cell.gallonsFilled.text = gallonFormatter.string(from: stopData.gallons as NSNumber)
         cell.totalPrice.text = priceFormatter.string(from: stopData.price as NSNumber)
