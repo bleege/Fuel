@@ -97,6 +97,9 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Overview" image="first" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="mapView" destination="eyt-EO-gqS" id="Dis-yl-kHr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class OverviewViewController: UIViewController, OverviewContractView, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var mapView: MKMapView!
+
     var presenter: OverviewPresenter?
     var fuelStops = [FuelStopsMO]()
     let dateFormatter = DateFormatter()
@@ -48,8 +52,19 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     func displayStops(fuelStops: [FuelStopsMO]) {
         self.fuelStops.removeAll()
         self.fuelStops.append(contentsOf: fuelStops)
+        refreshMap()
     }
 
+    func refreshMap() {
+        mapView.removeAnnotations(mapView.annotations)
+        
+        fuelStops.map({(value: FuelStopsMO) in
+            let pin = MKPointAnnotation()
+            pin.coordinate = CLLocationCoordinate2DMake(value.latitude, value.longitude)
+            mapView.addAnnotation(pin)
+        })
+    }
+    
     // MARK: UITableViewDelegate
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
