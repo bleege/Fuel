@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-class OverviewPresenter {
+class OverviewPresenter: OverviewContractPresenter {
     
-    private var view: OverviewViewController?
+    private var view: OverviewContractView?
     
     let dataManager = (UIApplication.shared.delegate as! AppDelegate).dataManager
     
@@ -19,8 +19,8 @@ class OverviewPresenter {
         // No Op
     }
     
-    func onAttach(viewController: OverviewViewController) {
-        self.view = viewController
+    func onAttach(view: OverviewContractView) {
+        self.view = view
         loadFuelStops()
     }
     
@@ -28,10 +28,11 @@ class OverviewPresenter {
         self.view = nil
     }
     
+    // MARK: OverviewContractPresenter
+    
     func loadFuelStops() {
         let fuelStops = dataManager.getAllFuelStops()
         print("number of fuelStops found = \(fuelStops.count)")
-        view?.fuelStops.removeAll()
-        view?.fuelStops.append(contentsOf: fuelStops)
+        view?.displayStops(fuelStops: fuelStops)
     }
 }

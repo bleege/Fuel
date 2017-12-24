@@ -19,6 +19,7 @@
 		A2B7C8A71FC526100012167F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2B7C8A51FC526100012167F /* LaunchScreen.storyboard */; };
 		A2B7C8B21FC526100012167F /* FuelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C8B11FC526100012167F /* FuelTests.swift */; };
 		A2B7C8BD1FC526100012167F /* FuelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C8BC1FC526100012167F /* FuelUITests.swift */; };
+		A2C842F11FEF5B330068BFAC /* OverviewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C842F01FEF5B330068BFAC /* OverviewContract.swift */; };
 		A2EFB6291FEB60A300AE7A98 /* OverviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EFB6281FEB60A300AE7A98 /* OverviewPresenter.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		A2B7C8BC1FC526100012167F /* FuelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelUITests.swift; sourceTree = "<group>"; };
 		A2B7C8BE1FC526100012167F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2B7C8CB1FC5337C0012167F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A2C842F01FEF5B330068BFAC /* OverviewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewContract.swift; sourceTree = "<group>"; };
 		A2EFB6281FEB60A300AE7A98 /* OverviewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 				A2B7C89A1FC526100012167F /* AppDelegate.swift */,
 				A2B121B11FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld */,
 				A26E5EE01FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv */,
+				A2C842F01FEF5B330068BFAC /* OverviewContract.swift */,
 				A2EFB6281FEB60A300AE7A98 /* OverviewPresenter.swift */,
 				A2B7C89C1FC526100012167F /* OverviewViewController.swift */,
 				A250C6B11FECB0230025A962 /* OverviewStopTableCell.swift */,
@@ -296,6 +299,7 @@
 				A2B121B31FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld in Sources */,
 				A266444F1FD3269A000DDFED /* FuelStopsDataManager.swift in Sources */,
 				A2EFB6291FEB60A300AE7A98 /* OverviewPresenter.swift in Sources */,
+				A2C842F11FEF5B330068BFAC /* OverviewContract.swift in Sources */,
 				A250C6B21FECB0230025A962 /* OverviewStopTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

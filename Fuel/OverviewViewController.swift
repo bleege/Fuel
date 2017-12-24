@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OverviewViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class OverviewViewController: UIViewController, OverviewContractView, UITableViewDelegate, UITableViewDataSource {
     
     var presenter: OverviewPresenter?
     var fuelStops = [FuelStopsMO]()
@@ -30,7 +30,7 @@ class OverviewViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter?.onAttach(viewController: self)
+        presenter?.onAttach(view: self)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -42,8 +42,16 @@ class OverviewViewController: UIViewController, UITableViewDelegate, UITableView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
+    // MARK: OverviewContractView
+    
+    func displayStops(fuelStops: [FuelStopsMO]) {
+        self.fuelStops.removeAll()
+        self.fuelStops.append(contentsOf: fuelStops)
+    }
+
+    // MARK: UITableViewDelegate
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fuelStops.count
     }
