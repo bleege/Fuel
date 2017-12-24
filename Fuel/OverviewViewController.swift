@@ -16,6 +16,7 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
 
     var presenter: OverviewPresenter?
     var fuelStops = [FuelStopsMO]()
+    var fuelStopAnnotations = [MKPointAnnotation]()
     let dateFormatter = DateFormatter()
     let gallonFormatter = NumberFormatter()
     let priceFormatter = NumberFormatter()
@@ -57,9 +58,10 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
 
     func refreshMap() {
         mapView.removeAnnotations(mapView.annotations)
+        fuelStopAnnotations.removeAll()
 
         var mapRect = MKMapRectNull
-        fuelStops.map({(value: FuelStopsMO) in
+        fuelStopAnnotations.append(contentsOf: fuelStops.map({(value: FuelStopsMO) in
             let pin = MKPointAnnotation()
             pin.coordinate = CLLocationCoordinate2DMake(value.latitude, value.longitude)
             mapView.addAnnotation(pin)
@@ -70,7 +72,8 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
             } else {
                 mapRect = MKMapRectUnion(mapRect, pointRect)
             }
-        })
+            return pin
+        }))
         if (!MKMapRectIsNull(mapRect)) {
             let padding = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
             mapView.setVisibleMapRect(mapRect, edgePadding: padding, animated: false)
@@ -95,4 +98,11 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
         return cell
     }
 
+    // MARK: UITableViewDelegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let ann = fuelStopAnnotations[indexPath.row]
+        mapView.region = MKCoordinateRegionMakeWithDistance(ann.coordinate, 1000, 1000)
+        mapView.selectAnnotation(ann, animated: true)
+    }
 }
