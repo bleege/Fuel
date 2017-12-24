@@ -57,7 +57,7 @@ class FuelStopsDataManager {
         df.locale = Locale(identifier: "en_US")
         df.setLocalizedDateFormatFromTemplate("MM/dd/yyyy")
         
-//        stop.fuelstops_id
+        stop.fuelstops_id = UUID()
         stop.gallons = Double(csv[4])!
         stop.latitude = Double(csv[1])!
         stop.longitude = Double(csv[2])!
