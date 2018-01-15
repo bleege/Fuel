@@ -10,11 +10,12 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class OverviewViewController: UIViewController, OverviewContractView, UITableViewDelegate, UITableViewDataSource {
+class OverviewViewController: UIViewController, OverviewContractView, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
 
     var presenter: OverviewContractPresenter?
+    var locationManager: CLLocationManager?
     var fuelStops = [FuelStopsMO]()
     var fuelStopAnnotations = [MKPointAnnotation]()
     let dateFormatter = DateFormatter()
@@ -25,6 +26,10 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         presenter = OverviewPresenter()
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.requestWhenInUseAuthorization()
+        mapView.showsUserLocation = true
         dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.setLocalizedDateFormatFromTemplate("MM/dd/yyyy")
         gallonFormatter.locale = Locale(identifier: "en_US")
