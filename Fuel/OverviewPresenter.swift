@@ -35,4 +35,9 @@ class OverviewPresenter: OverviewContractPresenter {
         print("number of fuelStops found = \(fuelStops.count)")
         view?.displayStops(fuelStops: fuelStops)
     }
+    
+    func handleStopSelection(index: Int) {
+        self.view?.displayStopOnMap(index: index)
+        self.view?.displayStopDataView(index: index)
+    }
 }

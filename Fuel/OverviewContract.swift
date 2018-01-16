@@ -10,10 +10,13 @@
 protocol OverviewContractView {
     func displayStops(fuelStops: [FuelStopsMO])
     func refreshMap()
+    func displayStopOnMap(index: Int)
+    func displayStopDataView(index: Int)
 }
 
 protocol OverviewContractPresenter {
     func onAttach(view: OverviewContractView)
     func onDetach()
     func loadFuelStops()
+    func handleStopSelection(index: Int)
 }

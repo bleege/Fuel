@@ -85,6 +85,16 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
         }
     }
     
+    func displayStopOnMap(index: Int) {
+        let ann = fuelStopAnnotations[index]
+        mapView.region = MKCoordinateRegionMakeWithDistance(ann.coordinate, 1000, 1000)
+        mapView.selectAnnotation(ann, animated: true)
+    }
+    
+    func displayStopDataView(index: Int) {
+        print("display stop data view for index = \(index)")
+    }
+    
     // MARK: UITableViewDataSource
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -106,9 +116,7 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     // MARK: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let ann = fuelStopAnnotations[indexPath.row]
-        mapView.region = MKCoordinateRegionMakeWithDistance(ann.coordinate, 1000, 1000)
-        mapView.selectAnnotation(ann, animated: true)
+        presenter?.handleStopSelection(index: indexPath.row)
     }
     
     // MARK: CLLocationManagerDelegate
