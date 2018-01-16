@@ -110,4 +110,16 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
         mapView.region = MKCoordinateRegionMakeWithDistance(ann.coordinate, 1000, 1000)
         mapView.selectAnnotation(ann, animated: true)
     }
+    
+    // MARK: CLLocationManagerDelegate
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+
+        if (status == .denied) {
+            let controller = UIAlertController(title: "Location Required", message: "The app needs this permission to find the fuel stations.",  preferredStyle: .alert)
+            let yesButton = UIAlertAction(title:"Ok", style: UIAlertActionStyle.default, handler:nil);
+            controller.addAction(yesButton)
+            present(controller, animated: true) { }
+        }
+    }
 }
