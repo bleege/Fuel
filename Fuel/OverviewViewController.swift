@@ -93,6 +93,9 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     
     func displayStopDataView(index: Int) {
         print("display stop data view for index = \(index)")
+        
+        let actionSheet = UIAlertController(title: "Stop Detail", message:  nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        present(actionSheet, animated: true) {}        
     }
     
     // MARK: UITableViewDataSource
