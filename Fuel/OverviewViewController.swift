@@ -21,6 +21,8 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     let dateFormatter = DateFormatter()
     let gallonFormatter = NumberFormatter()
     let priceFormatter = NumberFormatter()
+    
+    let stopDetailPresentationManager = StopDetailPresentationManager()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,8 +96,11 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     func displayStopDataView(index: Int) {
         print("display stop data view for index = \(index)")
         
-        let actionSheet = UIAlertController(title: "Stop Detail", message:  nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-        present(actionSheet, animated: true) {}        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let stopDetailViewController = sb.instantiateViewController(withIdentifier: "stopDetailViewControllerId")
+
+        stopDetailViewController.transitioningDelegate = stopDetailPresentationManager
+        stopDetailViewController.modalPresentationStyle = .custom
     }
     
     // MARK: UITableViewDataSource

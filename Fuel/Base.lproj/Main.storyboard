@@ -108,7 +108,7 @@
         <!--Stop Detail View Controller-->
         <scene sceneID="Jcs-x6-KrM">
             <objects>
-                <viewController id="HNh-S6-aOz" customClass="StopDetailViewController" customModule="Fuel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="stopDetailViewControllerId" id="HNh-S6-aOz" customClass="StopDetailViewController" customModule="Fuel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t0d-J7-tLV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
