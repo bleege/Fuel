@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A22D93E12016D8FC008D6254 /* StopDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E02016D8FC008D6254 /* StopDetailPresentationController.swift */; };
 		A22D93E32016D9CC008D6254 /* StopDetailPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E22016D9CC008D6254 /* StopDetailPresentationManager.swift */; };
+		A22D93E52016E0C4008D6254 /* StopDetailPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E42016E0C4008D6254 /* StopDetailPresentationAnimator.swift */; };
 		A250C6B21FECB0230025A962 /* OverviewStopTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A250C6B11FECB0230025A962 /* OverviewStopTableCell.swift */; };
 		A266444F1FD3269A000DDFED /* FuelStopsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A266444E1FD3269A000DDFED /* FuelStopsDataManager.swift */; };
 		A26E5EE11FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv in Resources */ = {isa = PBXBuildFile; fileRef = A26E5EE01FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		A22D93E02016D8FC008D6254 /* StopDetailPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailPresentationController.swift; sourceTree = "<group>"; };
 		A22D93E22016D9CC008D6254 /* StopDetailPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailPresentationManager.swift; sourceTree = "<group>"; };
+		A22D93E42016E0C4008D6254 /* StopDetailPresentationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailPresentationAnimator.swift; sourceTree = "<group>"; };
 		A250C6B11FECB0230025A962 /* OverviewStopTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewStopTableCell.swift; sourceTree = "<group>"; };
 		A266444E1FD3269A000DDFED /* FuelStopsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelStopsDataManager.swift; sourceTree = "<group>"; };
 		A26644501FD32883000DDFED /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -137,6 +139,7 @@
 				A2B7C8A81FC526100012167F /* Info.plist */,
 				A266444E1FD3269A000DDFED /* FuelStopsDataManager.swift */,
 				A2A69BE0200DB595006DBED8 /* StopDetailViewController.swift */,
+				A22D93E42016E0C4008D6254 /* StopDetailPresentationAnimator.swift */,
 				A22D93E02016D8FC008D6254 /* StopDetailPresentationController.swift */,
 				A22D93E22016D9CC008D6254 /* StopDetailPresentationManager.swift */,
 			);
@@ -309,6 +312,7 @@
 				A2B7C89F1FC526100012167F /* SecondViewController.swift in Sources */,
 				A2B7C89B1FC526100012167F /* AppDelegate.swift in Sources */,
 				A2B7C89D1FC526100012167F /* OverviewViewController.swift in Sources */,
+				A22D93E52016E0C4008D6254 /* StopDetailPresentationAnimator.swift in Sources */,
 				A2B121B31FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld in Sources */,
 				A266444F1FD3269A000DDFED /* FuelStopsDataManager.swift in Sources */,
 				A2EFB6291FEB60A300AE7A98 /* OverviewPresenter.swift in Sources */,

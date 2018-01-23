@@ -9,5 +9,18 @@
 import UIKit
 
 class StopDetailPresentationManager: NSObject, UIViewControllerTransitioningDelegate {
+    
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        
+        return StopDetailPresentationController(presentedViewController: presented, presenting: presenting)
+    }
 
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return StopDetailPresentationAnimator(isPresenting: true)
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return StopDetailPresentationAnimator(isPresenting: false)
+    }
+    
 }
