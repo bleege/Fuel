@@ -101,6 +101,8 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
 
         stopDetailViewController.transitioningDelegate = stopDetailPresentationManager
         stopDetailViewController.modalPresentationStyle = .custom
+        
+        present(stopDetailViewController, animated: true, completion: nil)
     }
     
     // MARK: UITableViewDataSource
