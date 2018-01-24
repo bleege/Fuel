@@ -18,9 +18,6 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     var locationManager: CLLocationManager?
     var fuelStops = [FuelStopsMO]()
     var fuelStopAnnotations = [MKPointAnnotation]()
-    let dateFormatter = DateFormatter()
-    let gallonFormatter = NumberFormatter()
-    let priceFormatter = NumberFormatter()
     
     let stopDetailPresentationManager = StopDetailPresentationManager()
         
@@ -32,12 +29,6 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
         locationManager?.delegate = self
         locationManager?.requestWhenInUseAuthorization()
         mapView.showsUserLocation = true
-        dateFormatter.locale = Locale(identifier: "en_US")
-        dateFormatter.setLocalizedDateFormatFromTemplate("MM/dd/yyyy")
-        gallonFormatter.locale = Locale(identifier: "en_US")
-        gallonFormatter.minimumSignificantDigits = 4
-        priceFormatter.locale = Locale(identifier: "en_US")
-        priceFormatter.numberStyle = .currency
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -97,8 +88,9 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
         print("display stop data view for index = \(index)")
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let stopDetailViewController = sb.instantiateViewController(withIdentifier: "stopDetailViewControllerId")
+        let stopDetailViewController = sb.instantiateViewController(withIdentifier: "stopDetailViewControllerId") as! StopDetailViewController
 
+        stopDetailViewController.stopData = fuelStops[index]
         stopDetailViewController.transitioningDelegate = stopDetailPresentationManager
         stopDetailViewController.modalPresentationStyle = .custom
         
@@ -116,9 +108,9 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
 
         let stopData = fuelStops[indexPath.row]
         
-        cell.stopDate.text = dateFormatter.string(from: stopData.stop_date!)
-        cell.gallonsFilled.text = gallonFormatter.string(from: stopData.gallons as NSNumber)
-        cell.totalPrice.text = priceFormatter.string(from: stopData.price as NSNumber)
+        cell.stopDate.text = stopData.stop_date!.shortFormat()
+        cell.gallonsFilled.text = stopData.gallons.gallonFormat()
+        cell.totalPrice.text = stopData.price.currencyFormat()
         
         return cell
     }

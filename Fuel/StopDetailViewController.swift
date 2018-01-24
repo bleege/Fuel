@@ -11,9 +11,21 @@ import UIKit
 
 class StopDetailViewController: UIViewController {
     
+    @IBOutlet weak var stopDateLabel: UILabel!
+    @IBOutlet weak var ppgLabel: UILabel!
+    @IBOutlet weak var gallonsLabel: UILabel!
+    @IBOutlet weak var costLabel: UILabel!
+    
+    var stopData: FuelStopsMO?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
      
+        stopDateLabel.text = stopData?.stop_date?.shortFormat()
+        ppgLabel.text = stopData?.price_per_gallon.currencyFormat()
+        gallonsLabel.text = stopData?.gallons.gallonFormat()
+        costLabel.text = stopData?.price.currencyFormat()
+        
         setupTapToDismissRecognizer()
     }
     
