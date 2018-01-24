@@ -11,5 +11,18 @@ import UIKit
 
 class StopDetailViewController: UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+     
+        setupTapToDismissRecognizer()
+    }
     
+    private func setupTapToDismissRecognizer() {
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(gestureRecognizer:)))
+        view.addGestureRecognizer(tapRecognizer)
+    }
+    
+    @objc private func handleTap(gestureRecognizer: UITapGestureRecognizer) {
+        dismiss(animated: true)
+    }
 }
