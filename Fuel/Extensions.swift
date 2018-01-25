@@ -31,7 +31,30 @@ extension Double {
     func gallonFormat() -> String {
         let nf = NumberFormatter()
         nf.locale = Locale(identifier: "en_US")
-        nf.minimumSignificantDigits = 4
+        nf.numberStyle = .decimal
+        nf.minimumFractionDigits = 4
+        nf.maximumFractionDigits = 4
         return nf.string(from: self as NSNumber)!
     }
+    
+    func mpgFormat() -> String {
+        let nf = NumberFormatter()
+        nf.locale = Locale(identifier: "en_US")
+        nf.numberStyle = .decimal
+        nf.minimumFractionDigits = 3
+        nf.maximumFractionDigits = 3
+
+        return nf.string(from: self as NSNumber)!
+    }
+    
+    func tripOdometerFormat() -> String {
+        let nf = NumberFormatter()
+        nf.locale = Locale(identifier: "en_US")
+        nf.numberStyle = .decimal
+        nf.minimumFractionDigits = 1
+        nf.maximumFractionDigits = 1
+
+        return nf.string(from: self as NSNumber)!
+    }
+
 }
