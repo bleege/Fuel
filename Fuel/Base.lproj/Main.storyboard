@@ -83,11 +83,21 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="Nqn-gH-nXS"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t7J-TJ-yae" customClass="FABView" customModule="Fuel" customModuleProvider="target">
+                                <rect key="frame" x="162" y="577" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="t7J-TJ-yae" secondAttribute="height" multiplier="1:1" id="q6A-VD-yEo"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="hKc-ew-wbU"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fVC-cA-uNw" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="96C-9c-D8Q"/>
+                            <constraint firstAttribute="bottom" secondItem="t7J-TJ-yae" secondAttribute="bottom" constant="40" id="EtP-jM-S5p"/>
                             <constraint firstItem="eyt-EO-gqS" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="JL0-CQ-pDk"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="t7J-TJ-yae" secondAttribute="trailing" constant="163" id="TxZ-CP-too"/>
+                            <constraint firstItem="t7J-TJ-yae" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="162" id="WJk-vz-NFp"/>
                             <constraint firstItem="eyt-EO-gqS" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="X3A-dZ-FbT"/>
                             <constraint firstItem="fVC-cA-uNw" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="aw6-bc-zJT"/>
                             <constraint firstItem="fVC-cA-uNw" firstAttribute="top" secondItem="eyt-EO-gqS" secondAttribute="bottom" id="jDE-dk-QvV"/>
