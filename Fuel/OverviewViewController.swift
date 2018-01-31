@@ -106,7 +106,10 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     }
     
     func displayAddStopViewController() {
-        print("HOLD: displayAddStopViewController")
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let addStopViewController = sb.instantiateViewController(withIdentifier: "addStopViewControllerId") as! AddStopViewController
+        
+        present(addStopViewController, animated: true, completion: nil)
     }
     
     // MARK: UITableViewDataSource

@@ -8,11 +8,13 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class AddStopViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        setupTapToDismissRecognizer()
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +22,14 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    private func setupTapToDismissRecognizer() {
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(gestureRecognizer:)))
+        view.addGestureRecognizer(tapRecognizer)
+    }
 
+    @objc private func handleTap(gestureRecognizer: UITapGestureRecognizer) {
+        dismiss(animated: true)
+    }
+    
 }
 
