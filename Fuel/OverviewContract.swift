@@ -12,6 +12,7 @@ protocol OverviewContractView {
     func refreshMap()
     func displayStopOnMap(index: Int)
     func displayStopDataView(index: Int)
+    func displayAddStopViewController()
 }
 
 protocol OverviewContractPresenter {
@@ -19,4 +20,5 @@ protocol OverviewContractPresenter {
     func onDetach()
     func loadFuelStops()
     func handleStopSelection(index: Int)
+    func handleAddStopFABTap();
 }

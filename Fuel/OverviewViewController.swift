@@ -51,7 +51,7 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     }
     
     @IBAction func handleFABTap(_ sender: UITapGestureRecognizer) {
-        print("handleFABTap")
+        presenter?.handleAddStopFABTap()
     }
     
     // MARK: OverviewContractView
@@ -103,6 +103,10 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
         stopDetailViewController.modalPresentationStyle = .custom
         
         present(stopDetailViewController, animated: true, completion: nil)
+    }
+    
+    func displayAddStopViewController() {
+        print("HOLD: displayAddStopViewController")
     }
     
     // MARK: UITableViewDataSource

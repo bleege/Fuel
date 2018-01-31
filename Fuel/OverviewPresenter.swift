@@ -40,4 +40,9 @@ class OverviewPresenter: OverviewContractPresenter {
         self.view?.displayStopOnMap(index: index)
         self.view?.displayStopDataView(index: index)
     }
+ 
+    func handleAddStopFABTap() {
+        view?.displayAddStopViewController()
+    }
+
 }
