@@ -13,14 +13,16 @@ import CoreLocation
 class OverviewViewController: UIViewController, OverviewContractView, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
-
+    @IBOutlet weak var addStopFAB: FABView!
+    @IBOutlet var addStopFABGestureRecognizer: UITapGestureRecognizer!
+    
     var presenter: OverviewContractPresenter?
     var locationManager: CLLocationManager?
     var fuelStops = [FuelStopsMO]()
     var fuelStopAnnotations = [MKPointAnnotation]()
     
     let stopDetailPresentationManager = StopDetailPresentationManager()
-        
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -29,6 +31,8 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
         locationManager?.delegate = self
         locationManager?.requestWhenInUseAuthorization()
         mapView.showsUserLocation = true
+        
+        self.addStopFABGestureRecognizer.numberOfTapsRequired = 1
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +48,10 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func handleFABTap(_ sender: UITapGestureRecognizer) {
+        print("handleFABTap")
     }
     
     // MARK: OverviewContractView

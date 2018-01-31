@@ -85,10 +85,14 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t7J-TJ-yae" customClass="FABView" customModule="Fuel" customModuleProvider="target">
                                 <rect key="frame" x="162" y="577" width="50" height="50"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="t7J-TJ-yae" secondAttribute="height" multiplier="1:1" id="q6A-VD-yEo"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="hKc-ew-wbU"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="op5-Ce-DeL" appends="YES" id="jqT-nZ-RuS"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -109,10 +113,17 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Overview" image="first" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="addStopFAB" destination="t7J-TJ-yae" id="e62-xL-7Tn"/>
+                        <outlet property="addStopFABGestureRecognizer" destination="op5-Ce-DeL" id="nHJ-gM-HdR"/>
                         <outlet property="mapView" destination="eyt-EO-gqS" id="Dis-yl-kHr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="op5-Ce-DeL">
+                    <connections>
+                        <action selector="handleFABTap:" destination="9pv-A4-QxB" id="4hd-k0-a2O"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="145" y="-269"/>
         </scene>
