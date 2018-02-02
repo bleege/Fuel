@@ -10,26 +10,26 @@ import UIKit
 
 class AddStopViewController: UIViewController {
 
+    @IBOutlet weak var date: UITextField!
+    @IBOutlet weak var location: UITextField!
+    @IBOutlet weak var pricePerGalloon: UITextField!
+    @IBOutlet weak var gallons: UITextField!
+    @IBOutlet weak var cost: UITextField!
+    @IBOutlet weak var octane: UITextField!
+    @IBOutlet weak var tripOdometer: UITextField!
+    @IBOutlet weak var odometer: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        setupTapToDismissRecognizer()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    private func setupTapToDismissRecognizer() {
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(gestureRecognizer:)))
-        view.addGestureRecognizer(tapRecognizer)
-    }
-
-    @objc private func handleTap(gestureRecognizer: UITapGestureRecognizer) {
+    
+    @IBAction func handleCancelTap(_ sender: Any) {
         dismiss(animated: true)
     }
-    
 }
-
