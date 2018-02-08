@@ -378,7 +378,7 @@
                                                         <rect key="frame" x="179.5" y="0.0" width="179.5" height="40"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -395,7 +395,7 @@
                                                         <rect key="frame" x="179.5" y="0.0" width="179.5" height="40"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -412,7 +412,7 @@
                                                         <rect key="frame" x="179.5" y="0.0" width="179.5" height="40"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -429,7 +429,7 @@
                                                         <rect key="frame" x="179.5" y="0.0" width="179.5" height="40"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -446,7 +446,7 @@
                                                         <rect key="frame" x="179.5" y="0.0" width="179.5" height="40"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -463,7 +463,7 @@
                                                         <rect key="frame" x="184.5" y="0.0" width="174.5" height="40"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
