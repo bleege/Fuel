@@ -342,9 +342,6 @@
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                         <textInputTraits key="textInputTraits"/>
-                                                        <connections>
-                                                            <action selector="datePickerValueChanged:" destination="8rJ-Kc-sve" eventType="valueChanged" id="sJF-66-tcq"/>
-                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>

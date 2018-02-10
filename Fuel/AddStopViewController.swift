@@ -27,10 +27,13 @@ class AddStopViewController: UIViewController {
         
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
-        date.inputView = datePicker
-        
+        datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: UIControlEvents.valueChanged)
         datePicker.date = Date()
+        dateFormatter.dateStyle = .medium
+        date.text = dateFormatter.string(from: datePicker.date)
         
+        date.inputView = datePicker
+
         // Dismiss Keyboard Input
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
@@ -40,7 +43,7 @@ class AddStopViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
+    @objc func datePickerValueChanged(_ sender: UIDatePicker) {
         dateFormatter.dateStyle = .medium
         date.text = dateFormatter.string(from: sender.date)
     }
