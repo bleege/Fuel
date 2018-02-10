@@ -8,8 +8,10 @@
 
 import UIKit
 
-class AddStopViewController: UIViewController {
+class AddStopViewController: UIViewController, AddStopContractView {
 
+    var presenter: AddStopContractPresenter?
+    
     @IBOutlet weak var date: UITextField!
     @IBOutlet weak var location: UITextField!
     @IBOutlet weak var pricePerGalloon: UITextField!
@@ -24,6 +26,7 @@ class AddStopViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        presenter = AddStopPresenter()
         
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
@@ -37,6 +40,16 @@ class AddStopViewController: UIViewController {
         // Dismiss Keyboard Input
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.onAttach(view: self)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        presenter?.onDetach()
+        super.viewWillDisappear(animated)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -49,6 +62,11 @@ class AddStopViewController: UIViewController {
     }
     
     @IBAction func handleCancelTap(_ sender: Any) {
+        presenter?.handleCancelTap()
+    }
+    
+    // MARK: AddStopContractView
+    func dismiss() {
         dismiss(animated: true)
     }
 }
