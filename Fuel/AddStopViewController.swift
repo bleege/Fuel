@@ -6,6 +6,7 @@
 //  Copyright © 2017 Brad Leege. All rights reserved.
 //
 
+import CoreLocation
 import UIKit
 
 class AddStopViewController: UIViewController, AddStopContractView {
@@ -22,19 +23,15 @@ class AddStopViewController: UIViewController, AddStopContractView {
     @IBOutlet weak var odometer: UITextField!
     
     let dateFormatter = DateFormatter()
+    let datePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         presenter = AddStopPresenter()
         
-        let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: UIControlEvents.valueChanged)
-        datePicker.date = Date()
-        dateFormatter.dateStyle = .medium
-        date.text = dateFormatter.string(from: datePicker.date)
-        
         date.inputView = datePicker
 
         // Dismiss Keyboard Input
@@ -66,6 +63,25 @@ class AddStopViewController: UIViewController, AddStopContractView {
     }
     
     // MARK: AddStopContractView
+    
+    func initialDataPopulation(stopDate: Date, location: CLLocation) {
+        datePicker.date = stopDate
+        dateFormatter.dateStyle = .medium
+        date.text = dateFormatter.string(from: datePicker.date)
+        
+        let lat = Double(location.coordinate.latitude)
+        let lon = Double(location.coordinate.longitude)
+        
+        self.location.text = "\(lat), \(lon)"
+        
+        self.pricePerGalloon.text = ""
+        self.gallons.text = ""
+        self.cost.text = ""
+        self.octane.text = ""
+        self.tripOdometer.text = ""
+        self.odometer.text = ""
+    }
+    
     func dismiss() {
         dismiss(animated: true)
     }

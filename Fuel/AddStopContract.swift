@@ -6,11 +6,13 @@
 //  Copyright © 2018 Brad Leege. All rights reserved.
 //
 
+import CoreLocation
+import Foundation
 
 protocol AddStopContractView {
+    func initialDataPopulation(stopDate: Date, location: CLLocation)
     func dismiss()
 }
-
 
 protocol AddStopContractPresenter {
     func onAttach(view: AddStopContractView)

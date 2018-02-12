@@ -6,6 +6,8 @@
 //  Copyright © 2018 Brad Leege. All rights reserved.
 //
 
+import CoreLocation
+import Foundation
 
 class AddStopPresenter: AddStopContractPresenter {
 
@@ -13,6 +15,7 @@ class AddStopPresenter: AddStopContractPresenter {
     
     func onAttach(view: AddStopContractView) {
         self.view = view
+        self.view?.initialDataPopulation(stopDate: Date(), location: CLLocation(latitude: 44, longitude: -89))
     }
 
     func onDetach() {
