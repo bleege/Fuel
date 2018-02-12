@@ -30,6 +30,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
         // Do any additional setup after loading the view, typically from a nib.
         presenter = AddStopPresenter()
         
+        dateFormatter.dateStyle = .medium
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: UIControlEvents.valueChanged)
         date.inputView = datePicker
@@ -64,15 +65,17 @@ class AddStopViewController: UIViewController, AddStopContractView {
     
     // MARK: AddStopContractView
     
-    func initialDataPopulation(stopDate: Date, location: CLLocation) {
+    func initialDataPopulation(stopDate: Date, location: CLLocation?) {
         datePicker.date = stopDate
-        dateFormatter.dateStyle = .medium
         date.text = dateFormatter.string(from: datePicker.date)
         
-        let lat = Double(location.coordinate.latitude)
-        let lon = Double(location.coordinate.longitude)
-        
-        self.location.text = "\(lat), \(lon)"
+        var locationText:String? = nil
+        if let lat = location?.coordinate.latitude {
+            if let lon = location?.coordinate.longitude {
+                locationText = "\(lat), \(lon)"
+            }
+        }
+        self.location.text = locationText
         
         self.pricePerGalloon.text = ""
         self.gallons.text = ""

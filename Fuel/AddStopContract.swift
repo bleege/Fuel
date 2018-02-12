@@ -10,7 +10,7 @@ import CoreLocation
 import Foundation
 
 protocol AddStopContractView {
-    func initialDataPopulation(stopDate: Date, location: CLLocation)
+    func initialDataPopulation(stopDate: Date, location: CLLocation?)
     func dismiss()
 }
 

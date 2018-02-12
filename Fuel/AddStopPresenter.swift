@@ -7,15 +7,16 @@
 //
 
 import CoreLocation
-import Foundation
+import UIKit
 
 class AddStopPresenter: AddStopContractPresenter {
 
     private var view:AddStopContractView?
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     func onAttach(view: AddStopContractView) {
         self.view = view
-        self.view?.initialDataPopulation(stopDate: Date(), location: CLLocation(latitude: 44, longitude: -89))
+        self.view?.initialDataPopulation(stopDate: Date(), location: appDelegate.currentLocation)
     }
 
     func onDetach() {

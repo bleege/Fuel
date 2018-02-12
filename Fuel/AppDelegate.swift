@@ -8,15 +8,20 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
     let dataManager = FuelStopsDataManager(completionClosure: { print("Failure to create Data Manager.") } )
+    let locationManager = CLLocationManager()
+    var currentLocation: CLLocation? = nil
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        setupLocationManager()
         
         // Preload Data
         preloadData()
@@ -73,5 +78,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+    private func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    // MARK: CLLocationManagerDelegate
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        currentLocation = locations.last
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
+        if (status == .denied) {
+            let controller = UIAlertController(title: "Location Required", message: "The app needs this permission to find the fuel stations.",  preferredStyle: .alert)
+            let yesButton = UIAlertAction(title:"Ok", style: UIAlertActionStyle.default, handler:nil);
+            controller.addAction(yesButton)
+            self.window?.rootViewController?.present(controller, animated: true) { }
+        }
+    }
+
 }
 

@@ -8,16 +8,14 @@
 
 import UIKit
 import MapKit
-import CoreLocation
 
-class OverviewViewController: UIViewController, OverviewContractView, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
+class OverviewViewController: UIViewController, OverviewContractView, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var addStopFAB: FABView!
     @IBOutlet var addStopFABGestureRecognizer: UITapGestureRecognizer!
     
     var presenter: OverviewContractPresenter?
-    var locationManager: CLLocationManager?
     var fuelStops = [FuelStopsMO]()
     var fuelStopAnnotations = [MKPointAnnotation]()
     
@@ -27,9 +25,6 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         presenter = OverviewPresenter()
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.requestWhenInUseAuthorization()
         mapView.showsUserLocation = true
         
         self.addStopFABGestureRecognizer.numberOfTapsRequired = 1
@@ -134,17 +129,5 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter?.handleStopSelection(index: indexPath.row)
-    }
-    
-    // MARK: CLLocationManagerDelegate
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-
-        if (status == .denied) {
-            let controller = UIAlertController(title: "Location Required", message: "The app needs this permission to find the fuel stations.",  preferredStyle: .alert)
-            let yesButton = UIAlertAction(title:"Ok", style: UIAlertActionStyle.default, handler:nil);
-            controller.addAction(yesButton)
-            present(controller, animated: true) { }
-        }
     }
 }
