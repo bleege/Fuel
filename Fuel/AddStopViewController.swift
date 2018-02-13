@@ -59,6 +59,9 @@ class AddStopViewController: UIViewController, AddStopContractView {
         date.text = dateFormatter.string(from: sender.date)
     }
     
+    @IBAction func handleSaveTap(_ sender: Any) {
+        presenter?.handleSaveTap()
+    }
     @IBAction func handleCancelTap(_ sender: Any) {
         presenter?.handleCancelTap()
     }
@@ -87,5 +90,80 @@ class AddStopViewController: UIViewController, AddStopContractView {
     
     func dismiss() {
         dismiss(animated: true)
+    }
+    
+    func validateForm() -> Bool {
+        
+        var isValid = true
+        
+        if (date.text?.isEmpty)! {
+            isValid = false
+            paintError(textField: date)
+        } else {
+            paintClean(textField: date)
+        }
+
+        if (location.text?.isEmpty)! {
+            isValid = false
+            paintError(textField: location)
+        } else {
+            paintClean(textField: location)
+        }
+
+        if (pricePerGalloon.text?.isEmpty)! {
+            isValid = false
+            paintError(textField: pricePerGalloon)
+        } else {
+            paintClean(textField: pricePerGalloon)
+        }
+
+        if (gallons.text?.isEmpty)! {
+            isValid = false
+            paintError(textField: gallons)
+        } else {
+            paintClean(textField: gallons)
+        }
+
+        if (cost.text?.isEmpty)! {
+            isValid = false
+            paintError(textField: cost)
+        } else {
+            paintClean(textField: cost)
+        }
+
+        if (octane.text?.isEmpty)! {
+            isValid = false
+            paintError(textField: octane)
+        } else {
+            paintClean(textField: octane)
+        }
+
+        if (tripOdometer.text?.isEmpty)! {
+            isValid = false
+            paintError(textField: tripOdometer)
+        } else {
+            paintClean(textField: tripOdometer)
+        }
+
+        if (odometer.text?.isEmpty)! {
+            isValid = false
+            paintError(textField: odometer)
+        } else {
+            paintClean(textField: odometer)
+        }
+        
+        return isValid
+    }
+    
+    private func paintError(textField: UITextField) {
+        textField.layer.masksToBounds = true
+        textField.layer.borderColor = UIColor.red.cgColor
+        textField.layer.borderWidth = 2
+    }
+    
+    private func paintClean(textField: UITextField) {
+        textField.layer.masksToBounds = false
+        textField.layer.borderColor = UIColor.clear.cgColor
+        textField.layer.borderWidth = 0
     }
 }

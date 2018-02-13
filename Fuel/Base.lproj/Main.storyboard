@@ -493,6 +493,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVR-dM-dEm">
                                                 <rect key="frame" x="0.0" y="55.5" width="174.5" height="30"/>
                                                 <state key="normal" title="Save"/>
+                                                <connections>
+                                                    <action selector="handleSaveTap:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="BeQ-n7-69r"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycz-kW-rgb">
                                                 <rect key="frame" x="184.5" y="55.5" width="174.5" height="30"/>

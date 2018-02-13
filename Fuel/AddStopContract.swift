@@ -12,10 +12,12 @@ import Foundation
 protocol AddStopContractView {
     func initialDataPopulation(stopDate: Date, location: CLLocation?)
     func dismiss()
+    func validateForm() -> Bool
 }
 
 protocol AddStopContractPresenter {
     func onAttach(view: AddStopContractView)
     func onDetach()
     func handleCancelTap()
+    func handleSaveTap()
 }

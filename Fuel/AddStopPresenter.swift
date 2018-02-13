@@ -26,4 +26,12 @@ class AddStopPresenter: AddStopContractPresenter {
     func handleCancelTap() {
         view?.dismiss()
     }
+    
+    func handleSaveTap() {
+        if (view?.validateForm())! {
+            print("Form is valid, so can save.")
+        } else {
+            print("Form is not valid.")
+        }
+    }
 }
