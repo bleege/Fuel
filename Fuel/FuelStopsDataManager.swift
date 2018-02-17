@@ -50,14 +50,32 @@ class FuelStopsDataManager {
         persistentContainer.viewContext.insert(fuelStop)
     }
     
+    func addFuelStop(gallons: Double, latitude: Double, longitude: Double, octane: Int,
+                     odometer: Int, price: Double, ppg: Double, stopDate: Date, tripOdometer: Double) {
+        
+        let stop = getNewStop()
+        
+        stop.gallons = gallons
+        stop.latitude = latitude
+        stop.longitude = longitude
+        stop.mpg = tripOdometer / gallons
+        stop.octane = Int16(octane)
+        stop.odometer = Int16(odometer)
+        stop.price = price
+        stop.price_per_gallon = ppg
+        stop.stop_date = stopDate
+        stop.trip_odometer = tripOdometer
+        
+        persistentContainer.viewContext.insert(stop)
+    }
+    
     func addFuelStop(csv: [String]) {
-        let stop = FuelStopsMO.init(entity: NSEntityDescription.entity(forEntityName: "FuelStops", in: persistentContainer.viewContext)!, insertInto: persistentContainer.viewContext) as FuelStopsMO
+        let stop = getNewStop()
         
         let df: DateFormatter = DateFormatter()
         df.locale = Locale(identifier: "en_US")
         df.setLocalizedDateFormatFromTemplate("MM/dd/yyyy")
         
-        stop.fuelstops_id = UUID()
         stop.gallons = Double(csv[4])!
         stop.latitude = Double(csv[1])!
         stop.longitude = Double(csv[2])!
@@ -72,4 +90,9 @@ class FuelStopsDataManager {
         persistentContainer.viewContext.insert(stop)
     }
     
+    private func getNewStop() -> FuelStopsMO {
+        let stop = FuelStopsMO.init(entity: NSEntityDescription.entity(forEntityName: "FuelStops", in: persistentContainer.viewContext)!, insertInto: persistentContainer.viewContext) as FuelStopsMO
+        stop.fuelstops_id = UUID()
+        return stop
+    }
 }

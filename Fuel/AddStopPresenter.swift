@@ -30,6 +30,17 @@ class AddStopPresenter: AddStopContractPresenter {
     func handleSaveTap() {
         if (view?.validateForm())! {
             print("Form is valid, so can save.")
+            
+            appDelegate.dataManager.addFuelStop(gallons: (view?.gallonsData())!,
+                                                latitude: (view?.latitudeData())!,
+                                                longitude: (view?.longitudeData())!,
+                                                octane: (view?.octaneData())!,
+                                                odometer: (view?.odometerData())!,
+                                                price: (view?.priceData())!,
+                                                ppg: (view?.ppgData())!,
+                                                stopDate: (view?.stopDateData())!,
+                                                tripOdometer: (view?.tripOdometerData())!)
+            view?.dismiss()
         } else {
             print("Form is not valid.")
         }

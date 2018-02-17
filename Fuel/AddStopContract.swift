@@ -13,6 +13,15 @@ protocol AddStopContractView {
     func initialDataPopulation(stopDate: Date, location: CLLocation?)
     func dismiss()
     func validateForm() -> Bool
+    func gallonsData() -> Double
+    func latitudeData() -> Double
+    func longitudeData() -> Double
+    func octaneData() -> Int
+    func odometerData() -> Int
+    func priceData() -> Double
+    func ppgData() -> Double
+    func stopDateData() -> Date
+    func tripOdometerData() -> Double
 }
 
 protocol AddStopContractPresenter {

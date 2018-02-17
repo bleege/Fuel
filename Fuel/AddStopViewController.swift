@@ -22,6 +22,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     @IBOutlet weak var tripOdometer: UITextField!
     @IBOutlet weak var odometer: UITextField!
     
+    private var stopLocation: CLLocation?
     let dateFormatter = DateFormatter()
     let datePicker = UIDatePicker()
     
@@ -72,6 +73,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
         datePicker.date = stopDate
         date.text = dateFormatter.string(from: datePicker.date)
         
+        stopLocation = location
         var locationText:String? = nil
         if let lat = location?.coordinate.latitude {
             if let lon = location?.coordinate.longitude {
@@ -153,6 +155,42 @@ class AddStopViewController: UIViewController, AddStopContractView {
         }
         
         return isValid
+    }
+    
+    func gallonsData() -> Double {
+        return Double(gallons.text!)!
+    }
+
+    func latitudeData() -> Double{
+        return (stopLocation?.coordinate.latitude)!
+    }
+
+    func longitudeData() -> Double{
+        return (stopLocation?.coordinate.longitude)!
+    }
+    
+    func octaneData() -> Int{
+        return Int(octane.text!)!
+    }
+    
+    func odometerData() -> Int{
+        return Int(odometer.text!)!
+    }
+    
+    func priceData() -> Double{
+        return Double(cost.text!)!
+    }
+    
+    func ppgData() -> Double{
+        return Double(pricePerGalloon.text!)!
+    }
+    
+    func stopDateData() -> Date{
+        return datePicker.date
+    }
+    
+    func tripOdometerData() -> Double{
+        return Double(tripOdometer.text!)!
     }
     
     private func paintError(textField: UITextField) {
