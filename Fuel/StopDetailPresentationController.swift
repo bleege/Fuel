@@ -23,4 +23,11 @@ class StopDetailPresentationController: UIPresentationController {
         frame.origin.y = containerView!.frame.height * (1.0 / 3.0)
         return frame
     }
+    
+    override func dismissalTransitionDidEnd(_ completed: Bool) {
+        super.dismissalTransitionDidEnd(completed)
+        
+        let ovc = self.presentingViewController as! OverviewViewController
+        ovc.refreshMap()
+    }
 }
