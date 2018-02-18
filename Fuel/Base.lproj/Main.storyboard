@@ -116,6 +116,7 @@
                         <outlet property="addStopFAB" destination="t7J-TJ-yae" id="e62-xL-7Tn"/>
                         <outlet property="addStopFABGestureRecognizer" destination="op5-Ce-DeL" id="nHJ-gM-HdR"/>
                         <outlet property="mapView" destination="eyt-EO-gqS" id="Dis-yl-kHr"/>
+                        <outlet property="stopsTableView" destination="fVC-cA-uNw" id="dUw-P2-6Eb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>

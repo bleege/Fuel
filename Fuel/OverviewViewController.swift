@@ -12,6 +12,7 @@ import MapKit
 class OverviewViewController: UIViewController, OverviewContractView, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var stopsTableView: UITableView!
     @IBOutlet weak var addStopFAB: FABView!
     @IBOutlet var addStopFABGestureRecognizer: UITapGestureRecognizer!
     
@@ -54,6 +55,7 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     func displayStops(fuelStops: [FuelStopsMO]) {
         self.fuelStops.removeAll()
         self.fuelStops.append(contentsOf: fuelStops)
+        self.stopsTableView.reloadData()
         refreshMap()
     }
 
