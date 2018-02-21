@@ -13,6 +13,7 @@
 		A250C6B21FECB0230025A962 /* OverviewStopTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A250C6B11FECB0230025A962 /* OverviewStopTableCell.swift */; };
 		A25DDFFB201AEB84000F34CB /* FABView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25DDFFA201AEB84000F34CB /* FABView.swift */; };
 		A266444F1FD3269A000DDFED /* FuelStopsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A266444E1FD3269A000DDFED /* FuelStopsDataManager.swift */; };
+		A26B1FE9203CFB1000E5BA22 /* MockOverviewContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26B1FE8203CFB1000E5BA22 /* MockOverviewContractView.swift */; };
 		A26E5EE11FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv in Resources */ = {isa = PBXBuildFile; fileRef = A26E5EE01FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv */; };
 		A276BE82200C6FB20069CCA8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276BE81200C6FB20069CCA8 /* CoreLocation.framework */; };
 		A27BC0DA2018575D00E94BD2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27BC0D92018575D00E94BD2 /* Extensions.swift */; };
@@ -57,6 +58,7 @@
 		A25DDFFA201AEB84000F34CB /* FABView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FABView.swift; sourceTree = "<group>"; };
 		A266444E1FD3269A000DDFED /* FuelStopsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelStopsDataManager.swift; sourceTree = "<group>"; };
 		A26644501FD32883000DDFED /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A26B1FE8203CFB1000E5BA22 /* MockOverviewContractView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOverviewContractView.swift; sourceTree = "<group>"; };
 		A26E5EE01FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2016-VW-Jetta-Fuel-Tracking.csv"; sourceTree = "<group>"; };
 		A276BE81200C6FB20069CCA8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A27BC0D92018575D00E94BD2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			children = (
 				A2B7C8B11FC526100012167F /* FuelTests.swift */,
 				A2B7C8B31FC526100012167F /* Info.plist */,
+				A26B1FE8203CFB1000E5BA22 /* MockOverviewContractView.swift */,
 			);
 			path = FuelTests;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A26B1FE9203CFB1000E5BA22 /* MockOverviewContractView.swift in Sources */,
 				A2B7C8B21FC526100012167F /* FuelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
