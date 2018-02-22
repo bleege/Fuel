@@ -26,11 +26,28 @@ class FuelTests: XCTestCase {
         super.tearDown()
     }
     
-    func testOverviewPresenter() {
+    func testOverviewPresenterLoadStops() {
         let presenter = OverviewPresenter()
         presenter.onAttach(view: mockOverViewContractView!)
         presenter.onDetach()
         XCTAssertTrue(mockOverViewContractView?.displayStopsCalled == true)
+    }
+    
+    func testOverviewPresenterShowStopSelection() {
+        let presenter = OverviewPresenter()
+        presenter.onAttach(view: mockOverViewContractView!)
+        presenter.handleStopSelection(index: 1)
+        presenter.onDetach()
+        XCTAssertTrue(mockOverViewContractView?.displayStopOnMapCalled == true)
+        XCTAssertTrue(mockOverViewContractView?.displayStopDataViewCalled == true)
+    }
+    
+    func testOverviewPresenterAddStopFABTap() {
+        let presenter = OverviewPresenter()
+        presenter.onAttach(view: mockOverViewContractView!)
+        presenter.handleAddStopFABTap()
+        presenter.onDetach()
+        XCTAssertTrue(mockOverViewContractView?.displayAddStopViewControllerCalled == true)
     }
     
     func testPerformanceExample() {
