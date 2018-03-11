@@ -10,6 +10,7 @@
 		A22D93E12016D8FC008D6254 /* StopDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E02016D8FC008D6254 /* StopDetailPresentationController.swift */; };
 		A22D93E32016D9CC008D6254 /* StopDetailPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E22016D9CC008D6254 /* StopDetailPresentationManager.swift */; };
 		A22D93E52016E0C4008D6254 /* StopDetailPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E42016E0C4008D6254 /* StopDetailPresentationAnimator.swift */; };
+		A2435C5C2055ABEB00EC990F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2435C5B2055ABEB00EC990F /* CloudKit.framework */; };
 		A250C6B21FECB0230025A962 /* OverviewStopTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A250C6B11FECB0230025A962 /* OverviewStopTableCell.swift */; };
 		A25DDFFB201AEB84000F34CB /* FABView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25DDFFA201AEB84000F34CB /* FABView.swift */; };
 		A266444F1FD3269A000DDFED /* FuelStopsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A266444E1FD3269A000DDFED /* FuelStopsDataManager.swift */; };
@@ -55,6 +56,8 @@
 		A22D93E02016D8FC008D6254 /* StopDetailPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailPresentationController.swift; sourceTree = "<group>"; };
 		A22D93E22016D9CC008D6254 /* StopDetailPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailPresentationManager.swift; sourceTree = "<group>"; };
 		A22D93E42016E0C4008D6254 /* StopDetailPresentationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailPresentationAnimator.swift; sourceTree = "<group>"; };
+		A2435C5A2055ABAD00EC990F /* Fuel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fuel.entitlements; sourceTree = "<group>"; };
+		A2435C5B2055ABEB00EC990F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A250C6B11FECB0230025A962 /* OverviewStopTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewStopTableCell.swift; sourceTree = "<group>"; };
 		A25DDFFA201AEB84000F34CB /* FABView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FABView.swift; sourceTree = "<group>"; };
 		A266444E1FD3269A000DDFED /* FuelStopsDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelStopsDataManager.swift; sourceTree = "<group>"; };
@@ -93,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A276BE82200C6FB20069CCA8 /* CoreLocation.framework in Frameworks */,
+				A2435C5C2055ABEB00EC990F /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +141,7 @@
 		A2B7C8991FC526100012167F /* Fuel */ = {
 			isa = PBXGroup;
 			children = (
+				A2435C5A2055ABAD00EC990F /* Fuel.entitlements */,
 				A2B7C89A1FC526100012167F /* AppDelegate.swift */,
 				A2B121B11FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld */,
 				A26E5EE01FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv */,
@@ -185,6 +190,7 @@
 		A2B7C8CA1FC5337B0012167F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A2435C5B2055ABEB00EC990F /* CloudKit.framework */,
 				A276BE81200C6FB20069CCA8 /* CoreLocation.framework */,
 				A26644501FD32883000DDFED /* CoreData.framework */,
 				A2B7C8CB1FC5337C0012167F /* MapKit.framework */,
@@ -261,6 +267,14 @@
 					A2B7C8961FC526100012167F = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					A2B7C8AC1FC526100012167F = {
 						CreatedOnToolsVersion = 9.1;
@@ -510,6 +524,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Fuel/Fuel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98VS3NV9WE;
 				INFOPLIST_FILE = Fuel/Info.plist;
@@ -525,6 +540,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Fuel/Fuel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98VS3NV9WE;
 				INFOPLIST_FILE = Fuel/Info.plist;
