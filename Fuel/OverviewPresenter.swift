@@ -33,7 +33,7 @@ class OverviewPresenter: OverviewContractPresenter {
     func loadFuelStops() {
         let fuelStops = dataManager.getAllFuelStops()
         print("number of fuelStops found = \(fuelStops.count)")
-        view?.displayStops(fuelStops: fuelStops)
+//        view?.displayStops(fuelStops: fuelStops)
     }
     
     func handleStopSelection(index: Int) {

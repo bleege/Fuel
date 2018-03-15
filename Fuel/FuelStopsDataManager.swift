@@ -7,92 +7,92 @@
 //
 
 import CoreData
+import CloudKit
 
 class FuelStopsDataManager {
     
-    var persistentContainer: NSPersistentContainer
+    let container: CKContainer
+    let userDB: CKDatabase
+    let FuelStopType = "FuelStop"
     
-    init(completionClosure: @escaping () -> ()) {
-        persistentContainer = NSPersistentContainer(name: "FuelStops")
-        persistentContainer.loadPersistentStores() { (description, error) in
-            if let error = error {
-                fatalError("Failed to load Core Data stack: \(error)")
-            }
-            completionClosure()
-        }
+    init() {
+        container = CKContainer.default()
+        userDB = container.privateCloudDatabase
     }
     
-    func getAllFuelStops() -> [FuelStopsMO] {
-        let allStopsRequest = NSFetchRequest<FuelStopsMO>(entityName: "FuelStops")
-        let sort = NSSortDescriptor(key: "stop_date", ascending: false)
-        allStopsRequest.sortDescriptors = [sort]
+    
+    func getAllFuelStops() -> [FuelStop] {
+
+//        let predicate = NSPredicate()
+//        let query = CKQuery(recordType: FuelStopType, predicate: predicate)
+//        
+//        var stops = [FuelStop]()
         
-        do {
-            return try persistentContainer.viewContext.fetch(allStopsRequest)
-        } catch {
-            fatalError("Error loading FuelStops: \(error)")
-        }
+//        userDB.perform(query, inZoneWith: nil, completionHandler: { results, error in
+//            if let error = error {
+//                fatalError("Error loading FuelStops: \(error)")
+//                return
+//            }
+//
+//
+//        })
+     
+        return [FuelStop]()
     }
     
     func deleteFuelStop(fuelStop: FuelStopsMO) {
-        persistentContainer.viewContext.delete(fuelStop)
+//        persistentContainer.viewContext.delete(fuelStop)
     }
     
     func deleteAllFuelStops() {
         let stops = getAllFuelStops()
             
         for fuelStop in stops {
-            persistentContainer.viewContext.delete(fuelStop)
+//            persistentContainer.viewContext.delete(fuelStop)
         }
     }
     
     func addFuelStop(fuelStop: FuelStopsMO) {
-        persistentContainer.viewContext.insert(fuelStop)
+//        persistentContainer.viewContext.insert(fuelStop)
     }
     
     func addFuelStop(gallons: Double, latitude: Double, longitude: Double, octane: Int,
                      odometer: Int, price: Double, ppg: Double, stopDate: Date, tripOdometer: Double) {
         
-        let stop = getNewStop()
+//        let stop = FuelStop()
         
-        stop.gallons = gallons
-        stop.latitude = latitude
-        stop.longitude = longitude
-        stop.mpg = tripOdometer / gallons
-        stop.octane = Int16(octane)
-        stop.odometer = Int16(odometer)
-        stop.price = price
-        stop.price_per_gallon = ppg
-        stop.stop_date = stopDate
-        stop.trip_odometer = tripOdometer
+//        stop.gallons = gallons
+//        stop.latitude = latitude
+//        stop.longitude = longitude
+//        stop.mpg = tripOdometer / gallons
+//        stop.octane = Int16(octane)
+//        stop.odometer = Int16(odometer)
+//        stop.price = price
+//        stop.price_per_gallon = ppg
+//        stop.stop_date = stopDate
+//        stop.trip_odometer = tripOdometer
         
-        persistentContainer.viewContext.insert(stop)
+//        persistentContainer.viewContext.insert(stop)
     }
     
     func addFuelStop(csv: [String]) {
-        let stop = getNewStop()
+//        let stop = FuelStop()
         
-        let df: DateFormatter = DateFormatter()
-        df.locale = Locale(identifier: "en_US")
-        df.setLocalizedDateFormatFromTemplate("MM/dd/yyyy")
-        
-        stop.gallons = Double(csv[4])!
-        stop.latitude = Double(csv[1])!
-        stop.longitude = Double(csv[2])!
-        stop.mpg = Double(csv[9])!
-        stop.octane = Int16(csv[3])!
-        stop.odometer = Int16(csv[8])!
-        stop.price = Double(csv[6].replacingOccurrences(of: "$", with: ""))!
-        stop.price_per_gallon = Double(csv[5])!
-        stop.stop_date = df.date(from: csv[0])!
-        stop.trip_odometer = Double(csv[7])!
+//        let df: DateFormatter = DateFormatter()
+//        df.locale = Locale(identifier: "en_US")
+//        df.setLocalizedDateFormatFromTemplate("MM/dd/yyyy")
+//
+//        stop.gallons = Double(csv[4])!
+//        stop.latitude = Double(csv[1])!
+//        stop.longitude = Double(csv[2])!
+//        stop.mpg = Double(csv[9])!
+//        stop.octane = Int16(csv[3])!
+//        stop.odometer = Int16(csv[8])!
+//        stop.price = Double(csv[6].replacingOccurrences(of: "$", with: ""))!
+//        stop.price_per_gallon = Double(csv[5])!
+//        stop.stop_date = df.date(from: csv[0])!
+//        stop.trip_odometer = Double(csv[7])!
 
-        persistentContainer.viewContext.insert(stop)
-    }
-    
-    private func getNewStop() -> FuelStopsMO {
-        let stop = FuelStopsMO.init(entity: NSEntityDescription.entity(forEntityName: "FuelStops", in: persistentContainer.viewContext)!, insertInto: persistentContainer.viewContext) as FuelStopsMO
-        stop.fuelstops_id = UUID()
-        return stop
+//        persistentContainer.viewContext.insert(stop)
     }
 }

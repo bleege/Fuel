@@ -14,7 +14,7 @@ import CoreLocation
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
-    let dataManager = FuelStopsDataManager(completionClosure: { print("Failure to create Data Manager.") } )
+    let dataManager = FuelStopsDataManager()
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation? = nil
 
@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         setupLocationManager()
         
         // Preload Data
-        preloadData()
+//        preloadData()
         
         return true
     }
