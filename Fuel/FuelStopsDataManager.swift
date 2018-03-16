@@ -8,6 +8,7 @@
 
 import CoreData
 import CloudKit
+import RxSwift
 
 class FuelStopsDataManager {
     
@@ -20,24 +21,8 @@ class FuelStopsDataManager {
         userDB = container.privateCloudDatabase
     }
     
-    
-    func getAllFuelStops() -> [FuelStop] {
-
-//        let predicate = NSPredicate()
-//        let query = CKQuery(recordType: FuelStopType, predicate: predicate)
-//        
-//        var stops = [FuelStop]()
-        
-//        userDB.perform(query, inZoneWith: nil, completionHandler: { results, error in
-//            if let error = error {
-//                fatalError("Error loading FuelStops: \(error)")
-//                return
-//            }
-//
-//
-//        })
-     
-        return [FuelStop]()
+    func getAllFuelStops() -> Observable<CKRecord>  {
+        return userDB.rx.fetch(recordType: FuelStopType)
     }
     
     func deleteFuelStop(fuelStop: FuelStopsMO) {
@@ -45,11 +30,11 @@ class FuelStopsDataManager {
     }
     
     func deleteAllFuelStops() {
-        let stops = getAllFuelStops()
-            
-        for fuelStop in stops {
+//        let stops = getAllFuelStops()
+//
+//        for fuelStop in stops {
 //            persistentContainer.viewContext.delete(fuelStop)
-        }
+//        }
     }
     
     func addFuelStop(fuelStop: FuelStopsMO) {

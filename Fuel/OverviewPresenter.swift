@@ -8,12 +8,15 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class OverviewPresenter: OverviewContractPresenter {
     
     private var view: OverviewContractView?
     
-    let dataManager = (UIApplication.shared.delegate as! AppDelegate).dataManager
+    private let dataManager = (UIApplication.shared.delegate as! AppDelegate).dataManager
+    
+    private let disposeBag = DisposeBag()
     
     init() {
         // No Op
@@ -31,9 +34,14 @@ class OverviewPresenter: OverviewContractPresenter {
     }
     
     func loadFuelStops() {
-        let fuelStops = dataManager.getAllFuelStops()
-        print("number of fuelStops found = \(fuelStops.count)")
+//        let fuelStops = dataManager.getAllFuelStops()
+//        print("number of fuelStops found = \(fuelStops.count)")
 //        view?.displayStops(fuelStops: fuelStops)
+        
+        dataManager.getAllFuelStops().toArray()
+            .subscribe( { (element) in
+                print("Element = \(element)")
+            }).disposed(by: disposeBag)
     }
     
     func handleStopSelection(index: Int) {
