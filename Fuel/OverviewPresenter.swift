@@ -39,8 +39,10 @@ class OverviewPresenter: OverviewContractPresenter {
 //        view?.displayStops(fuelStops: fuelStops)
         
         dataManager.getAllFuelStops().toArray()
-            .subscribe( { (element) in
+            .subscribe(onNext: { (element) in
                 print("Element = \(element)")
+            }, onError: { (error) in
+                print("Error = \(error)")
             }).disposed(by: disposeBag)
     }
     
