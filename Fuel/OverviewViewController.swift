@@ -17,7 +17,7 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     @IBOutlet var addStopFABGestureRecognizer: UITapGestureRecognizer!
     
     var presenter: OverviewContractPresenter?
-    var fuelStops = [FuelStopsMO]()
+    var fuelStops = [FuelStop]()
     var fuelStopAnnotations = [MKPointAnnotation]()
     
     let stopDetailPresentationManager = StopDetailPresentationManager()
@@ -52,7 +52,7 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     
     // MARK: OverviewContractView
     
-    func displayStops(fuelStops: [FuelStopsMO]) {
+    func displayStops(fuelStops: [FuelStop]) {
         self.fuelStops.removeAll()
         self.fuelStops.append(contentsOf: fuelStops)
         self.stopsTableView.reloadData()
@@ -64,9 +64,9 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
         fuelStopAnnotations.removeAll()
 
         var mapRect = MKMapRectNull
-        fuelStopAnnotations.append(contentsOf: fuelStops.map({(value: FuelStopsMO) in
+        fuelStopAnnotations.append(contentsOf: fuelStops.map({(value: FuelStop) in
             let pin = MKPointAnnotation()
-            pin.coordinate = CLLocationCoordinate2DMake(value.latitude, value.longitude)
+            pin.coordinate = CLLocationCoordinate2DMake(value.location.coordinate.latitude, value.location.coordinate.longitude)
             mapView.addAnnotation(pin)
             let annPoint = MKMapPointForCoordinate(pin.coordinate)
             let pointRect = MKMapRectMake(annPoint.x, annPoint.y, 0.0, 0.0)
@@ -127,7 +127,7 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
 
         let stopData = fuelStops[indexPath.row]
         
-        cell.stopDate.text = stopData.stop_date!.shortFormat()
+        cell.stopDate.text = stopData.stopDate.shortFormat()
         cell.gallonsFilled.text = stopData.gallons.gallonFormat()
         cell.totalPrice.text = stopData.price.currencyFormat()
         

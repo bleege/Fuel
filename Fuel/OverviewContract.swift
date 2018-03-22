@@ -8,7 +8,7 @@
 
 
 protocol OverviewContractView {
-    func displayStops(fuelStops: [FuelStopsMO])
+    func displayStops(fuelStops: [FuelStop])
     func refreshMap()
     func displayStopOnMap(index: Int)
     func displayStopDataView(index: Int)

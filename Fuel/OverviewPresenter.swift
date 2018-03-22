@@ -34,13 +34,15 @@ class OverviewPresenter: OverviewContractPresenter {
     }
     
     func loadFuelStops() {
-//        let fuelStops = dataManager.getAllFuelStops()
-//        print("number of fuelStops found = \(fuelStops.count)")
-//        view?.displayStops(fuelStops: fuelStops)
-        
         dataManager.getAllFuelStops().toArray()
+            .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (element) in
-                print("Element = \(element)")
+                print("Number of Elements = \(element.count)")
+                var stops = [FuelStop]()
+                for ckr in element {
+                    stops.append(FuelStop(record: ckr))
+                }
+                self.view?.displayStops(fuelStops: stops)
             }, onError: { (error) in
                 print("Error = \(error)")
                 self.view?.displayError(message: "Error getting fuel stops.")

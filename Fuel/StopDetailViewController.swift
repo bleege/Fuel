@@ -20,16 +20,16 @@ class StopDetailViewController: UIViewController {
     @IBOutlet weak var odometerLabel: UILabel!
     @IBOutlet weak var octaneLabel: UILabel!
     
-    var stopData: FuelStopsMO?
+    var stopData: FuelStop?
     
     override func viewDidLoad() {
         super.viewDidLoad()
      
-        stopDateLabel.text = stopData?.stop_date?.shortFormat()
-        ppgLabel.text = stopData?.price_per_gallon.currencyFormat()
+        stopDateLabel.text = stopData?.stopDate.shortFormat()
+        ppgLabel.text = stopData?.pricePerGallon.currencyFormat()
         gallonsLabel.text = stopData?.gallons.gallonFormat()
         costLabel.text = stopData?.price.currencyFormat()
-        tripOdometerLabel.text = stopData?.trip_odometer.tripOdometerFormat()
+        tripOdometerLabel.text = stopData?.tripOdometer.tripOdometerFormat()
         tripMPGLabel.text = stopData?.mpg.mpgFormat()
         if let odometer = stopData?.odometer {
             odometerLabel.text = String(odometer)
