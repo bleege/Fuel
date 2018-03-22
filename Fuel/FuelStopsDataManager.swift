@@ -6,8 +6,8 @@
 //  Copyright © 2017 Brad Leege. All rights reserved.
 //
 
-import CoreData
 import CloudKit
+import CoreLocation
 import RxSwift
 
 class FuelStopsDataManager {
@@ -25,39 +25,30 @@ class FuelStopsDataManager {
         return userDB.rx.fetch(recordType: FuelStopType)
     }
     
-    func deleteFuelStop(fuelStop: FuelStopsMO) {
+    func deleteFuelStop(fuelStop: FuelStop) {
 //        persistentContainer.viewContext.delete(fuelStop)
     }
     
-    func deleteAllFuelStops() {
-//        let stops = getAllFuelStops()
-//
-//        for fuelStop in stops {
-//            persistentContainer.viewContext.delete(fuelStop)
-//        }
-    }
-    
-    func addFuelStop(fuelStop: FuelStopsMO) {
+    func addFuelStop(fuelStop: FuelStop) {
 //        persistentContainer.viewContext.insert(fuelStop)
     }
     
     func addFuelStop(gallons: Double, latitude: Double, longitude: Double, octane: Int,
                      odometer: Int, price: Double, ppg: Double, stopDate: Date, tripOdometer: Double) {
+ 
+        let stop = CKRecord(recordType: FuelStopType)
+        stop.setValue(gallons, forKey: FuelStop.KEY_GALLONS)
+        stop.setValue(CLLocation(latitude: latitude, longitude: longitude), forKey: FuelStop.KEY_LOCATION)
+        stop.setValue(tripOdometer / gallons, forKey: FuelStop.KEY_MPG)
+        stop.setValue(octane, forKey: FuelStop.KEY_OCTANE)
+        stop.setValue(odometer, forKey: FuelStop.KEY_ODOMETER)
+        stop.setValue(price, forKey: FuelStop.KEY_PRICE)
+        stop.setValue(ppg, forKey: FuelStop.KEY_PPG)
+        stop.setValue(stopDate, forKey: FuelStop.KEY_STOPDATE)
+        stop.setValue(tripOdometer, forKey: FuelStop.KEY_TRIP_ODOMETER)
         
-//        let stop = FuelStop()
-        
-//        stop.gallons = gallons
-//        stop.latitude = latitude
-//        stop.longitude = longitude
-//        stop.mpg = tripOdometer / gallons
-//        stop.octane = Int16(octane)
-//        stop.odometer = Int16(odometer)
-//        stop.price = price
-//        stop.price_per_gallon = ppg
-//        stop.stop_date = stopDate
-//        stop.trip_odometer = tripOdometer
-        
-//        persistentContainer.viewContext.insert(stop)
+        let result = userDB.rx.save(record: stop)
+        print("result of addFuelStop = \(result)")
     }
     
     func addFuelStop(csv: [String]) {

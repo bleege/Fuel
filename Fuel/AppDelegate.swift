@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 import CoreLocation
 
 @UIApplicationMain
@@ -22,10 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         // Override point for customization after application launch.
         
         setupLocationManager()
-        
-        // Preload Data
-//        preloadData()
-        
+                
         return true
     }
 
@@ -49,33 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-    func preloadData() {
-        
-        guard let filePath = Bundle.main.path(forResource: "2016-VW-Jetta-Fuel-Tracking", ofType: ".csv")
-            else {
-                print("Couldn't load data file")
-                return
-            }
-
-        do {
-            let csvContent = try String(contentsOfFile: filePath, encoding: .utf8)
-            print(csvContent)
-            let lines: [String] = csvContent.components(separatedBy: .newlines)
-            
-            for line in lines {
-                let values = line.components(separatedBy: ",")
-                if (values.count > 1) {
-                    dataManager.addFuelStop(csv: values)
-                }
-            }
-        
-        } catch {
-            print("Couldn't load data file")
-            return
-        }
-        
     }
     
     private func setupLocationManager() {

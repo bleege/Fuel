@@ -23,7 +23,6 @@
 		A2A69BE1200DB595006DBED8 /* StopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A69BE0200DB595006DBED8 /* StopDetailViewController.swift */; };
 		A2AB951E202E82EE0012D8B4 /* AddStopContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB951D202E82EE0012D8B4 /* AddStopContract.swift */; };
 		A2AB9520202E84410012D8B4 /* AddStopPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB951F202E84410012D8B4 /* AddStopPresenter.swift */; };
-		A2B121B31FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2B121B11FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld */; };
 		A2B7C89B1FC526100012167F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C89A1FC526100012167F /* AppDelegate.swift */; };
 		A2B7C89D1FC526100012167F /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C89C1FC526100012167F /* OverviewViewController.swift */; };
 		A2B7C89F1FC526100012167F /* AddStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C89E1FC526100012167F /* AddStopViewController.swift */; };
@@ -91,7 +90,6 @@
 		A2A69BE0200DB595006DBED8 /* StopDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailViewController.swift; sourceTree = "<group>"; };
 		A2AB951D202E82EE0012D8B4 /* AddStopContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStopContract.swift; sourceTree = "<group>"; };
 		A2AB951F202E84410012D8B4 /* AddStopPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStopPresenter.swift; sourceTree = "<group>"; };
-		A2B121B21FCD1BFB000C3EE0 /* FuelStops.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FuelStops.xcdatamodel; sourceTree = "<group>"; };
 		A2B7C8971FC526100012167F /* Fuel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fuel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B7C89A1FC526100012167F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2B7C89C1FC526100012167F /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 				A2EEDF22205B56180020B16D /* RxCloudKit */,
 				A2435C5A2055ABAD00EC990F /* Fuel.entitlements */,
 				A2B7C89A1FC526100012167F /* AppDelegate.swift */,
-				A2B121B11FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld */,
 				A26E5EE01FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv */,
 				A2C842F01FEF5B330068BFAC /* OverviewContract.swift */,
 				A2EFB6281FEB60A300AE7A98 /* OverviewPresenter.swift */,
@@ -446,7 +443,6 @@
 				A2B7C89D1FC526100012167F /* OverviewViewController.swift in Sources */,
 				A2EEDF38205B57D60020B16D /* Cache.swift in Sources */,
 				A22D93E52016E0C4008D6254 /* StopDetailPresentationAnimator.swift in Sources */,
-				A2B121B31FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld in Sources */,
 				A2EEDF28205B56C20020B16D /* CKRecordZone+Rx.swift in Sources */,
 				A266444F1FD3269A000DDFED /* FuelStopsDataManager.swift in Sources */,
 				A2EFB6291FEB60A300AE7A98 /* OverviewPresenter.swift in Sources */,
@@ -781,19 +777,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		A2B121B11FCD1BFB000C3EE0 /* FuelStops.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				A2B121B21FCD1BFB000C3EE0 /* FuelStops.xcdatamodel */,
-			);
-			currentVersion = A2B121B21FCD1BFB000C3EE0 /* FuelStops.xcdatamodel */;
-			path = FuelStops.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = A2B7C88F1FC526100012167F /* Project object */;
 }
