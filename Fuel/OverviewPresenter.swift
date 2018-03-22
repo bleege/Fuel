@@ -43,6 +43,7 @@ class OverviewPresenter: OverviewContractPresenter {
                 print("Element = \(element)")
             }, onError: { (error) in
                 print("Error = \(error)")
+                self.view?.displayError(message: "Error getting fuel stops.")
             }).disposed(by: disposeBag)
     }
     

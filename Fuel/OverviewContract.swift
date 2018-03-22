@@ -13,6 +13,7 @@ protocol OverviewContractView {
     func displayStopOnMap(index: Int)
     func displayStopDataView(index: Int)
     func displayAddStopViewController()
+    func displayError(message: String)
 }
 
 protocol OverviewContractPresenter {

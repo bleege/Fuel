@@ -109,6 +109,13 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
         present(addStopViewController, animated: true, completion: nil)
     }
     
+    func displayError(message: String) {
+        let alertController = UIAlertController(title: "Whoops", message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     // MARK: UITableViewDataSource
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
