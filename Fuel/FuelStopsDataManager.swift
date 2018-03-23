@@ -15,6 +15,7 @@ class FuelStopsDataManager {
     private let container: CKContainer
     private let userDB: CKDatabase
     private let FuelStopType = "FuelStop"
+    private let stopsSortByDate = NSSortDescriptor(key: FuelStop.KEY_STOPDATE, ascending: false)
     
     init() {
         container = CKContainer.default()
@@ -22,15 +23,15 @@ class FuelStopsDataManager {
     }
     
     func getAllFuelStops() -> Observable<CKRecord>  {
-        return userDB.rx.fetch(recordType: FuelStopType)
+        return userDB.rx.fetch(recordType: FuelStopType, sortDescriptors: [stopsSortByDate])
     }
     
     func deleteFuelStop(fuelStop: FuelStop) {
 //        persistentContainer.viewContext.delete(fuelStop)
     }
     
-    func addFuelStop(fuelStop: FuelStop) {
-//        persistentContainer.viewContext.insert(fuelStop)
+    func addFuelStop(fuelStop: FuelStop) -> Maybe<CKRecord> {
+        return addFuelStop(gallons: fuelStop.gallons, latitude: fuelStop.location.coordinate.latitude, longitude: fuelStop.location.coordinate.longitude, octane: Int(fuelStop.octane), odometer: Int(fuelStop.odometer), price: fuelStop.price, ppg: fuelStop.pricePerGallon, stopDate: fuelStop.stopDate, tripOdometer: fuelStop.tripOdometer)
     }
     
     func addFuelStop(gallons: Double, latitude: Double, longitude: Double, octane: Int,
