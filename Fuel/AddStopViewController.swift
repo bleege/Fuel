@@ -94,6 +94,13 @@ class AddStopViewController: UIViewController, AddStopContractView {
         dismiss(animated: true)
     }
     
+    func displayError(message: String) {
+        let alertController = UIAlertController(title: "Whoops", message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     func validateForm() -> Bool {
         
         var isValid = true

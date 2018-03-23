@@ -14,13 +14,11 @@ class FuelStopsDataManager {
     
     private let container: CKContainer
     private let userDB: CKDatabase
-    private let disposeBag: DisposeBag
     private let FuelStopType = "FuelStop"
     
     init() {
         container = CKContainer.default()
         userDB = container.privateCloudDatabase
-        disposeBag = DisposeBag()
     }
     
     func getAllFuelStops() -> Observable<CKRecord>  {
@@ -36,7 +34,7 @@ class FuelStopsDataManager {
     }
     
     func addFuelStop(gallons: Double, latitude: Double, longitude: Double, octane: Int,
-                     odometer: Int, price: Double, ppg: Double, stopDate: Date, tripOdometer: Double) {
+                     odometer: Int, price: Double, ppg: Double, stopDate: Date, tripOdometer: Double) -> Maybe<CKRecord> {
  
         let stop = CKRecord(recordType: FuelStopType)
         stop.setValue(gallons, forKey: FuelStop.KEY_GALLONS)
@@ -49,16 +47,7 @@ class FuelStopsDataManager {
         stop.setValue(stopDate, forKey: FuelStop.KEY_STOPDATE)
         stop.setValue(tripOdometer, forKey: FuelStop.KEY_TRIP_ODOMETER)
         
-        userDB.rx.save(record: stop).subscribe { event in
-                switch event {
-                case .success(let record):
-                    print("record: ", record)
-                case .error(let error):
-                    print("Error: ", error)
-                case .completed:
-                    print("Completed: ")
-                }
-            }.disposed(by: disposeBag)
+        return userDB.rx.save(record: stop)
     }
     
     func addFuelStop(csv: [String]) {

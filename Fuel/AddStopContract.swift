@@ -12,6 +12,7 @@ import Foundation
 protocol AddStopContractView {
     func initialDataPopulation(stopDate: Date, location: CLLocation?)
     func dismiss()
+    func displayError(message: String)
     func validateForm() -> Bool
     func gallonsData() -> Double
     func latitudeData() -> Double

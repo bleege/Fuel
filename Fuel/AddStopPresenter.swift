@@ -8,11 +8,13 @@
 
 import CoreLocation
 import UIKit
+import RxSwift
 
 class AddStopPresenter: AddStopContractPresenter {
 
     private var view:AddStopContractView?
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private let disposeBag = DisposeBag()
     
     func onAttach(view: AddStopContractView) {
         self.view = view
@@ -31,7 +33,8 @@ class AddStopPresenter: AddStopContractPresenter {
         if (view?.validateForm())! {
             print("Form is valid, so can save.")
             
-            appDelegate.dataManager.addFuelStop(gallons: (view?.gallonsData())!,
+            appDelegate.dataManager
+                .addFuelStop(gallons: (view?.gallonsData())!,
                                                 latitude: (view?.latitudeData())!,
                                                 longitude: (view?.longitudeData())!,
                                                 octane: (view?.octaneData())!,
@@ -40,7 +43,17 @@ class AddStopPresenter: AddStopContractPresenter {
                                                 ppg: (view?.ppgData())!,
                                                 stopDate: (view?.stopDateData())!,
                                                 tripOdometer: (view?.tripOdometerData())!)
-            view?.dismiss()
+                .subscribe { event in
+                    switch event {
+                        case .success(let record):
+                            self.view?.dismiss()
+                        case .error(let error):
+                            self.view?.displayError(message: error.localizedDescription)
+                            print("Error: ", error)
+                        case .completed:
+                            break
+                        }
+                    }.disposed(by: disposeBag)
         } else {
             print("Form is not valid.")
         }
