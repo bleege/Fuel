@@ -12,13 +12,15 @@ import RxSwift
 
 class FuelStopsDataManager {
     
-    let container: CKContainer
-    let userDB: CKDatabase
-    let FuelStopType = "FuelStop"
+    private let container: CKContainer
+    private let userDB: CKDatabase
+    private let disposeBag: DisposeBag
+    private let FuelStopType = "FuelStop"
     
     init() {
         container = CKContainer.default()
         userDB = container.privateCloudDatabase
+        disposeBag = DisposeBag()
     }
     
     func getAllFuelStops() -> Observable<CKRecord>  {
@@ -47,8 +49,16 @@ class FuelStopsDataManager {
         stop.setValue(stopDate, forKey: FuelStop.KEY_STOPDATE)
         stop.setValue(tripOdometer, forKey: FuelStop.KEY_TRIP_ODOMETER)
         
-        let result = userDB.rx.save(record: stop)
-        print("result of addFuelStop = \(result)")
+        userDB.rx.save(record: stop).subscribe { event in
+                switch event {
+                case .success(let record):
+                    print("record: ", record)
+                case .error(let error):
+                    print("Error: ", error)
+                case .completed:
+                    print("Completed: ")
+                }
+            }.disposed(by: disposeBag)
     }
     
     func addFuelStop(csv: [String]) {
