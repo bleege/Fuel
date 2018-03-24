@@ -43,10 +43,11 @@ class AddStopPresenter: AddStopContractPresenter {
                                                 ppg: (view?.ppgData())!,
                                                 stopDate: (view?.stopDateData())!,
                                                 tripOdometer: (view?.tripOdometerData())!)
+                .observeOn(MainScheduler.instance)
                 .subscribe { event in
                     switch event {
                         case .success(let record):
-                            self.view?.dismiss()
+                            self.view?.dismissAfterSave(record: FuelStop(record: record))
                         case .error(let error):
                             self.view?.displayError(message: error.localizedDescription)
                             print("Error: ", error)

@@ -6,12 +6,14 @@
 //  Copyright © 2018 Brad Leege. All rights reserved.
 //
 
+import CloudKit
 import CoreLocation
 import Foundation
 
 protocol AddStopContractView {
     func initialDataPopulation(stopDate: Date, location: CLLocation?)
     func dismiss()
+    func dismissAfterSave(record: FuelStop)
     func displayError(message: String)
     func validateForm() -> Bool
     func gallonsData() -> Double

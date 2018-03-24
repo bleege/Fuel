@@ -26,7 +26,6 @@ class OverviewPresenter: OverviewContractPresenter {
     
     func onAttach(view: OverviewContractView) {
         self.view = view
-        loadFuelStops()
     }
     
     func onDetach() {
@@ -37,7 +36,7 @@ class OverviewPresenter: OverviewContractPresenter {
         dataManager.getAllFuelStops().toArray()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (element) in
-                print("Number of Elements = \(element.count)")
+                print("Number of Elements Returned = \(element.count)")
                 var stops = [FuelStop]()
                 for ckr in element {
                     stops.append(FuelStop(record: ckr))

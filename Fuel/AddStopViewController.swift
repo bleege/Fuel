@@ -94,6 +94,14 @@ class AddStopViewController: UIViewController, AddStopContractView {
         dismiss(animated: true)
     }
     
+    func dismissAfterSave(record: FuelStop) {
+        if (self.presentingViewController != nil) {
+            print("presentingViewController is not null")
+            (self.presentingViewController as! OverviewViewController).addFuelStopToTable(fuelStop: record)
+            dismiss()
+        }
+    }
+    
     func displayError(message: String) {
         let alertController = UIAlertController(title: "Whoops", message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)

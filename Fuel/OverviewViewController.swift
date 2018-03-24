@@ -29,6 +29,7 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
         mapView.showsUserLocation = true
         
         self.addStopFABGestureRecognizer.numberOfTapsRequired = 1
+        presenter?.loadFuelStops()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +52,11 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     }
     
     // MARK: OverviewContractView
+    func addFuelStopToTable(fuelStop: FuelStop) {
+        self.fuelStops.insert(fuelStop, at: 0)
+        self.stopsTableView.reloadData()
+        refreshMap()
+    }
     
     func displayStops(fuelStops: [FuelStop]) {
         self.fuelStops.removeAll()
