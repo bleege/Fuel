@@ -51,24 +51,22 @@ class FuelStopsDataManager {
         return userDB.rx.save(record: stop)
     }
     
-    func addFuelStop(csv: [String]) {
-//        let stop = FuelStop()
+    func addFuelStop(csv: [String]) -> Maybe<CKRecord> {
         
-//        let df: DateFormatter = DateFormatter()
-//        df.locale = Locale(identifier: "en_US")
-//        df.setLocalizedDateFormatFromTemplate("MM/dd/yyyy")
-//
-//        stop.gallons = Double(csv[4])!
-//        stop.latitude = Double(csv[1])!
-//        stop.longitude = Double(csv[2])!
-//        stop.mpg = Double(csv[9])!
-//        stop.octane = Int16(csv[3])!
-//        stop.odometer = Int16(csv[8])!
-//        stop.price = Double(csv[6].replacingOccurrences(of: "$", with: ""))!
-//        stop.price_per_gallon = Double(csv[5])!
-//        stop.stop_date = df.date(from: csv[0])!
-//        stop.trip_odometer = Double(csv[7])!
+        let df: DateFormatter = DateFormatter()
+        df.locale = Locale(identifier: "en_US")
+        df.setLocalizedDateFormatFromTemplate("MM/dd/yyyy")
 
-//        persistentContainer.viewContext.insert(stop)
+        let gallons = Double(csv[4])!
+        let latitude = Double(csv[1])!
+        let longitude = Double(csv[2])!
+        let octane = Int16(csv[3])!
+        let odometer = Int16(csv[8])!
+        let price = Double(csv[6].replacingOccurrences(of: "$", with: ""))!
+        let price_per_gallon = Double(csv[5])!
+        let stop_date = df.date(from: csv[0])!
+        let trip_odometer = Double(csv[7])!
+
+        return addFuelStop(gallons: gallons, latitude: latitude, longitude: longitude, octane: Int(octane), odometer: Int(odometer), price: price, ppg: price_per_gallon, stopDate: stop_date, tripOdometer: trip_odometer)
     }
 }
