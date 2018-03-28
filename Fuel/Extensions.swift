@@ -17,6 +17,13 @@ extension Date {
         return df.string(from: self)
     }
     
+    func longFormat() -> String {
+        let df = DateFormatter()
+        df.locale = Locale(identifier: "en_US")
+        df.setLocalizedDateFormatFromTemplate("MMMM d, yyyy")
+        return df.string(from: self)
+    }
+
 }
 
 extension Double {

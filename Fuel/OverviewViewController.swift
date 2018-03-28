@@ -133,7 +133,7 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
 
         let stopData = fuelStops[indexPath.row]
         
-        cell.stopDate.text = stopData.stopDate.shortFormat()
+        cell.stopDate.text = stopData.stopDate.longFormat()
         cell.gallonsFilled.text = stopData.gallons.gallonFormat()
         cell.totalPrice.text = stopData.price.currencyFormat()
         
