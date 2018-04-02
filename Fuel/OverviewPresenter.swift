@@ -49,12 +49,12 @@ class OverviewPresenter: OverviewContractPresenter {
     }
     
     func handleStopSelection(index: Int) {
-        self.view?.displayStopOnMap(index: index)
-        self.view?.displayStopDataView(index: index)
+        view?.displayStopOnMap(index: index)
+        view?.displayStopDataView(index: index)
     }
  
     func handleAddStopFABTap() {
+        view?.zoomToUserLocation()
         view?.displayAddStopViewController()
     }
-
 }

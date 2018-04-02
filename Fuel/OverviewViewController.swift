@@ -89,6 +89,10 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
         }
     }
     
+    func zoomToUserLocation() {
+        mapView.region = MKCoordinateRegionMakeWithDistance(mapView.userLocation.coordinate, 1000, 1000)
+    }
+    
     func displayStopOnMap(index: Int) {
         let ann = fuelStopAnnotations[index]
         mapView.region = MKCoordinateRegionMakeWithDistance(ann.coordinate, 1000, 1000)
@@ -111,6 +115,9 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     func displayAddStopViewController() {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let addStopViewController = sb.instantiateViewController(withIdentifier: "addStopViewControllerId") as! AddStopViewController
+        
+        addStopViewController.transitioningDelegate = stopDetailPresentationManager
+        addStopViewController.modalPresentationStyle = .custom
         
         present(addStopViewController, animated: true, completion: nil)
     }

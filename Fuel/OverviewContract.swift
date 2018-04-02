@@ -11,6 +11,7 @@ protocol OverviewContractView {
     func addFuelStopToTable(fuelStop: FuelStop)
     func displayStops(fuelStops: [FuelStop])
     func refreshMap()
+    func zoomToUserLocation()
     func displayStopOnMap(index: Int)
     func displayStopDataView(index: Int)
     func displayAddStopViewController()
