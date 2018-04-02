@@ -25,7 +25,7 @@ class StopDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
      
-        stopDateLabel.text = stopData?.stopDate.shortFormat()
+        stopDateLabel.text = stopData?.stopDate.longFormat()
         ppgLabel.text = stopData?.pricePerGallon.currencyFormat()
         gallonsLabel.text = stopData?.gallons.gallonFormat()
         costLabel.text = stopData?.price.currencyFormat()
