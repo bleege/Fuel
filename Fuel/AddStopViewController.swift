@@ -8,6 +8,7 @@
 
 import CoreLocation
 import UIKit
+import SkyFloatingLabelTextField
 
 class AddStopViewController: UIViewController, AddStopContractView {
 
@@ -15,12 +16,12 @@ class AddStopViewController: UIViewController, AddStopContractView {
     
     @IBOutlet weak var date: UITextField!
     @IBOutlet weak var location: UITextField!
-    @IBOutlet weak var pricePerGalloon: UITextField!
-    @IBOutlet weak var gallons: UITextField!
-    @IBOutlet weak var cost: UITextField!
-    @IBOutlet weak var octane: UITextField!
-    @IBOutlet weak var tripOdometer: UITextField!
-    @IBOutlet weak var odometer: UITextField!
+    @IBOutlet weak var pricePerGalloon: SkyFloatingLabelTextField!
+    @IBOutlet weak var gallons: SkyFloatingLabelTextField!
+    @IBOutlet weak var cost: SkyFloatingLabelTextField!
+    @IBOutlet weak var octane: SkyFloatingLabelTextField!
+    @IBOutlet weak var tripOdometer: SkyFloatingLabelTextField!
+    @IBOutlet weak var odometer: SkyFloatingLabelTextField!
     
     private var stopLocation: CLLocation?
     let dateFormatter = DateFormatter()
@@ -30,6 +31,9 @@ class AddStopViewController: UIViewController, AddStopContractView {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         presenter = AddStopPresenter()
+        
+        pricePerGalloon.placeholder = "2.6799"
+        pricePerGalloon.title = "Price per Gallon"
         
         dateFormatter.dateStyle = .medium
         datePicker.datePickerMode = .date
