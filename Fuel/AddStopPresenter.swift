@@ -18,7 +18,7 @@ class AddStopPresenter: AddStopContractPresenter {
     
     func onAttach(view: AddStopContractView) {
         self.view = view
-        self.view?.initialDataPopulation(stopDate: Date(), location: appDelegate.currentLocation)
+        self.view?.initialDataPopulation(location: appDelegate.currentLocation)
     }
 
     func onDetach() {

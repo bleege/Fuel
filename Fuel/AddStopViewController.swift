@@ -23,7 +23,6 @@ class AddStopViewController: UIViewController, AddStopContractView {
     
     private var stopLocation: CLLocation?
     let dateFormatter = DateFormatter()
-    let datePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +43,6 @@ class AddStopViewController: UIViewController, AddStopContractView {
         odometer.title = "Odometer"
         
         dateFormatter.dateStyle = .medium
-//        datePicker.datePickerMode = .date
-//        datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: UIControlEvents.valueChanged)
-//        date.inputView = datePicker
 
         // Dismiss Keyboard Input
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
@@ -76,18 +72,8 @@ class AddStopViewController: UIViewController, AddStopContractView {
     
     // MARK: AddStopContractView
     
-    func initialDataPopulation(stopDate: Date, location: CLLocation?) {
-        datePicker.date = stopDate
-//        date.text = dateFormatter.string(from: datePicker.date)
-        
-        stopLocation = location
-//        var locationText:String? = nil
-//        if let lat = location?.coordinate.latitude {
-//            if let lon = location?.coordinate.longitude {
-//                locationText = "\(lat), \(lon)"
-//            }
-//        }
-//        self.location.text = locationText
+    func initialDataPopulation(location: CLLocation?) {
+        self.stopLocation = location
         
         self.pricePerGalloon.text = ""
         self.gallons.text = ""
@@ -194,7 +180,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     }
     
     func stopDateData() -> Date{
-        return datePicker.date
+        return Date()
     }
     
     func tripOdometerData() -> Double{

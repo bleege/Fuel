@@ -11,7 +11,7 @@ import CoreLocation
 import Foundation
 
 protocol AddStopContractView {
-    func initialDataPopulation(stopDate: Date, location: CLLocation?)
+    func initialDataPopulation(location: CLLocation?)
     func dismiss()
     func dismissAfterSave(record: FuelStop)
     func displayError(message: String)
