@@ -14,8 +14,6 @@ class AddStopViewController: UIViewController, AddStopContractView {
 
     var presenter: AddStopContractPresenter?
     
-    @IBOutlet weak var date: UITextField!
-    @IBOutlet weak var location: UITextField!
     @IBOutlet weak var pricePerGalloon: SkyFloatingLabelTextField!
     @IBOutlet weak var gallons: SkyFloatingLabelTextField!
     @IBOutlet weak var cost: SkyFloatingLabelTextField!
@@ -32,13 +30,23 @@ class AddStopViewController: UIViewController, AddStopContractView {
         // Do any additional setup after loading the view, typically from a nib.
         presenter = AddStopPresenter()
         
-        pricePerGalloon.placeholder = "2.6799"
+        pricePerGalloon.placeholder = "Price per Gallon"
         pricePerGalloon.title = "Price per Gallon"
+        gallons.placeholder = "Gallons"
+        gallons.title = "Gallons"
+        cost.placeholder = "Cost"
+        cost.title = "Cost"
+        octane.placeholder = "Octane"
+        octane.title = "Octane"
+        tripOdometer.placeholder = "Trip Odometer"
+        tripOdometer.title = "Trip Odometer"
+        odometer.placeholder = "Odometer"
+        odometer.title = "Odometer"
         
         dateFormatter.dateStyle = .medium
-        datePicker.datePickerMode = .date
-        datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: UIControlEvents.valueChanged)
-        date.inputView = datePicker
+//        datePicker.datePickerMode = .date
+//        datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: UIControlEvents.valueChanged)
+//        date.inputView = datePicker
 
         // Dismiss Keyboard Input
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
@@ -59,11 +67,6 @@ class AddStopViewController: UIViewController, AddStopContractView {
         // Dispose of any resources that can be recreated.
     }
     
-    @objc func datePickerValueChanged(_ sender: UIDatePicker) {
-        dateFormatter.dateStyle = .medium
-        date.text = dateFormatter.string(from: sender.date)
-    }
-    
     @IBAction func handleSaveTap(_ sender: Any) {
         presenter?.handleSaveTap()
     }
@@ -75,16 +78,16 @@ class AddStopViewController: UIViewController, AddStopContractView {
     
     func initialDataPopulation(stopDate: Date, location: CLLocation?) {
         datePicker.date = stopDate
-        date.text = dateFormatter.string(from: datePicker.date)
+//        date.text = dateFormatter.string(from: datePicker.date)
         
         stopLocation = location
-        var locationText:String? = nil
-        if let lat = location?.coordinate.latitude {
-            if let lon = location?.coordinate.longitude {
-                locationText = "\(lat), \(lon)"
-            }
-        }
-        self.location.text = locationText
+//        var locationText:String? = nil
+//        if let lat = location?.coordinate.latitude {
+//            if let lon = location?.coordinate.longitude {
+//                locationText = "\(lat), \(lon)"
+//            }
+//        }
+//        self.location.text = locationText
         
         self.pricePerGalloon.text = ""
         self.gallons.text = ""
@@ -117,20 +120,6 @@ class AddStopViewController: UIViewController, AddStopContractView {
         
         var isValid = true
         
-        if (date.text?.isEmpty)! {
-            isValid = false
-            paintError(textField: date)
-        } else {
-            paintClean(textField: date)
-        }
-
-        if (location.text?.isEmpty)! {
-            isValid = false
-            paintError(textField: location)
-        } else {
-            paintClean(textField: location)
-        }
-
         if (pricePerGalloon.text?.isEmpty)! {
             isValid = false
             paintError(textField: pricePerGalloon)
