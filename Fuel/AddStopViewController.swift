@@ -14,7 +14,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
 
     var presenter: AddStopContractPresenter?
     
-    @IBOutlet weak var pricePerGalloon: SkyFloatingLabelTextField!
+    @IBOutlet weak var pricePerGallon: SkyFloatingLabelTextField!
     @IBOutlet weak var gallons: SkyFloatingLabelTextField!
     @IBOutlet weak var cost: SkyFloatingLabelTextField!
     @IBOutlet weak var octane: SkyFloatingLabelTextField!
@@ -22,27 +22,32 @@ class AddStopViewController: UIViewController, AddStopContractView {
     @IBOutlet weak var odometer: SkyFloatingLabelTextField!
     
     private var stopLocation: CLLocation?
-    let dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         presenter = AddStopPresenter()
         
-        pricePerGalloon.placeholder = "Price per Gallon"
-        pricePerGalloon.title = "Price per Gallon"
+        let errorColor = UIColor.red
+        
+        pricePerGallon.placeholder = "Price per Gallon"
+        pricePerGallon.title = "Price per Gallon"
+        pricePerGallon.errorColor = errorColor
         gallons.placeholder = "Gallons"
         gallons.title = "Gallons"
+        gallons.errorColor = errorColor
         cost.placeholder = "Cost"
         cost.title = "Cost"
+        cost.errorColor = errorColor
         octane.placeholder = "Octane"
         octane.title = "Octane"
+        octane.errorColor = errorColor
         tripOdometer.placeholder = "Trip Odometer"
         tripOdometer.title = "Trip Odometer"
+        tripOdometer.errorColor = errorColor
         odometer.placeholder = "Odometer"
         odometer.title = "Odometer"
-        
-        dateFormatter.dateStyle = .medium
+        odometer.errorColor = errorColor
 
         // Dismiss Keyboard Input
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
@@ -75,7 +80,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     func initialDataPopulation(location: CLLocation?) {
         self.stopLocation = location
         
-        self.pricePerGalloon.text = ""
+        self.pricePerGallon.text = ""
         self.gallons.text = ""
         self.cost.text = ""
         self.octane.text = ""
@@ -106,46 +111,46 @@ class AddStopViewController: UIViewController, AddStopContractView {
         
         var isValid = true
         
-        if (pricePerGalloon.text?.isEmpty)! {
+        if (pricePerGallon.text?.isEmpty)! {
             isValid = false
-            paintError(textField: pricePerGalloon)
+            pricePerGallon.errorMessage = "Error"
         } else {
-            paintClean(textField: pricePerGalloon)
+            pricePerGallon.errorMessage = ""
         }
 
         if (gallons.text?.isEmpty)! {
             isValid = false
-            paintError(textField: gallons)
+            gallons.errorMessage = "Error"
         } else {
-            paintClean(textField: gallons)
+            gallons.errorMessage = ""
         }
 
         if (cost.text?.isEmpty)! {
             isValid = false
-            paintError(textField: cost)
+            cost.errorMessage = "Error"
         } else {
-            paintClean(textField: cost)
+            cost.errorMessage = ""
         }
 
         if (octane.text?.isEmpty)! {
             isValid = false
-            paintError(textField: octane)
+            octane.errorMessage = "Error"
         } else {
-            paintClean(textField: octane)
+            octane.errorMessage = ""
         }
 
         if (tripOdometer.text?.isEmpty)! {
             isValid = false
-            paintError(textField: tripOdometer)
+            tripOdometer.errorMessage = "Error"
         } else {
-            paintClean(textField: tripOdometer)
+            tripOdometer.errorMessage = ""
         }
 
         if (odometer.text?.isEmpty)! {
             isValid = false
-            paintError(textField: odometer)
+            odometer.errorMessage = "Error"
         } else {
-            paintClean(textField: odometer)
+            odometer.errorMessage = ""
         }
         
         return isValid
@@ -176,7 +181,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     }
     
     func ppgData() -> Double{
-        return Double(pricePerGalloon.text!)!
+        return Double(pricePerGallon.text!)!
     }
     
     func stopDateData() -> Date{
@@ -185,17 +190,5 @@ class AddStopViewController: UIViewController, AddStopContractView {
     
     func tripOdometerData() -> Double{
         return Double(tripOdometer.text!)!
-    }
-    
-    private func paintError(textField: UITextField) {
-        textField.layer.masksToBounds = true
-        textField.layer.borderColor = UIColor.red.cgColor
-        textField.layer.borderWidth = 2
-    }
-    
-    private func paintClean(textField: UITextField) {
-        textField.layer.masksToBounds = false
-        textField.layer.borderColor = UIColor.clear.cgColor
-        textField.layer.borderWidth = 0
     }
 }
