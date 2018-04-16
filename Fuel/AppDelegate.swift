@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
 
     var window: UIWindow?
     let dataManager = FuelStopsDataManager()
-    let locationManager = CLLocationManager()
+    private let locationManager = CLLocationManager()
     var currentLocation: CLLocation? = nil
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

@@ -9,6 +9,7 @@
 import CoreLocation
 import UIKit
 import RxSwift
+import RxCocoa
 
 class AddStopPresenter: AddStopContractPresenter {
 
@@ -18,7 +19,6 @@ class AddStopPresenter: AddStopContractPresenter {
     
     func onAttach(view: AddStopContractView) {
         self.view = view
-        self.view?.initialDataPopulation(location: appDelegate.currentLocation)
     }
 
     func onDetach() {
@@ -33,10 +33,12 @@ class AddStopPresenter: AddStopContractPresenter {
         if (view?.validateForm())! {
             print("Form is valid, so can save.")
             
+            let loc = appDelegate.currentLocation
+            
             appDelegate.dataManager
                 .addFuelStop(gallons: (view?.gallonsData())!,
-                                                latitude: (view?.latitudeData())!,
-                                                longitude: (view?.longitudeData())!,
+                                                latitude: (loc?.coordinate.latitude)!,
+                                                longitude: (loc?.coordinate.longitude)!,
                                                 octane: (view?.octaneData())!,
                                                 odometer: (view?.odometerData())!,
                                                 price: (view?.priceData())!,

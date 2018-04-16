@@ -21,8 +21,6 @@ class AddStopViewController: UIViewController, AddStopContractView {
     @IBOutlet weak var tripOdometer: SkyFloatingLabelTextField!
     @IBOutlet weak var odometer: SkyFloatingLabelTextField!
     
-    private var stopLocation: CLLocation?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -48,7 +46,8 @@ class AddStopViewController: UIViewController, AddStopContractView {
         odometer.placeholder = "Odometer"
         odometer.title = "Odometer"
         odometer.errorColor = errorColor
-
+        initialDataPopulation()
+        
         // Dismiss Keyboard Input
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
@@ -77,9 +76,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     
     // MARK: AddStopContractView
     
-    func initialDataPopulation(location: CLLocation?) {
-        self.stopLocation = location
-        
+    func initialDataPopulation() {
         self.pricePerGallon.text = ""
         self.gallons.text = ""
         self.cost.text = ""
@@ -158,14 +155,6 @@ class AddStopViewController: UIViewController, AddStopContractView {
     
     func gallonsData() -> Double {
         return Double(gallons.text!)!
-    }
-
-    func latitudeData() -> Double{
-        return (stopLocation?.coordinate.latitude)!
-    }
-
-    func longitudeData() -> Double{
-        return (stopLocation?.coordinate.longitude)!
     }
     
     func octaneData() -> Int{
