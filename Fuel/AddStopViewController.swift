@@ -20,6 +20,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     @IBOutlet weak var octane: SkyFloatingLabelTextField!
     @IBOutlet weak var tripOdometer: SkyFloatingLabelTextField!
     @IBOutlet weak var odometer: SkyFloatingLabelTextField!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
         // Dismiss Keyboard Input
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter?.onAttach(view: self)
