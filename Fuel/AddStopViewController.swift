@@ -8,46 +8,45 @@
 
 import CoreLocation
 import UIKit
-import SkyFloatingLabelTextField
 
 class AddStopViewController: UIViewController, AddStopContractView {
 
     var presenter: AddStopContractPresenter?
     
-    @IBOutlet weak var pricePerGallon: SkyFloatingLabelTextField!
-    @IBOutlet weak var gallons: SkyFloatingLabelTextField!
-    @IBOutlet weak var cost: SkyFloatingLabelTextField!
-    @IBOutlet weak var octane: SkyFloatingLabelTextField!
-    @IBOutlet weak var tripOdometer: SkyFloatingLabelTextField!
-    @IBOutlet weak var odometer: SkyFloatingLabelTextField!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var pricePerGallon: UITextField!
+    @IBOutlet weak var gallons: UITextField!
+    @IBOutlet weak var cost: UITextField!
+    @IBOutlet weak var octane: UITextField!
+    @IBOutlet weak var tripOdometer: UITextField!
+    @IBOutlet weak var tripMPG: UITextField!
+    @IBOutlet weak var odometer: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         presenter = AddStopPresenter()
         
-        let errorColor = UIColor.red
-        
-        pricePerGallon.placeholder = "Price per Gallon"
-        pricePerGallon.title = "Price per Gallon"
-        pricePerGallon.errorColor = errorColor
-        gallons.placeholder = "Gallons"
-        gallons.title = "Gallons"
-        gallons.errorColor = errorColor
-        cost.placeholder = "Cost"
-        cost.title = "Cost"
-        cost.errorColor = errorColor
-        octane.placeholder = "Octane"
-        octane.title = "Octane"
-        octane.errorColor = errorColor
-        tripOdometer.placeholder = "Trip Odometer"
-        tripOdometer.title = "Trip Odometer"
-        tripOdometer.errorColor = errorColor
-        odometer.placeholder = "Odometer"
-        odometer.title = "Odometer"
-        odometer.errorColor = errorColor
-        initialDataPopulation()
+//        let errorColor = UIColor.red
+//
+//        pricePerGallon.placeholder = "Price per Gallon"
+//        pricePerGallon.title = "Price per Gallon"
+//        pricePerGallon.errorColor = errorColor
+//        gallons.placeholder = "Gallons"
+//        gallons.title = "Gallons"
+//        gallons.errorColor = errorColor
+//        cost.placeholder = "Cost"
+//        cost.title = "Cost"
+//        cost.errorColor = errorColor
+//        octane.placeholder = "Octane"
+//        octane.title = "Octane"
+//        octane.errorColor = errorColor
+//        tripOdometer.placeholder = "Trip Odometer"
+//        tripOdometer.title = "Trip Odometer"
+//        tripOdometer.errorColor = errorColor
+//        odometer.placeholder = "Odometer"
+//        odometer.title = "Odometer"
+//        odometer.errorColor = errorColor
+//        initialDataPopulation()
         
         // Dismiss Keyboard Input
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
@@ -109,48 +108,48 @@ class AddStopViewController: UIViewController, AddStopContractView {
         
         var isValid = true
         
-        if (pricePerGallon.text?.isEmpty)! {
-            isValid = false
-            pricePerGallon.errorMessage = "Error"
-        } else {
-            pricePerGallon.errorMessage = ""
-        }
-
-        if (gallons.text?.isEmpty)! {
-            isValid = false
-            gallons.errorMessage = "Error"
-        } else {
-            gallons.errorMessage = ""
-        }
-
-        if (cost.text?.isEmpty)! {
-            isValid = false
-            cost.errorMessage = "Error"
-        } else {
-            cost.errorMessage = ""
-        }
-
-        if (octane.text?.isEmpty)! {
-            isValid = false
-            octane.errorMessage = "Error"
-        } else {
-            octane.errorMessage = ""
-        }
-
-        if (tripOdometer.text?.isEmpty)! {
-            isValid = false
-            tripOdometer.errorMessage = "Error"
-        } else {
-            tripOdometer.errorMessage = ""
-        }
-
-        if (odometer.text?.isEmpty)! {
-            isValid = false
-            odometer.errorMessage = "Error"
-        } else {
-            odometer.errorMessage = ""
-        }
-        
+//        if (pricePerGallon.text?.isEmpty)! {
+//            isValid = false
+//            pricePerGallon.errorMessage = "Error"
+//        } else {
+//            pricePerGallon.errorMessage = ""
+//        }
+//
+//        if (gallons.text?.isEmpty)! {
+//            isValid = false
+//            gallons.errorMessage = "Error"
+//        } else {
+//            gallons.errorMessage = ""
+//        }
+//
+//        if (cost.text?.isEmpty)! {
+//            isValid = false
+//            cost.errorMessage = "Error"
+//        } else {
+//            cost.errorMessage = ""
+//        }
+//
+//        if (octane.text?.isEmpty)! {
+//            isValid = false
+//            octane.errorMessage = "Error"
+//        } else {
+//            octane.errorMessage = ""
+//        }
+//
+//        if (tripOdometer.text?.isEmpty)! {
+//            isValid = false
+//            tripOdometer.errorMessage = "Error"
+//        } else {
+//            tripOdometer.errorMessage = ""
+//        }
+//
+//        if (odometer.text?.isEmpty)! {
+//            isValid = false
+//            odometer.errorMessage = "Error"
+//        } else {
+//            odometer.errorMessage = ""
+//        }
+//        
         return isValid
     }
     
