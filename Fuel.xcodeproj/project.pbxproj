@@ -17,7 +17,6 @@
 		A266444F1FD3269A000DDFED /* FuelStopsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A266444E1FD3269A000DDFED /* FuelStopsDataManager.swift */; };
 		A26B1FE9203CFB1000E5BA22 /* MockOverviewContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26B1FE8203CFB1000E5BA22 /* MockOverviewContractView.swift */; };
 		A26E5EE11FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv in Resources */ = {isa = PBXBuildFile; fileRef = A26E5EE01FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv */; };
-		A26FA50F207DA78500E8AE81 /* SkyFloatingLabelTextField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A26FA50E207DA78500E8AE81 /* SkyFloatingLabelTextField.framework */; };
 		A275AC6B203E7D9100DC6CF4 /* MockAddStopContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275AC6A203E7D9100DC6CF4 /* MockAddStopContractView.swift */; };
 		A276BE82200C6FB20069CCA8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276BE81200C6FB20069CCA8 /* CoreLocation.framework */; };
 		A27BC0DA2018575D00E94BD2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27BC0D92018575D00E94BD2 /* Extensions.swift */; };
@@ -142,7 +141,6 @@
 				A2E7B8F92058D6B6002BCC12 /* RxBlocking.framework in Frameworks */,
 				A2E7B8FA2058D6B6002BCC12 /* RxSwift.framework in Frameworks */,
 				A2E7B8FB2058D6B6002BCC12 /* RxCocoa.framework in Frameworks */,
-				A26FA50F207DA78500E8AE81 /* SkyFloatingLabelTextField.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,13 +421,11 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SkyFloatingLabelTextField.framework",
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxBlocking.framework",
 				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
 				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
-				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SkyFloatingLabelTextField.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

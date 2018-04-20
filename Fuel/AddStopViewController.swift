@@ -25,29 +25,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         presenter = AddStopPresenter()
-        
-//        let errorColor = UIColor.red
-//
-//        pricePerGallon.placeholder = "Price per Gallon"
-//        pricePerGallon.title = "Price per Gallon"
-//        pricePerGallon.errorColor = errorColor
-//        gallons.placeholder = "Gallons"
-//        gallons.title = "Gallons"
-//        gallons.errorColor = errorColor
-//        cost.placeholder = "Cost"
-//        cost.title = "Cost"
-//        cost.errorColor = errorColor
-//        octane.placeholder = "Octane"
-//        octane.title = "Octane"
-//        octane.errorColor = errorColor
-//        tripOdometer.placeholder = "Trip Odometer"
-//        tripOdometer.title = "Trip Odometer"
-//        tripOdometer.errorColor = errorColor
-//        odometer.placeholder = "Odometer"
-//        odometer.title = "Odometer"
-//        odometer.errorColor = errorColor
-//        initialDataPopulation()
-        
+                
         // Dismiss Keyboard Input
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
