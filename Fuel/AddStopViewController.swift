@@ -8,18 +8,27 @@
 
 import CoreLocation
 import UIKit
+import RxSwift
 
 class AddStopViewController: UIViewController, AddStopContractView {
 
     var presenter: AddStopContractPresenter?
+    private let disposeBag = DisposeBag()
     
-    @IBOutlet weak var pricePerGallon: UITextField!
-    @IBOutlet weak var gallons: UITextField!
-    @IBOutlet weak var cost: UITextField!
-    @IBOutlet weak var octane: UITextField!
-    @IBOutlet weak var tripOdometer: UITextField!
-    @IBOutlet weak var tripMPG: UITextField!
-    @IBOutlet weak var odometer: UITextField!
+    @IBOutlet weak var pricePerGallonTextField: UITextField!
+    @IBOutlet weak var gallonsTextField: UITextField!
+    @IBOutlet weak var costTextField: UITextField!
+    @IBOutlet weak var octaneTextField: UITextField!
+    @IBOutlet weak var tripOdometerTextField: UITextField!
+    @IBOutlet weak var tripMPGTextField: UITextField!
+    @IBOutlet weak var odometerTextField: UITextField!
+    
+    private var pricePerGallon: Double?
+    private var gallons: Double?
+    private var cost: Double = 0.0
+    private var octane: Int?
+    private var tripOdometer: Double?
+    private var odometer: Double?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +37,18 @@ class AddStopViewController: UIViewController, AddStopContractView {
                 
         // Dismiss Keyboard Input
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        
+        pricePerGallonTextField.rx.value.subscribe({str in
+            self.pricePerGallon = Double(self.stripDollarSign(string: str.element!!))
+            self.updatePriceTextField()
+        }).disposed(by: disposeBag)
+        gallonsTextField.rx.value.subscribe({str in
+            self.gallons = Double(str.element!!)
+            self.updatePriceTextField()
+        }).disposed(by: disposeBag)
+        tripOdometerTextField.rx.value.subscribe({str in
+            self.tripOdometer = Double(str.element!!)
+        }).disposed(by: disposeBag)
     }
         
     override func viewWillAppear(_ animated: Bool) {
@@ -55,12 +76,12 @@ class AddStopViewController: UIViewController, AddStopContractView {
     // MARK: AddStopContractView
     
     func initialDataPopulation() {
-        self.pricePerGallon.text = ""
-        self.gallons.text = ""
-        self.cost.text = ""
-        self.octane.text = ""
-        self.tripOdometer.text = ""
-        self.odometer.text = ""
+        self.pricePerGallonTextField.text = ""
+        self.gallonsTextField.text = ""
+        self.costTextField.text = ""
+        self.octaneTextField.text = ""
+        self.tripOdometerTextField.text = ""
+        self.odometerTextField.text = ""
     }
     
     func dismiss() {
@@ -132,23 +153,23 @@ class AddStopViewController: UIViewController, AddStopContractView {
     }
     
     func gallonsData() -> Double {
-        return Double(gallons.text!)!
+        return Double(gallonsTextField.text!)!
     }
     
     func octaneData() -> Int{
-        return Int(octane.text!)!
+        return Int(octaneTextField.text!)!
     }
     
     func odometerData() -> Int{
-        return Int(odometer.text!)!
+        return Int(odometerTextField.text!)!
     }
     
     func priceData() -> Double{
-        return Double(cost.text!)!
+        return Double(costTextField.text!)!
     }
     
     func ppgData() -> Double{
-        return Double(pricePerGallon.text!)!
+        return Double(pricePerGallonTextField.text!)!
     }
     
     func stopDateData() -> Date{
@@ -156,6 +177,18 @@ class AddStopViewController: UIViewController, AddStopContractView {
     }
     
     func tripOdometerData() -> Double{
-        return Double(tripOdometer.text!)!
+        return Double(tripOdometerTextField.text!)!
+    }
+    
+    func stripDollarSign(string: String) -> String {
+        return string.replacingOccurrences(of: "$", with: "")
+    }
+    
+    private func updatePriceTextField() {
+        
+        if (pricePerGallon != nil && gallons != nil) {
+            cost = pricePerGallon! * gallons!
+        }
+        costTextField.text = cost.currencyFormat()
     }
 }
