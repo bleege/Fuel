@@ -25,7 +25,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     
     private var pricePerGallon: Double?
     private var gallons: Double?
-    private var cost: Double = 0.0
+    private var cost: Double?
     private var octane: Int?
     private var tripOdometer: Double?
     private var odometer: Double?
@@ -45,9 +45,11 @@ class AddStopViewController: UIViewController, AddStopContractView {
         gallonsTextField.rx.value.subscribe({str in
             self.gallons = Double(str.element!!)
             self.updatePriceTextField()
+            self.updateTripMPGTextField()
         }).disposed(by: disposeBag)
         tripOdometerTextField.rx.value.subscribe({str in
             self.tripOdometer = Double(str.element!!)
+            self.updateTripMPGTextField()
         }).disposed(by: disposeBag)
     }
         
@@ -185,10 +187,17 @@ class AddStopViewController: UIViewController, AddStopContractView {
     }
     
     private func updatePriceTextField() {
-        
         if (pricePerGallon != nil && gallons != nil) {
             cost = pricePerGallon! * gallons!
         }
-        costTextField.text = cost.currencyFormat()
+        costTextField.text = cost?.currencyFormat()
+    }
+    
+    private func updateTripMPGTextField() {
+        if (gallons != nil && tripOdometer != nil && tripOdometer != 0) {
+            tripMPGTextField.text = (tripOdometer! / gallons!).mpgFormat()
+        } else {
+            tripMPGTextField.text = 0.mpgFormat()
+        }
     }
 }
