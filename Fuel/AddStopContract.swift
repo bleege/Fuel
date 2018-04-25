@@ -10,7 +10,6 @@ import CloudKit
 import Foundation
 
 protocol AddStopContractView {
-    func initialDataPopulation()
     func dismiss()
     func dismissAfterSave(record: FuelStop)
     func displayError(message: String)
