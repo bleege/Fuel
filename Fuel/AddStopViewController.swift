@@ -51,6 +51,10 @@ class AddStopViewController: UIViewController, AddStopContractView {
             self.tripOdometer = Double(event.element!!)!
             self.updateTripMPGTextField()
         }).disposed(by: disposeBag)
+        
+        pricePerGallonTextField.rx.controlEvent(UIControlEvents.editingDidEnd)
+            .subscribe({event in self.updatePricePerGallonTextField() })
+            .disposed(by: disposeBag)
     }
         
     override func viewWillAppear(_ animated: Bool) {
@@ -175,6 +179,10 @@ class AddStopViewController: UIViewController, AddStopContractView {
     
     func stripDollarSign(string: String) -> String {
         return string.replacingOccurrences(of: "$", with: "")
+    }
+    
+    private func updatePricePerGallonTextField() {
+        pricePerGallonTextField.text = pricePerGallon.currencyFormat()
     }
     
     private func updatePriceTextField() {
