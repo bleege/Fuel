@@ -38,17 +38,17 @@ class AddStopViewController: UIViewController, AddStopContractView {
         // Dismiss Keyboard Input
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
-        pricePerGallonTextField.rx.value.subscribe({str in
-            self.pricePerGallon = Double(self.stripDollarSign(string: str.element!!))!
+        pricePerGallonTextField.rx.value.filter { str in !(str ?? "").isEmpty } .subscribe({event in
+            self.pricePerGallon = Double(self.stripDollarSign(string: event.element!!))!
             self.updatePriceTextField()
         }).disposed(by: disposeBag)
-        gallonsTextField.rx.value.subscribe({str in
-            self.gallons = Double(str.element!!)!
+        gallonsTextField.rx.value.filter { str in !(str ?? "").isEmpty } .subscribe({event in
+            self.gallons = Double(event.element!!)!
             self.updatePriceTextField()
             self.updateTripMPGTextField()
         }).disposed(by: disposeBag)
-        tripOdometerTextField.rx.value.subscribe({str in
-            self.tripOdometer = Double(str.element!!)!
+        tripOdometerTextField.rx.value.filter { str in !(str ?? "").isEmpty } .subscribe({event in
+            self.tripOdometer = Double(event.element!!)!
             self.updateTripMPGTextField()
         }).disposed(by: disposeBag)
     }
@@ -183,6 +183,10 @@ class AddStopViewController: UIViewController, AddStopContractView {
     }
     
     private func updateTripMPGTextField() {
-        tripMPGTextField.text = (tripOdometer / gallons).mpgFormat()
+        if (gallons == 0) {
+            tripMPGTextField.text = 0.mpgFormat()
+        } else {
+            tripMPGTextField.text = (tripOdometer / gallons).mpgFormat()
+        }
     }
 }
