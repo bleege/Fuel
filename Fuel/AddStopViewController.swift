@@ -104,48 +104,48 @@ class AddStopViewController: UIViewController, AddStopContractView {
         
         var isValid = true
         
-//        if (pricePerGallon.text?.isEmpty)! {
-//            isValid = false
-//            pricePerGallon.errorMessage = "Error"
-//        } else {
-//            pricePerGallon.errorMessage = ""
-//        }
-//
-//        if (gallons.text?.isEmpty)! {
-//            isValid = false
-//            gallons.errorMessage = "Error"
-//        } else {
-//            gallons.errorMessage = ""
-//        }
-//
-//        if (cost.text?.isEmpty)! {
-//            isValid = false
-//            cost.errorMessage = "Error"
-//        } else {
-//            cost.errorMessage = ""
-//        }
-//
-//        if (octane.text?.isEmpty)! {
-//            isValid = false
-//            octane.errorMessage = "Error"
-//        } else {
-//            octane.errorMessage = ""
-//        }
-//
-//        if (tripOdometer.text?.isEmpty)! {
-//            isValid = false
-//            tripOdometer.errorMessage = "Error"
-//        } else {
-//            tripOdometer.errorMessage = ""
-//        }
-//
-//        if (odometer.text?.isEmpty)! {
-//            isValid = false
-//            odometer.errorMessage = "Error"
-//        } else {
-//            odometer.errorMessage = ""
-//        }
-//        
+        if (pricePerGallonTextField.text?.isEmpty)! {
+            isValid = false
+            paintError(textField: pricePerGallonTextField)
+        } else {
+            paintClean(textField: pricePerGallonTextField)
+        }
+
+        if (gallonsTextField.text?.isEmpty)! {
+            isValid = false
+            paintError(textField: gallonsTextField)
+        } else {
+            paintClean(textField: gallonsTextField)
+        }
+
+        if (costTextField.text?.isEmpty)! {
+            isValid = false
+            paintError(textField: costTextField)
+        } else {
+            paintClean(textField: costTextField)
+        }
+
+        if (octaneTextField.text?.isEmpty)! {
+            isValid = false
+            paintError(textField: octaneTextField)
+        } else {
+            paintClean(textField: octaneTextField)
+        }
+
+        if (tripOdometerTextField.text?.isEmpty)! {
+            isValid = false
+            paintError(textField: tripOdometerTextField)
+        } else {
+            paintClean(textField: tripOdometerTextField)
+        }
+
+        if (odometerTextField.text?.isEmpty)! {
+            isValid = false
+            paintError(textField: odometerTextField)
+        } else {
+            paintClean(textField: odometerTextField)
+        }
+        
         return isValid
     }
     
@@ -162,11 +162,11 @@ class AddStopViewController: UIViewController, AddStopContractView {
     }
     
     func priceData() -> Double{
-        return Double(costTextField.text!)!
+        return Double(stripDollarSign(string: costTextField.text!))!
     }
     
     func ppgData() -> Double{
-        return Double(pricePerGallonTextField.text!)!
+        return Double(stripDollarSign(string: pricePerGallonTextField.text!))!
     }
     
     func stopDateData() -> Date{
@@ -196,5 +196,17 @@ class AddStopViewController: UIViewController, AddStopContractView {
         } else {
             tripMPGTextField.text = (tripOdometer / gallons).mpgFormat()
         }
+    }
+    
+    private func paintError(textField: UITextField) {
+        textField.layer.masksToBounds = true
+        textField.layer.borderColor = UIColor.red.cgColor
+        textField.layer.borderWidth = 2
+    }
+    
+    private func paintClean(textField: UITextField) {
+        textField.layer.masksToBounds = false
+        textField.layer.borderColor = UIColor.clear.cgColor
+        textField.layer.borderWidth = 0
     }
 }
