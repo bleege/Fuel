@@ -10,6 +10,7 @@ import UIKit
 
 class OverviewStopTableCell: UITableViewCell {
     
+    @IBOutlet weak var stageView: UIView!
     @IBOutlet weak var stopDate: UILabel!
     @IBOutlet weak var gallonsFilled: UILabel!
     @IBOutlet weak var totalPrice: UILabel!

@@ -144,6 +144,12 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
         cell.gallonsFilled.text = stopData.gallons.gallonFormat()
         cell.totalPrice.text = stopData.price.currencyFormat()
         
+        // Round Corners and Drop Shadow
+        cell.stageView.layer.cornerRadius = 10
+        cell.stageView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        cell.stageView.layer.shadowRadius = 0.5
+        cell.stageView.layer.shadowOpacity = 0.2
+        
         return cell
     }
 

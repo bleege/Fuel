@@ -92,6 +92,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="gallonsFilled" destination="ffS-dH-49G" id="5py-db-zHY"/>
+                                            <outlet property="stageView" destination="2ln-J7-yfH" id="OoG-kT-xab"/>
                                             <outlet property="stopDate" destination="Yda-SG-4gQ" id="EGq-bV-8cC"/>
                                             <outlet property="totalPrice" destination="ZvM-zw-zAj" id="xTa-2q-iYY"/>
                                         </connections>
