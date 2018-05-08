@@ -75,6 +75,7 @@
 		A22D93E02016D8FC008D6254 /* StopDetailPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailPresentationController.swift; sourceTree = "<group>"; };
 		A22D93E22016D9CC008D6254 /* StopDetailPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailPresentationManager.swift; sourceTree = "<group>"; };
 		A22D93E42016E0C4008D6254 /* StopDetailPresentationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailPresentationAnimator.swift; sourceTree = "<group>"; };
+		A242C26B20A13F0300C46F78 /* LICENSES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSES.md; sourceTree = "<group>"; };
 		A2435C5A2055ABAD00EC990F /* Fuel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fuel.entitlements; sourceTree = "<group>"; };
 		A2435C5B2055ABEB00EC990F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A2435C5D2055D6EA00EC990F /* FuelStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelStop.swift; sourceTree = "<group>"; };
@@ -164,6 +165,7 @@
 		A2B7C88E1FC526100012167F = {
 			isa = PBXGroup;
 			children = (
+				A242C26B20A13F0300C46F78 /* LICENSES.md */,
 				A2B7C8991FC526100012167F /* Fuel */,
 				A2B7C8B01FC526100012167F /* FuelTests */,
 				A2B7C8BB1FC526100012167F /* FuelUITests */,
