@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import RxSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
@@ -16,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     let dataManager = FuelStopsDataManager()
     private let locationManager = CLLocationManager()
     var currentLocation: CLLocation? = nil
+    private let disposeBag = DisposeBag()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -69,11 +71,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             print(csvContent)
             let lines: [String] = csvContent.components(separatedBy: .newlines)
             
+            print("Number of lines / records to save: \(lines.count)")
+            var lc = 1
+            
             for line in lines {
                 let values = line.components(separatedBy: ",")
                 if (values.count > 1) {
-                    dataManager.addFuelStop(csv: values).subscribe()
+                    
+                    dataManager.addFuelStop(csv: values).subscribe(onSuccess: { (record) in
+                            print("Successfully added Fuel Stop \(record.recordID.recordName)")
+                        }, onError: { (error) in
+                            print("Error adding fuel stop: \(error)")
+                        }, onCompleted: {
+                            print("Completed adding Fuel Stop")
+                        }).disposed(by: disposeBag)
+                    
                 }
+                lc = lc + 1
             }
             
         } catch {
