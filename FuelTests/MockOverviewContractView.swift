@@ -10,14 +10,17 @@ import Foundation
 @testable import Fuel
 
 class MockOverviewContractView: OverviewContractView {
-
+    
     var displayStopsCalled = false
     var refreshMapCalled = false
     var displayStopOnMapCalled = false
     var displayStopDataViewCalled = false
     var displayAddStopViewControllerCalled = false
+    var addFuelStopToTableCalled = false
+    var zoomToUserLocationCalled = false
+    var displayErrorCalled = false
     
-    func displayStops(fuelStops: [FuelStopsMO]) {
+    func displayStops(fuelStops: [FuelStop]) {
         displayStopsCalled = true
     }
     
@@ -37,4 +40,16 @@ class MockOverviewContractView: OverviewContractView {
         displayAddStopViewControllerCalled = true
     }
     
+    func addFuelStopToTable(fuelStop: FuelStop) {
+        addFuelStopToTableCalled = true
+    }
+    
+    func zoomToUserLocation() {
+        zoomToUserLocationCalled = true
+    }
+    
+    func displayError(message: String) {
+        displayErrorCalled = true
+    }
+
 }

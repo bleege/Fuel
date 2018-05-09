@@ -16,14 +16,14 @@ class MockAddStopContractView: AddStopContractView {
     var dismissCalled = false
     var validateFormCalled = false
     var gallonsDataCalled = false
-    var latitudeDataCalled = false
-    var longitudeDataCalled = false
     var octaneDataCalled = false
     var odometerDataCalled = false
     var priceDataCalled = false
     var ppgDataCalled = false
     var stopDateDataCalled = false
     var tripOdometerDataCalled = false
+    var dismissAfterSaveCalled = false
+    var displayErrorCalled = false
     
     func initialDataPopulation(stopDate: Date, location: CLLocation?) {
         self.initialDataPopulationCalled = true
@@ -40,16 +40,6 @@ class MockAddStopContractView: AddStopContractView {
     
     func gallonsData() -> Double {
         gallonsDataCalled = true
-        return 1
-    }
-    
-    func latitudeData() -> Double {
-        latitudeDataCalled = true
-        return 1
-    }
-    
-    func longitudeData() -> Double {
-        longitudeDataCalled = true
         return 1
     }
     
@@ -81,6 +71,14 @@ class MockAddStopContractView: AddStopContractView {
     func tripOdometerData() -> Double {
         tripOdometerDataCalled = true
         return 1
+    }
+
+    func dismissAfterSave(record: FuelStop) {
+        dismissAfterSaveCalled = true
+    }
+    
+    func displayError(message: String) {
+        displayErrorCalled = true
     }
 
 }
