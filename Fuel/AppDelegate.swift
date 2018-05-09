@@ -72,7 +72,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             let lines: [String] = csvContent.components(separatedBy: .newlines)
             
             print("Number of lines / records to save: \(lines.count)")
-            var lc = 1
             
             for line in lines {
                 let values = line.components(separatedBy: ",")
@@ -87,9 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                         }).disposed(by: disposeBag)
                     
                 }
-                lc = lc + 1
             }
-            
         } catch {
             print("Couldn't load data file")
             return
