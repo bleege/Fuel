@@ -13,28 +13,34 @@ class FuelTests: XCTestCase {
     
     private var mockOverViewContractView: MockOverviewContractView?
     private var mockAddStopContractView: MockAddStopContractView?
+    private var mockFuelStopsDataManager: MockFuelStopsDataManager?
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         mockOverViewContractView = MockOverviewContractView()
         mockAddStopContractView = MockAddStopContractView()
+        mockFuelStopsDataManager = MockFuelStopsDataManager()
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         mockOverViewContractView = nil
         mockAddStopContractView = nil
+        mockFuelStopsDataManager = nil
         
         super.tearDown()
     }
     
     func testOverviewPresenterLoadStops() {
-        let presenter = OverviewPresenter()
+        let presenter = OverviewPresenter(dataManager: mockFuelStopsDataManager!)
+        let expecation = self.expectation(description: "Display Fuel Stops")
+        mockOverViewContractView?.expectation = expecation
         presenter.onAttach(view: mockOverViewContractView!)
         presenter.loadFuelStops()
-        presenter.onDetach()
-//        XCTAssertTrue(mockOverViewContractView?.displayStopsCalled == true)
+        self.wait(for: [expecation], timeout: 5.0)
+//        presenter.onDetach()
+        XCTAssertTrue(mockOverViewContractView?.displayStopsCalled == true)
     }
     
     func testOverviewPresenterShowStopSelection() {

@@ -33,15 +33,15 @@ struct FuelStop {
     static let KEY_TRIP_ODOMETER = "trip_odometer"
     
     init(record: CKRecord) {
-        gallons = record.object(forKey: FuelStop.KEY_GALLONS) as! Double
-        location = record.object(forKey: FuelStop.KEY_LOCATION) as! CLLocation
-        mpg = record.object(forKey: FuelStop.KEY_MPG) as! Double
-        octane = record.object(forKey: FuelStop.KEY_OCTANE) as! Int64
-        odometer = record.object(forKey: FuelStop.KEY_ODOMETER) as! Int64
-        price = record.object(forKey: FuelStop.KEY_PRICE) as! Double
-        pricePerGallon = record.object(forKey: FuelStop.KEY_PPG) as! Double
-        stopDate = record.object(forKey: FuelStop.KEY_STOPDATE) as! Date
-        tripOdometer = record.object(forKey: FuelStop.KEY_TRIP_ODOMETER) as! Double
+        gallons = record.object(forKey: FuelStop.KEY_GALLONS) as? Double ?? 0.0
+        location = record.object(forKey: FuelStop.KEY_LOCATION) as? CLLocation ?? CLLocation(latitude: 0.0, longitude: 0.0)
+        mpg = record.object(forKey: FuelStop.KEY_MPG) as? Double ?? 0.0
+        octane = record.object(forKey: FuelStop.KEY_OCTANE) as? Int64 ?? 0
+        odometer = record.object(forKey: FuelStop.KEY_ODOMETER) as? Int64 ?? 0
+        price = record.object(forKey: FuelStop.KEY_PRICE) as? Double ?? 0.0
+        pricePerGallon = record.object(forKey: FuelStop.KEY_PPG) as? Double ?? 0.0
+        stopDate = record.object(forKey: FuelStop.KEY_STOPDATE) as? Date ?? Date()
+        tripOdometer = record.object(forKey: FuelStop.KEY_TRIP_ODOMETER) as? Double ?? 0.0
         recordName = record.recordID.recordName
     }
 }

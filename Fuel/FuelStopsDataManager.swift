@@ -10,7 +10,7 @@ import CloudKit
 import CoreLocation
 import RxSwift
 
-class FuelStopsDataManager {
+class FuelStopsDataManager: FuelStopsDataManagerContract {
     
     private let container: CKContainer
     private let userDB: CKDatabase

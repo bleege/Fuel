@@ -14,12 +14,16 @@ class OverviewPresenter: OverviewContractPresenter {
     
     private var view: OverviewContractView?
     
-    private let dataManager = (UIApplication.shared.delegate as! AppDelegate).dataManager
+    private var dataManager: FuelStopsDataManagerContract
     
     private let disposeBag = DisposeBag()
     
     init() {
-        // No Op
+        self.dataManager = (UIApplication.shared.delegate as! AppDelegate).dataManager
+    }
+    
+    init(dataManager: FuelStopsDataManagerContract) {
+        self.dataManager = dataManager
     }
     
     // MARK: OverviewContractPresenter

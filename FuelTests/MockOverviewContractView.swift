@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import XCTest
 @testable import Fuel
 
 class MockOverviewContractView: OverviewContractView {
@@ -20,8 +21,11 @@ class MockOverviewContractView: OverviewContractView {
     var zoomToUserLocationCalled = false
     var displayErrorCalled = false
     
+    var expectation: XCTestExpectation? = nil
+    
     func displayStops(fuelStops: [FuelStop]) {
         displayStopsCalled = true
+        expectation?.fulfill()
     }
     
     func refreshMap() {
@@ -50,6 +54,7 @@ class MockOverviewContractView: OverviewContractView {
     
     func displayError(message: String) {
         displayErrorCalled = true
+        expectation?.fulfill()
     }
 
 }
