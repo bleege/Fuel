@@ -39,7 +39,7 @@ class FuelTests: XCTestCase {
         presenter.onAttach(view: mockOverViewContractView!)
         presenter.loadFuelStops()
         self.wait(for: [expecation], timeout: 5.0)
-//        presenter.onDetach()
+        presenter.onDetach()
         XCTAssertTrue(mockOverViewContractView?.displayStopsCalled == true)
     }
     
