@@ -44,7 +44,7 @@ class FuelTests: XCTestCase {
     }
     
     func testOverviewPresenterShowStopSelection() {
-        let presenter = OverviewPresenter()
+        let presenter = OverviewPresenter(dataManager: mockFuelStopsDataManager!)
         presenter.onAttach(view: mockOverViewContractView!)
         presenter.handleStopSelection(index: 1)
         presenter.onDetach()
@@ -53,7 +53,7 @@ class FuelTests: XCTestCase {
     }
     
     func testOverviewPresenterAddStopFABTap() {
-        let presenter = OverviewPresenter()
+        let presenter = OverviewPresenter(dataManager: mockFuelStopsDataManager!)
         presenter.onAttach(view: mockOverViewContractView!)
         presenter.handleAddStopFABTap()
         presenter.onDetach()
