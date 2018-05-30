@@ -15,7 +15,16 @@ class AddStopPresenter: AddStopContractPresenter {
 
     private var view:AddStopContractView?
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private var dataManager: FuelStopsDataManagerContract
     private let disposeBag = DisposeBag()
+    
+    init() {
+        self.dataManager = (UIApplication.shared.delegate as! AppDelegate).dataManager
+    }
+    
+    init(dataManager: FuelStopsDataManagerContract) {
+        self.dataManager = dataManager
+    }    
     
     func onAttach(view: AddStopContractView) {
         self.view = view
@@ -35,7 +44,7 @@ class AddStopPresenter: AddStopContractPresenter {
             
             let loc = appDelegate.currentLocation
             
-            appDelegate.dataManager
+            dataManager
                 .addFuelStop(gallons: (view?.gallonsData())!,
                                                 latitude: (loc?.coordinate.latitude)!,
                                                 longitude: (loc?.coordinate.longitude)!,

@@ -69,7 +69,7 @@ class FuelTests: XCTestCase {
     }
 
     func testAddStopPresenterSave(){
-        let presenter = AddStopPresenter()
+        let presenter = AddStopPresenter(dataManager: mockFuelStopsDataManager!)
         presenter.onAttach(view: mockAddStopContractView!)
         presenter.handleSaveTap()
         presenter.onDetach()
@@ -80,7 +80,7 @@ class FuelTests: XCTestCase {
         XCTAssertTrue(mockAddStopContractView?.priceDataCalled == true)
         XCTAssertTrue(mockAddStopContractView?.ppgDataCalled == true)
         XCTAssertTrue(mockAddStopContractView?.tripOdometerDataCalled == true)
-//        XCTAssertTrue(mockAddStopContractView?.dismissAfterSaveCalled == true)
+        XCTAssertTrue(mockAddStopContractView?.dismissAfterSaveCalled == true)
     }
 
     func testPerformanceExample() {

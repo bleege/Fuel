@@ -28,7 +28,6 @@ class MockFuelStopsDataManager: FuelStopsDataManagerContract {
             maybe(.success(record))
             return Disposables.create {}
         }
-
     }
     
     func addFuelStop(gallons: Double, latitude: Double, longitude: Double, octane: Int, odometer: Int, price: Double, ppg: Double, stopDate: Date, tripOdometer: Double) -> Maybe<CKRecord> {
