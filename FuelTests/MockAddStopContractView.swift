@@ -12,7 +12,6 @@ import CoreLocation
 
 class MockAddStopContractView: AddStopContractView {
     
-    var initialDataPopulationCalled = false
     var dismissCalled = false
     var validateFormCalled = false
     var gallonsDataCalled = false
@@ -24,11 +23,7 @@ class MockAddStopContractView: AddStopContractView {
     var tripOdometerDataCalled = false
     var dismissAfterSaveCalled = false
     var displayErrorCalled = false
-    
-    func initialDataPopulation(stopDate: Date, location: CLLocation?) {
-        self.initialDataPopulationCalled = true
-    }
-    
+        
     func dismiss() {
         dismissCalled = true
     }

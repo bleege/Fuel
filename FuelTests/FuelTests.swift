@@ -60,13 +60,6 @@ class FuelTests: XCTestCase {
         XCTAssertTrue(mockOverViewContractView?.displayAddStopViewControllerCalled == true)
     }
     
-    func testAddStopPresenterInitialDataPopulation() {
-        let presenter = AddStopPresenter()
-        presenter.onAttach(view: mockAddStopContractView!)
-        presenter.onDetach()
-//        XCTAssertTrue(mockAddStopContractView?.initialDataPopulationCalled == true)
-    }
-
     func testAddStopPresenterDismiss(){
         let presenter = AddStopPresenter()
         presenter.onAttach(view: mockAddStopContractView!)
