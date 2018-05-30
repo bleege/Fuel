@@ -82,12 +82,5 @@ class FuelTests: XCTestCase {
         XCTAssertTrue(mockAddStopContractView?.tripOdometerDataCalled == true)
         XCTAssertTrue(mockAddStopContractView?.dismissAfterSaveCalled == true)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
     
 }
