@@ -20,6 +20,10 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     var fuelStops = [FuelStop]()
     var fuelStopAnnotations = [MKPointAnnotation]()
     
+    private let fabSquareDim = CGFloat(50)
+    private var fabX: CGFloat?
+    private var fabY: CGFloat?
+    
     let stopDetailPresentationManager = StopDetailPresentationManager()
 
     override func viewDidLoad() {
@@ -49,6 +53,27 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     
     @IBAction func handleFABTap(_ sender: UITapGestureRecognizer) {
         presenter?.handleAddStopFABTap()
+    }
+    
+    func animateFABOffScreen() {
+        if (fabX == nil) {
+            fabX = self.addStopFAB.frame.origin.x
+            fabY = self.addStopFAB.frame.origin.y
+        }
+        
+        let x = self.addStopFAB.frame.origin.x
+        let animator = UIViewPropertyAnimator(duration: 2, dampingRatio: 0.7) {
+            let newY = self.view.bounds.height + CGFloat(2 * self.fabSquareDim);
+            self.addStopFAB.frame = CGRect(x: x, y: CGFloat(newY), width: self.fabSquareDim, height: self.fabSquareDim)
+        }
+        animator.startAnimation()
+    }
+
+    func animateFABOnScreen(){
+        let animator = UIViewPropertyAnimator(duration: 2, dampingRatio: 0.7) {
+            self.addStopFAB.frame = CGRect(x: self.fabX!, y: self.fabY!, width: self.fabSquareDim, height: self.fabSquareDim)
+        }
+        animator.startAnimation()
     }
     
     // MARK: OverviewContractView
@@ -158,4 +183,21 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter?.handleStopSelection(index: indexPath.row)
     }
+    
+    // MARK: UIScrollViewDelegate
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+//        print("scrollViewWillBeginDragging")
+        animateFABOffScreen()
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        print("scrollViewDidEndDecelerating")
+        // TODO - Start display of FAB
+        animateFABOnScreen()
+    }
+    
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        print("scrollViewDidScroll")
+//    }
+    
 }
