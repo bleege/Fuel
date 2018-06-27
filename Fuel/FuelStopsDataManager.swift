@@ -9,6 +9,7 @@
 import CloudKit
 import CoreLocation
 import RxSwift
+import RxCloudKit
 
 class FuelStopsDataManager: FuelStopsDataManagerContract {
     
