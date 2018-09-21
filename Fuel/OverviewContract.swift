@@ -7,7 +7,7 @@
 //
 
 
-protocol OverviewContractView {
+protocol OverviewContractView: class {
     func addFuelStopToTable(fuelStop: FuelStop)
     func displayStops(fuelStops: [FuelStop])
     func refreshMap()
@@ -18,7 +18,7 @@ protocol OverviewContractView {
     func displayError(message: String)
 }
 
-protocol OverviewContractPresenter {
+protocol OverviewContractPresenter: class {
     func onAttach(view: OverviewContractView)
     func onDetach()
     func loadFuelStops()

@@ -10,7 +10,7 @@ import Foundation
 import CloudKit
 import RxSwift
 
-protocol FuelStopsDataManagerContract {
+protocol FuelStopsDataManagerContract: class {
 
     func getAllFuelStops() -> Observable<CKRecord>
     

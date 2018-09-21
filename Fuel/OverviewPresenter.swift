@@ -12,7 +12,7 @@ import RxSwift
 
 class OverviewPresenter: OverviewContractPresenter {
     
-    private var view: OverviewContractView?
+    private weak var view: OverviewContractView?
     
     private var dataManager: FuelStopsDataManagerContract
     

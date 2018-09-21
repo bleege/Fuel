@@ -9,7 +9,7 @@
 import CloudKit
 import Foundation
 
-protocol AddStopContractView {
+protocol AddStopContractView: class {
     func dismiss()
     func dismissAfterSave(record: FuelStop)
     func displayError(message: String)
@@ -23,7 +23,7 @@ protocol AddStopContractView {
     func tripOdometerData() -> Double
 }
 
-protocol AddStopContractPresenter {
+protocol AddStopContractPresenter: class {
     func onAttach(view: AddStopContractView)
     func onDetach()
     func handleCancelTap()

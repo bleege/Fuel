@@ -13,7 +13,7 @@ import RxCocoa
 
 class AddStopPresenter: AddStopContractPresenter {
 
-    private var view:AddStopContractView?
+    private weak var view:AddStopContractView?
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var dataManager: FuelStopsDataManagerContract
     private let disposeBag = DisposeBag()
