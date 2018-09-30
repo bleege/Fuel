@@ -33,7 +33,6 @@
 		A22D93E12016D8FC008D6254 /* StopDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E02016D8FC008D6254 /* StopDetailPresentationController.swift */; };
 		A22D93E32016D9CC008D6254 /* StopDetailPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E22016D9CC008D6254 /* StopDetailPresentationManager.swift */; };
 		A22D93E52016E0C4008D6254 /* StopDetailPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E42016E0C4008D6254 /* StopDetailPresentationAnimator.swift */; };
-		A231CA1B20E33BC500DCB275 /* RxCloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A231CA1A20E33BC500DCB275 /* RxCloudKit.framework */; };
 		A2435C5C2055ABEB00EC990F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2435C5B2055ABEB00EC990F /* CloudKit.framework */; };
 		A2435C5E2055D6EA00EC990F /* FuelStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2435C5D2055D6EA00EC990F /* FuelStop.swift */; };
 		A250C6B21FECB0230025A962 /* OverviewStopTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A250C6B11FECB0230025A962 /* OverviewStopTableCell.swift */; };
@@ -166,7 +165,6 @@
 				A21AEC2420BB9BD4007180C1 /* RxSwift.framework in Frameworks */,
 				A21AEC2220BB9BBB007180C1 /* CoreLocation.framework in Frameworks */,
 				A21AEC2120BB9BB1007180C1 /* CloudKit.framework in Frameworks */,
-				A231CA1B20E33BC500DCB275 /* RxCloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,7 +601,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -656,7 +654,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
