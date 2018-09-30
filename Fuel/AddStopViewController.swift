@@ -79,7 +79,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
         presenter?.handleCancelTap()
     }
     
-    // MARK: AddStopContractView
+    // MARK: - AddStopContractView
     
     func dismiss() {
         dismiss(animated: true)
