@@ -15,7 +15,6 @@
 		A21AEC2420BB9BD4007180C1 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E7B8F62058D6B5002BCC12 /* RxSwift.framework */; };
 		A21AEC2620BB9C22007180C1 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E7B8F52058D6B5002BCC12 /* RxBlocking.framework */; };
 		A220B225215F4A8E002DF784 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = A220B213215F4A8D002DF784 /* Record.swift */; };
-		A220B226215F4A8E002DF784 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A220B214215F4A8D002DF784 /* Info.plist */; };
 		A220B227215F4A8E002DF784 /* CKSubscription+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A220B215215F4A8D002DF784 /* CKSubscription+Rx.swift */; };
 		A220B228215F4A8E002DF784 /* RecordModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A220B216215F4A8D002DF784 /* RecordModifier.swift */; };
 		A220B229215F4A8E002DF784 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A220B217215F4A8D002DF784 /* Error.swift */; };
@@ -85,7 +84,6 @@
 		A21AEC1F20BB9B76007180C1 /* MockFuelStopsDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuelStopsDataManager.swift; sourceTree = "<group>"; };
 		A220B211215F47FA002DF784 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A220B213215F4A8D002DF784 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Record.swift; path = ../../../RxCloudKit/RxCloudKit/Record.swift; sourceTree = "<group>"; };
-		A220B214215F4A8D002DF784 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../../RxCloudKit/RxCloudKit/Info.plist; sourceTree = "<group>"; };
 		A220B215215F4A8D002DF784 /* CKSubscription+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CKSubscription+Rx.swift"; path = "../../../RxCloudKit/RxCloudKit/CKSubscription+Rx.swift"; sourceTree = "<group>"; };
 		A220B216215F4A8D002DF784 /* RecordModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecordModifier.swift; path = ../../../RxCloudKit/RxCloudKit/RecordModifier.swift; sourceTree = "<group>"; };
 		A220B217215F4A8D002DF784 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Error.swift; path = ../../../RxCloudKit/RxCloudKit/Error.swift; sourceTree = "<group>"; };
@@ -192,7 +190,6 @@
 				A220B215215F4A8D002DF784 /* CKSubscription+Rx.swift */,
 				A220B21A215F4A8D002DF784 /* Cloud.swift */,
 				A220B217215F4A8D002DF784 /* Error.swift */,
-				A220B214215F4A8D002DF784 /* Info.plist */,
 				A220B21F215F4A8E002DF784 /* Local.swift */,
 				A220B218215F4A8D002DF784 /* Log.swift */,
 				A220B213215F4A8D002DF784 /* Record.swift */,
@@ -419,7 +416,6 @@
 				A2B7C8A71FC526100012167F /* LaunchScreen.storyboard in Resources */,
 				A2B7C8A41FC526100012167F /* Assets.xcassets in Resources */,
 				A26E5EE11FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv in Resources */,
-				A220B226215F4A8E002DF784 /* Info.plist in Resources */,
 				A2B7C8A21FC526100012167F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

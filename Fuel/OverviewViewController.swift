@@ -16,9 +16,9 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
     @IBOutlet weak var addStopFAB: FABView!
     @IBOutlet var addStopFABGestureRecognizer: UITapGestureRecognizer!
     
-    var presenter: OverviewContractPresenter?
-    var fuelStops = [FuelStop]()
-    var fuelStopAnnotations = [MKPointAnnotation]()
+    private var presenter: OverviewContractPresenter?
+    private var fuelStops = [FuelStop]()
+    private var fuelStopAnnotations = [MKPointAnnotation]()
     
     private let fabSquareDim = CGFloat(50)
     private var fabX: CGFloat?
@@ -76,7 +76,8 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
         animator.startAnimation()
     }
     
-    // MARK: OverviewContractView
+    // MARK: - OverviewContractView
+    
     func addFuelStopToTable(fuelStop: FuelStop) {
         self.fuelStops.insert(fuelStop, at: 0)
         self.stopsTableView.reloadData()
@@ -178,26 +179,20 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
         return cell
     }
 
-    // MARK: UITableViewDelegate
+    // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter?.handleStopSelection(index: indexPath.row)
     }
     
-    // MARK: UIScrollViewDelegate
+    // MARK: - UIScrollViewDelegate
+
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//        print("scrollViewWillBeginDragging")
         animateFABOffScreen()
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        print("scrollViewDidEndDecelerating")
-        // TODO - Start display of FAB
         animateFABOnScreen()
     }
-    
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        print("scrollViewDidScroll")
-//    }
     
 }
