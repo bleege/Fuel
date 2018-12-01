@@ -24,6 +24,7 @@
 		A266444F1FD3269A000DDFED /* FuelStopsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A266444E1FD3269A000DDFED /* FuelStopsDataManager.swift */; };
 		A26B1FE9203CFB1000E5BA22 /* MockOverviewContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26B1FE8203CFB1000E5BA22 /* MockOverviewContractView.swift */; };
 		A26E5EE11FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv in Resources */ = {isa = PBXBuildFile; fileRef = A26E5EE01FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv */; };
+		A26FCEAE21AF95D100D9CE41 /* CKDatabase+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26FCEAD21AF95D100D9CE41 /* CKDatabase+Rx.swift */; };
 		A275AC6B203E7D9100DC6CF4 /* MockAddStopContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275AC6A203E7D9100DC6CF4 /* MockAddStopContractView.swift */; };
 		A276BE82200C6FB20069CCA8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276BE81200C6FB20069CCA8 /* CoreLocation.framework */; };
 		A27BC0DA2018575D00E94BD2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27BC0D92018575D00E94BD2 /* Extensions.swift */; };
@@ -81,6 +82,7 @@
 		A26B1FE8203CFB1000E5BA22 /* MockOverviewContractView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOverviewContractView.swift; sourceTree = "<group>"; };
 		A26E5EE01FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2016-VW-Jetta-Fuel-Tracking.csv"; sourceTree = "<group>"; };
 		A26FA50E207DA78500E8AE81 /* SkyFloatingLabelTextField.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkyFloatingLabelTextField.framework; path = Carthage/Build/iOS/SkyFloatingLabelTextField.framework; sourceTree = "<group>"; };
+		A26FCEAD21AF95D100D9CE41 /* CKDatabase+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKDatabase+Rx.swift"; sourceTree = "<group>"; };
 		A275AC6A203E7D9100DC6CF4 /* MockAddStopContractView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAddStopContractView.swift; sourceTree = "<group>"; };
 		A276BE81200C6FB20069CCA8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A27BC0D92018575D00E94BD2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				A22D93E02016D8FC008D6254 /* StopDetailPresentationController.swift */,
 				A22D93E22016D9CC008D6254 /* StopDetailPresentationManager.swift */,
 				A27BC0D92018575D00E94BD2 /* Extensions.swift */,
+				A26FCEAD21AF95D100D9CE41 /* CKDatabase+Rx.swift */,
 			);
 			path = Fuel;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 			files = (
 				A2B7C89F1FC526100012167F /* AddStopViewController.swift in Sources */,
 				A2B7C89B1FC526100012167F /* AppDelegate.swift in Sources */,
+				A26FCEAE21AF95D100D9CE41 /* CKDatabase+Rx.swift in Sources */,
 				A2B7C89D1FC526100012167F /* OverviewViewController.swift in Sources */,
 				A22D93E52016E0C4008D6254 /* StopDetailPresentationAnimator.swift in Sources */,
 				A266444F1FD3269A000DDFED /* FuelStopsDataManager.swift in Sources */,

@@ -22,8 +22,8 @@ class FuelStopsDataManager: FuelStopsDataManagerContract {
         userDB = container.privateCloudDatabase
     }
     
-    func getAllFuelStops() -> Observable<CKRecord>  {
-        return userDB.rx.fetch(recordType: FuelStopType, sortDescriptors: [stopsSortByDate])
+    func getAllFuelStops() -> Observable<[CKRecord]>  {
+        return userDB.fetchAll(recordType: FuelStopType, sortDescriptors: [stopsSortByDate])
     }
     
     func deleteFuelStop(fuelStop: FuelStop) {
@@ -48,7 +48,10 @@ class FuelStopsDataManager: FuelStopsDataManagerContract {
         stop.setValue(stopDate, forKey: FuelStop.KEY_STOPDATE)
         stop.setValue(tripOdometer, forKey: FuelStop.KEY_TRIP_ODOMETER)
         
-        return userDB.rx.save(record: stop)
+//        return userDB.rx.save(record: stop)
+        return Maybe<CKRecord>.create { _ in 
+            return Disposables.create {}
+        }
     }
     
     func addFuelStop(csv: [String]) -> Maybe<CKRecord> {

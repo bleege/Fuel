@@ -42,7 +42,7 @@ class OverviewPresenter: OverviewContractPresenter {
             .subscribe(onNext: { (element) in
                 print("Number of Elements Returned = \(element.count)")
                 var stops = [FuelStop]()
-                for ckr in element {
+                for ckr in element[0] {
                     stops.append(FuelStop(record: ckr))
                 }
                 self.view?.displayStops(fuelStops: stops)

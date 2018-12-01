@@ -12,7 +12,7 @@ import RxSwift
 
 protocol FuelStopsDataManagerContract: class {
 
-    func getAllFuelStops() -> Observable<CKRecord>
+    func getAllFuelStops() -> Observable<[CKRecord]>
     
     func deleteFuelStop(fuelStop: FuelStop)
     
