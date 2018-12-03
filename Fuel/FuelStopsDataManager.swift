@@ -48,10 +48,7 @@ class FuelStopsDataManager: FuelStopsDataManagerContract {
         stop.setValue(stopDate, forKey: FuelStop.KEY_STOPDATE)
         stop.setValue(tripOdometer, forKey: FuelStop.KEY_TRIP_ODOMETER)
         
-//        return userDB.rx.save(record: stop)
-        return Maybe<CKRecord>.create { _ in 
-            return Disposables.create {}
-        }
+        return userDB.save(stop: stop)
     }
     
     func addFuelStop(csv: [String]) -> Maybe<CKRecord> {
