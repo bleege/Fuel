@@ -22,7 +22,7 @@ class FuelStopsDataManager: FuelStopsDataManagerContract {
         userDB = container.privateCloudDatabase
     }
     
-    func getAllFuelStops() -> Observable<[CKRecord]>  {
+    func getAllFuelStops() -> Single<[CKRecord]>  {
         return userDB.fetchAll(recordType: FuelStopType, sortDescriptors: [stopsSortByDate])
     }
     

@@ -11,24 +11,21 @@ import RxSwift
 
 extension CKDatabase {
     
-    func fetchAll(recordType: String, sortDescriptors: [NSSortDescriptor]) -> Observable<[CKRecord]> {
+    func fetchAll(recordType: String, sortDescriptors: [NSSortDescriptor]) -> Single<[CKRecord]> {
         let query:CKQuery = CKQuery(recordType: recordType, predicate: NSPredicate(value: true))
         query.sortDescriptors = sortDescriptors
         
-        return Observable<[CKRecord]>.create { [weak self] observer in
+        return Single<[CKRecord]>.create { [weak self] single in
             self?.perform(query, inZoneWith: nil, completionHandler: { (records, error) in
 
                 if let error = error {
-                    observer.onError(error)
+                    single(.error(error))
                 } else {
-                    observer.onNext(records!)
-                    observer.onCompleted()
+                    single(.success(records!))
                 }
             })
 
-            return Disposables.create {
-                // No Op
-            }
+            return Disposables.create { }
         }
     }
     
