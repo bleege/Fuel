@@ -37,9 +37,9 @@ class OverviewPresenter: OverviewContractPresenter {
     }
     
     func loadFuelStops() {
-        dataManager.getAllFuelStops().toArray()
+        dataManager.getAllFuelStops()
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { (element) in
+            .subscribe(onSuccess: { (element) in
                 print("Number of Elements Returned = \(element.count)")
                 var stops = [FuelStop]()
                 for ckr in element {

@@ -12,9 +12,9 @@ import RxSwift
 @testable import Fuel
 
 class MockFuelStopsDataManager: FuelStopsDataManagerContract {
-    func getAllFuelStops() -> Observable<CKRecord> {
-        let record = CKRecord(recordType: "FuelStop")
-        return Observable.just(record)
+    func getAllFuelStops() -> Single<[CKRecord]> {
+        let record = [CKRecord(recordType: "FuelStop")]
+        return Single<[CKRecord]>.just(record)
     }
     
     func deleteFuelStop(fuelStop: FuelStop) {
