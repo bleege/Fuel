@@ -26,7 +26,7 @@ class OverviewPresenter: OverviewContractPresenter {
         self.dataManager = dataManager
     }
     
-    // MARK: OverviewContractPresenter
+    // MARK: - OverviewContractPresenter
     
     func onAttach(view: OverviewContractView) {
         self.view = view
