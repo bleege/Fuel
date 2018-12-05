@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class OverviewViewController: UIViewController, OverviewContractView, UITableViewDelegate, UITableViewDataSource {
+class OverviewViewController: UIViewController, OverviewContractView, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var stopsTableView: UITableView!
@@ -30,6 +30,7 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         presenter = OverviewPresenter()
+        mapView.delegate = self
         mapView.showsUserLocation = true
         
         self.addStopFABGestureRecognizer.numberOfTapsRequired = 1
@@ -153,6 +154,18 @@ class OverviewViewController: UIViewController, OverviewContractView, UITableVie
         let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alertController.addAction(defaultAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: - MKMapViewDelegate
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let selectedAnnotation = view.annotation {
+            if selectedAnnotation is MKUserLocation {
+                return
+            }
+            let index = fuelStopAnnotations.firstIndex(of: selectedAnnotation as! MKPointAnnotation)
+            presenter?.handleStopSelection(index: index!)
+        }
     }
     
     // MARK: - UITableViewDataSource
