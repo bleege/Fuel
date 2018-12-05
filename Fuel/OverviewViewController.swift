@@ -160,6 +160,9 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let selectedAnnotation = view.annotation {
+            if selectedAnnotation is MKUserLocation {
+                return
+            }
             let index = fuelStopAnnotations.firstIndex(of: selectedAnnotation as! MKPointAnnotation)
             presenter?.handleStopSelection(index: index!)
         }
