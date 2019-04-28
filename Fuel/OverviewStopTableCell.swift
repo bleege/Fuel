@@ -14,4 +14,16 @@ class OverviewStopTableCell: UITableViewCell {
     @IBOutlet weak var stopDate: UILabel!
     @IBOutlet weak var gallonsFilled: UILabel!
     @IBOutlet weak var totalPrice: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        print("OverviewStopTableCell.awakeFromNib()")
+        
+        // Round Corners and Drop Shadow
+        self.stageView.layer.cornerRadius = 10
+        self.stageView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        self.stageView.layer.shadowRadius = 0.5
+        self.stageView.layer.shadowOpacity = 0.2
+    }
+    
 }
