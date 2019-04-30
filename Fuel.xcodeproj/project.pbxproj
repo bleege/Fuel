@@ -14,6 +14,8 @@
 		A21AEC2320BB9BD4007180C1 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E7B8F72058D6B6002BCC12 /* RxCocoa.framework */; };
 		A21AEC2420BB9BD4007180C1 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E7B8F62058D6B5002BCC12 /* RxSwift.framework */; };
 		A21AEC2620BB9C22007180C1 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E7B8F52058D6B5002BCC12 /* RxBlocking.framework */; };
+		A22334E12277F6930091FEA9 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22334DF2277F6920091FEA9 /* Swinject.framework */; };
+		A22334E22277F6930091FEA9 /* SwinjectAutoregistration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22334E02277F6930091FEA9 /* SwinjectAutoregistration.framework */; };
 		A22D93E12016D8FC008D6254 /* StopDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E02016D8FC008D6254 /* StopDetailPresentationController.swift */; };
 		A22D93E32016D9CC008D6254 /* StopDetailPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E22016D9CC008D6254 /* StopDetailPresentationManager.swift */; };
 		A22D93E52016E0C4008D6254 /* StopDetailPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E42016E0C4008D6254 /* StopDetailPresentationAnimator.swift */; };
@@ -67,6 +69,8 @@
 		A21AEC1D20BB9AB6007180C1 /* FuelStopsDataManagerContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelStopsDataManagerContract.swift; sourceTree = "<group>"; };
 		A21AEC1F20BB9B76007180C1 /* MockFuelStopsDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuelStopsDataManager.swift; sourceTree = "<group>"; };
 		A220B211215F47FA002DF784 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A22334DF2277F6920091FEA9 /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
+		A22334E02277F6930091FEA9 /* SwinjectAutoregistration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwinjectAutoregistration.framework; path = Carthage/Build/iOS/SwinjectAutoregistration.framework; sourceTree = "<group>"; };
 		A22D93E02016D8FC008D6254 /* StopDetailPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailPresentationController.swift; sourceTree = "<group>"; };
 		A22D93E22016D9CC008D6254 /* StopDetailPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailPresentationManager.swift; sourceTree = "<group>"; };
 		A22D93E42016E0C4008D6254 /* StopDetailPresentationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailPresentationAnimator.swift; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 				A2E7B8F92058D6B6002BCC12 /* RxBlocking.framework in Frameworks */,
 				A2E7B8FA2058D6B6002BCC12 /* RxSwift.framework in Frameworks */,
 				A2E7B8FB2058D6B6002BCC12 /* RxCocoa.framework in Frameworks */,
+				A22334E12277F6930091FEA9 /* Swinject.framework in Frameworks */,
+				A22334E22277F6930091FEA9 /* SwinjectAutoregistration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +230,8 @@
 		A2B7C8CA1FC5337B0012167F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A22334DF2277F6920091FEA9 /* Swinject.framework */,
+				A22334E02277F6930091FEA9 /* SwinjectAutoregistration.framework */,
 				A220B211215F47FA002DF784 /* UIKit.framework */,
 				A231CA1A20E33BC500DCB275 /* RxCloudKit.framework */,
 				A26FA50E207DA78500E8AE81 /* SkyFloatingLabelTextField.framework */,
@@ -388,11 +396,15 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwinjectAutoregistration.framework",
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxBlocking.framework",
 				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
 				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Swinject.framework",
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwinjectAutoregistration.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
