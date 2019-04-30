@@ -17,7 +17,6 @@ class OverviewStopTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        print("OverviewStopTableCell.awakeFromNib()")
         
         // Round Corners and Drop Shadow
         self.stageView.layer.cornerRadius = 10
