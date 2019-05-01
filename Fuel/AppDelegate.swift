@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import RxSwift
+import Swinject
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
@@ -18,10 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     private let locationManager = CLLocationManager()
     var currentLocation: CLLocation? = nil
     private let disposeBag = DisposeBag()
-
+    var container: Container?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        container = setupDependencyInjection()
         setupLocationManager()
         
 //        preloadData()
@@ -57,6 +60,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         locationManager.startUpdatingLocation()
     }
     
+    private func setupDependencyInjection() -> Container {
+        let container = Container() { container in
+            container.register(OverviewContractPresenter.self) { _ in OverviewPresenter() }
+        }
+        
+        return container
+    }
     
     func preloadData() {
         

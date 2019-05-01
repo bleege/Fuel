@@ -29,7 +29,8 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        presenter = OverviewPresenter()
+        presenter = (UIApplication.shared.delegate as? AppDelegate)?.container?.resolve(OverviewContractPresenter.self)
+        
         mapView.delegate = self
         mapView.showsUserLocation = true
         
