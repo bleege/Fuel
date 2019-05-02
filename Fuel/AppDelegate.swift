@@ -63,6 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     private func setupDependencyInjection() -> Container {
         let container = Container() { container in
             container.register(OverviewContractPresenter.self) { _ in OverviewPresenter() }
+            container.register(AddStopContractPresenter.self) { _ in AddStopPresenter() }
         }
         
         return container
