@@ -7,72 +7,79 @@
 //
 
 import XCTest
+import Swinject
+import SwinjectAutoregistration
 @testable import Fuel
 
 class FuelTests: XCTestCase {
     
     private var mockOverViewContractView: MockOverviewContractView?
     private var mockAddStopContractView: MockAddStopContractView?
-    private var mockFuelStopsDataManager: MockFuelStopsDataManager?
+    private var container: Container = {
+        let container = Container() { container in
+            container.register(FuelStopsDataManagerContract.self) { _ in MockFuelStopsDataManager() }
+            container.autoregister(OverviewContractPresenter.self, initializer: OverviewPresenter.init(dataManager:))
+            container.autoregister(AddStopContractPresenter.self, initializer: AddStopPresenter.init(dataManager:))
+        }
+        return container
+    }()
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         mockOverViewContractView = MockOverviewContractView()
         mockAddStopContractView = MockAddStopContractView()
-        mockFuelStopsDataManager = MockFuelStopsDataManager()
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         mockOverViewContractView = nil
         mockAddStopContractView = nil
-        mockFuelStopsDataManager = nil
         
         super.tearDown()
     }
     
     func testOverviewPresenterLoadStops() {
-        let presenter = OverviewPresenter(dataManager: mockFuelStopsDataManager!)
-        let expecation = self.expectation(description: "Display Fuel Stops")
-        mockOverViewContractView?.expectation = expecation
-        presenter.onAttach(view: mockOverViewContractView!)
-        presenter.loadFuelStops()
-        self.wait(for: [expecation], timeout: 5.0)
-        presenter.onDetach()
+        let presenter = container.resolve(OverviewContractPresenter.self)
+        let expectation = self.expectation(description: "Display Fuel Stops")
+        mockOverViewContractView?.expectation = expectation
+        presenter?.onAttach(view: mockOverViewContractView!)
+        presenter?.loadFuelStops()
+        self.wait(for: [expectation], timeout: 5.0)
+        presenter?.onDetach()
         XCTAssertTrue(mockOverViewContractView?.displayStopsCalled == true)
     }
     
     func testOverviewPresenterShowStopSelection() {
-        let presenter = OverviewPresenter(dataManager: mockFuelStopsDataManager!)
-        presenter.onAttach(view: mockOverViewContractView!)
-        presenter.handleStopSelection(index: 1)
-        presenter.onDetach()
+        let presenter = container.resolve(OverviewContractPresenter.self)
+        presenter?.onAttach(view: mockOverViewContractView!)
+        presenter?.handleStopSelection(index: 1)
+        presenter?.onDetach()
         XCTAssertTrue(mockOverViewContractView?.displayStopOnMapCalled == true)
         XCTAssertTrue(mockOverViewContractView?.displayStopDataViewCalled == true)
     }
     
     func testOverviewPresenterAddStopFABTap() {
-        let presenter = OverviewPresenter(dataManager: mockFuelStopsDataManager!)
-        presenter.onAttach(view: mockOverViewContractView!)
-        presenter.handleAddStopFABTap()
-        presenter.onDetach()
+        let presenter = container.resolve(OverviewContractPresenter.self)
+        presenter?.onAttach(view: mockOverViewContractView!)
+        presenter?.handleAddStopFABTap()
+        presenter?.onDetach()
         XCTAssertTrue(mockOverViewContractView?.displayAddStopViewControllerCalled == true)
     }
     
     func testAddStopPresenterDismiss(){
-        let presenter = AddStopPresenter()
-        presenter.onAttach(view: mockAddStopContractView!)
-        presenter.handleCancelTap()
-        presenter.onDetach()
+        let presenter = container.resolve(AddStopContractPresenter.self)
+        presenter?.onAttach(view: mockAddStopContractView!)
+        presenter?.handleCancelTap()
+        presenter?.onDetach()
         XCTAssertTrue(mockAddStopContractView?.dismissCalled == true)
     }
 
     func testAddStopPresenterSave(){
-        let presenter = AddStopPresenter(dataManager: mockFuelStopsDataManager!)
-        presenter.onAttach(view: mockAddStopContractView!)
-        presenter.handleSaveTap()
-        presenter.onDetach()
+        let presenter = container.resolve(AddStopContractPresenter.self)
+        presenter?.onAttach(view: mockAddStopContractView!)
+        presenter?.handleSaveTap()
+        presenter?.onDetach()
         XCTAssertTrue(mockAddStopContractView?.validateFormCalled == true)
         XCTAssertTrue(mockAddStopContractView?.gallonsDataCalled == true)
         XCTAssertTrue(mockAddStopContractView?.octaneDataCalled == true)
