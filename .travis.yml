@@ -1,0 +1,5 @@
+osx_image: xcode10.2
+language: swift
+xcode_project: Fuel.xcodeproj
+xcode_scheme: Fuel
+xcode_destination: platform=iOS Simulator,OS=12.2,name=iPhone Xs
