@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import XCTest
 @testable import Fuel
 
 class MockAddStopContractView: AddStopContractView {
@@ -23,7 +24,9 @@ class MockAddStopContractView: AddStopContractView {
     var tripOdometerDataCalled = false
     var dismissAfterSaveCalled = false
     var displayErrorCalled = false
-        
+    
+    var expectation: XCTestExpectation? = nil
+    
     func dismiss() {
         dismissCalled = true
     }
@@ -35,7 +38,7 @@ class MockAddStopContractView: AddStopContractView {
     
     func gallonsData() -> Double {
         gallonsDataCalled = true
-        return 1
+        return 1.0
     }
     
     func octaneData() -> Int {
@@ -50,12 +53,12 @@ class MockAddStopContractView: AddStopContractView {
     
     func priceData() -> Double {
         priceDataCalled = true
-        return 1
+        return 1.0
     }
     
     func ppgData() -> Double {
         ppgDataCalled = true
-        return 1
+        return 1.0
     }
     
     func stopDateData() -> Date {
@@ -65,15 +68,17 @@ class MockAddStopContractView: AddStopContractView {
     
     func tripOdometerData() -> Double {
         tripOdometerDataCalled = true
-        return 1
+        return 1.0
     }
 
     func dismissAfterSave(record: FuelStop) {
         dismissAfterSaveCalled = true
+        expectation?.fulfill()
     }
     
     func displayError(message: String) {
         displayErrorCalled = true
+        expectation?.fulfill()
     }
 
 }

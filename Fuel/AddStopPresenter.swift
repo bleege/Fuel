@@ -42,18 +42,32 @@ class AddStopPresenter: AddStopContractPresenter {
         if (view?.validateForm())! {
             print("Form is valid, so can save.")
             
-            let loc = appDelegate.currentLocation
+            guard let loc = appDelegate.currentLocation else {
+                print("Current Location not found.")
+                return
+            }
+            
+            guard let gallons = view?.gallonsData(),
+                let octane = view?.octaneData(),
+                let odometer = view?.odometerData(),
+                let price = view?.priceData(),
+                let ppg = view?.ppgData(),
+                let stopDate = view?.stopDateData(),
+                let tripOdometer = view?.tripOdometerData() else {
+                print("Missing Trip Data to save.")
+                return
+            }
             
             dataManager
-                .addFuelStop(gallons: (view?.gallonsData())!,
-                                                latitude: (loc?.coordinate.latitude)!,
-                                                longitude: (loc?.coordinate.longitude)!,
-                                                octane: (view?.octaneData())!,
-                                                odometer: (view?.odometerData())!,
-                                                price: (view?.priceData())!,
-                                                ppg: (view?.ppgData())!,
-                                                stopDate: (view?.stopDateData())!,
-                                                tripOdometer: (view?.tripOdometerData())!)
+                .addFuelStop(gallons: gallons,
+                             latitude: (loc.coordinate.latitude),
+                             longitude: (loc.coordinate.longitude),
+                             octane: octane,
+                             odometer: odometer,
+                             price: price,
+                             ppg: ppg,
+                             stopDate: stopDate,
+                             tripOdometer: tripOdometer)
                 .observeOn(MainScheduler.instance)
                 .subscribe { event in
                     switch event {

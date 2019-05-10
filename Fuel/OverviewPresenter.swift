@@ -40,7 +40,6 @@ class OverviewPresenter: OverviewContractPresenter {
         dataManager.getAllFuelStops()
             .observeOn(MainScheduler.instance)
             .subscribe(onSuccess: { (element) in
-                print("Number of Elements Returned = \(element.count)")
                 var stops = [FuelStop]()
                 for ckr in element {
                     stops.append(FuelStop(record: ckr))
