@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import UIKit
 import XCTest
 @testable import Fuel
 
-class MockOverviewContractView: OverviewContractView {
+class MockOverviewContractView: UIViewController, OverviewContractView {
     
     var displayStopsCalled = false
     var refreshMapCalled = false
