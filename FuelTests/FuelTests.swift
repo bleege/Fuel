@@ -7,12 +7,12 @@
 //
 
 import XCTest
-//import Swinject
-//import SwinjectAutoregistration
+import Swinject
+import SwinjectAutoregistration
 @testable import Fuel
 
 class FuelTests: XCTestCase {
-/*
+    
     private var mockOverViewContractView: MockOverviewContractView?
     private var mockAddStopContractView: MockAddStopContractView?
     private var container: Container = {
@@ -69,6 +69,7 @@ class FuelTests: XCTestCase {
         presenter?.onDetach()
         XCTAssertTrue(mockOverViewContractView?.displayAddStopViewControllerCalled == true)
     }
+/*
     func testAddStopPresenterDismiss(){
         let presenter = container.resolve(AddStopContractPresenter.self)
         presenter?.onAttach(view: mockAddStopContractView!)
