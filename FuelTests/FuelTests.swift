@@ -28,16 +28,17 @@ class FuelTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         mockOverViewContractView = MockOverviewContractView()
-//        mockAddStopContractView = MockAddStopContractView()
+        mockAddStopContractView = MockAddStopContractView()
         
         // From: https://www.natashatherobot.com/ios-testing-view-controllers-swift/
         XCTAssertNotNil(mockOverViewContractView?.view)
+        XCTAssertNotNil(mockAddStopContractView?.view)
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         mockOverViewContractView = nil
-//        mockAddStopContractView = nil
+        mockAddStopContractView = nil
         
         super.tearDown()
     }
@@ -69,7 +70,7 @@ class FuelTests: XCTestCase {
         presenter?.onDetach()
         XCTAssertTrue(mockOverViewContractView?.displayAddStopViewControllerCalled == true)
     }
-/*
+
     func testAddStopPresenterDismiss(){
         let presenter = container.resolve(AddStopContractPresenter.self)
         presenter?.onAttach(view: mockAddStopContractView!)
@@ -95,5 +96,4 @@ class FuelTests: XCTestCase {
         XCTAssertTrue(mockAddStopContractView?.tripOdometerDataCalled == true)
         XCTAssertTrue(mockAddStopContractView?.dismissAfterSaveCalled == true)
     }
-*/
 }

@@ -8,10 +8,11 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 import XCTest
 @testable import Fuel
 
-class MockAddStopContractView: AddStopContractView {
+class MockAddStopContractView: UIViewController, AddStopContractView {
     
     var dismissCalled = false
     var validateFormCalled = false
