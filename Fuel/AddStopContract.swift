@@ -7,6 +7,7 @@
 //
 
 import CloudKit
+import CoreLocation
 import Foundation
 
 protocol AddStopContractView: class {
@@ -27,5 +28,5 @@ protocol AddStopContractPresenter: class {
     func onAttach(view: AddStopContractView)
     func onDetach()
     func handleCancelTap()
-    func handleSaveTap()
+    func handleSaveTap(_ location: CLLocation)
 }

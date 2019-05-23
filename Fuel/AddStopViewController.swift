@@ -13,6 +13,7 @@ import RxSwift
 class AddStopViewController: UIViewController, AddStopContractView {
 
     var presenter: AddStopContractPresenter?
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let disposeBag = DisposeBag()
     
     @IBOutlet weak var pricePerGallonTextField: UITextField!
@@ -73,7 +74,11 @@ class AddStopViewController: UIViewController, AddStopContractView {
     }
     
     @IBAction func handleSaveTap(_ sender: Any) {
-        presenter?.handleSaveTap()
+        guard let loc = appDelegate.currentLocation else {
+            print("Location not found")
+            return
+        }
+        presenter?.handleSaveTap(loc)
     }
     @IBAction func handleCancelTap(_ sender: Any) {
         presenter?.handleCancelTap()
