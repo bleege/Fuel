@@ -74,11 +74,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     }
     
     @IBAction func handleSaveTap(_ sender: Any) {
-        guard let loc = appDelegate.currentLocation else {
-            print("Location not found")
-            return
-        }
-        presenter?.handleSaveTap(loc)
+        presenter?.handleSaveTap()
     }
     @IBAction func handleCancelTap(_ sender: Any) {
         presenter?.handleCancelTap()
@@ -152,6 +148,10 @@ class AddStopViewController: UIViewController, AddStopContractView {
         }
         
         return isValid
+    }
+    
+    func locationData() -> CLLocation? {
+        return appDelegate.currentLocation
     }
     
     func gallonsData() -> Double {

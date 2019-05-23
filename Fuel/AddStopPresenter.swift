@@ -37,11 +37,12 @@ class AddStopPresenter: AddStopContractPresenter {
         view?.dismiss()
     }
     
-    func handleSaveTap(_ location: CLLocation) {
+    func handleSaveTap() {
         if (view?.validateForm())! {
             print("Form is valid, so can save.")
             
-            guard let gallons = view?.gallonsData(),
+            guard let location = view?.locationData(),
+                let gallons = view?.gallonsData(),
                 let octane = view?.octaneData(),
                 let odometer = view?.odometerData(),
                 let price = view?.priceData(),

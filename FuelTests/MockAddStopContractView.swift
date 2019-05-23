@@ -16,6 +16,7 @@ class MockAddStopContractView: UIViewController, AddStopContractView {
     
     var dismissCalled = false
     var validateFormCalled = false
+    var locationDataCalled = false
     var gallonsDataCalled = false
     var octaneDataCalled = false
     var odometerDataCalled = false
@@ -35,6 +36,11 @@ class MockAddStopContractView: UIViewController, AddStopContractView {
     func validateForm() -> Bool {
         validateFormCalled = true
         return true
+    }
+    
+    func locationData() -> CLLocation? {
+        locationDataCalled = true
+        return CLLocation(latitude: 43.3022, longitude: -89.93264)
     }
     
     func gallonsData() -> Double {
