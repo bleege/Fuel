@@ -45,11 +45,11 @@ class AddStopTests: XCTestCase {
     
     func testAddStopPresenterSave(){
         let presenter = container.resolve(AddStopContractPresenter.self)
-//        let expectation = self.expectation(description: "Save Stop Data")
-//        mockAddStopContractView?.expectation = expectation
+        let expectation = self.expectation(description: "Save Stop Data")
+        mockAddStopContractView?.expectation = expectation
         presenter?.onAttach(view: mockAddStopContractView!)
         presenter?.handleSaveTap(saveLocation)
-//        self.wait(for: [expectation], timeout: 20.0)
+        self.wait(for: [expectation], timeout: 5.0)
         presenter?.onDetach()
         // TODO: - Failing because location isn't found by presenter
         XCTAssertTrue(mockAddStopContractView?.validateFormCalled == true)
