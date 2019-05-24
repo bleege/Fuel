@@ -20,6 +20,12 @@ class FuelUITests: XCTestCase {
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         XCUIApplication().launch()
 
+        // Accept Location Permission
+        addUIInterruptionMonitor(withDescription: "System Dialog") { (alert) -> Bool in
+            alert.buttons["Allow"].tap()
+            return true
+        }
+        
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
@@ -28,12 +34,8 @@ class FuelUITests: XCTestCase {
         super.tearDown()
     }
     
-/*
-     // TODO - Accept Permissions Request Dialogs
+    // TODO: - Rebuild to match updated UI
     func testDisplayStopDetailAndDismiss() {
-        let app = XCUIApplication()
-        app.tables/*@START_MENU_TOKEN@*/.staticTexts["12.3050"]/*[[".cells.staticTexts[\"12.3050\"]",".staticTexts[\"12.3050\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 1).children(matching: .other).element.tap()
+
     }
-*/
 }
