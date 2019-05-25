@@ -14,7 +14,6 @@ import RxCocoa
 class AddStopPresenter: AddStopContractPresenter {
 
     private weak var view:AddStopContractView?
-    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var dataManager: FuelStopsDataManagerContract
     private let disposeBag = DisposeBag()
     
@@ -42,12 +41,8 @@ class AddStopPresenter: AddStopContractPresenter {
         if (view?.validateForm())! {
             print("Form is valid, so can save.")
             
-            guard let loc = appDelegate.currentLocation else {
-                print("Current Location not found.")
-                return
-            }
-            
-            guard let gallons = view?.gallonsData(),
+            guard let location = view?.locationData(),
+                let gallons = view?.gallonsData(),
                 let octane = view?.octaneData(),
                 let odometer = view?.odometerData(),
                 let price = view?.priceData(),
@@ -60,8 +55,8 @@ class AddStopPresenter: AddStopContractPresenter {
             
             dataManager
                 .addFuelStop(gallons: gallons,
-                             latitude: (loc.coordinate.latitude),
-                             longitude: (loc.coordinate.longitude),
+                             latitude: (location.coordinate.latitude),
+                             longitude: (location.coordinate.longitude),
                              octane: octane,
                              odometer: odometer,
                              price: price,

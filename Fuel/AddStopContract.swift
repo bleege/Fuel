@@ -7,6 +7,7 @@
 //
 
 import CloudKit
+import CoreLocation
 import Foundation
 
 protocol AddStopContractView: class {
@@ -14,6 +15,7 @@ protocol AddStopContractView: class {
     func dismissAfterSave(record: FuelStop)
     func displayError(message: String)
     func validateForm() -> Bool
+    func locationData() -> CLLocation?
     func gallonsData() -> Double
     func octaneData() -> Int
     func odometerData() -> Int

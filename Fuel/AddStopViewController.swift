@@ -13,6 +13,7 @@ import RxSwift
 class AddStopViewController: UIViewController, AddStopContractView {
 
     var presenter: AddStopContractPresenter?
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let disposeBag = DisposeBag()
     
     @IBOutlet weak var pricePerGallonTextField: UITextField!
@@ -147,6 +148,10 @@ class AddStopViewController: UIViewController, AddStopContractView {
         }
         
         return isValid
+    }
+    
+    func locationData() -> CLLocation? {
+        return appDelegate.currentLocation
     }
     
     func gallonsData() -> Double {
