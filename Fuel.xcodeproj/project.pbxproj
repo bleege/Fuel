@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,11 +11,6 @@
 		A21AEC2020BB9B76007180C1 /* MockFuelStopsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21AEC1F20BB9B76007180C1 /* MockFuelStopsDataManager.swift */; };
 		A21AEC2120BB9BB1007180C1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2435C5B2055ABEB00EC990F /* CloudKit.framework */; };
 		A21AEC2220BB9BBB007180C1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276BE81200C6FB20069CCA8 /* CoreLocation.framework */; };
-		A21AEC2320BB9BD4007180C1 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E7B8F72058D6B6002BCC12 /* RxCocoa.framework */; };
-		A21AEC2420BB9BD4007180C1 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E7B8F62058D6B5002BCC12 /* RxSwift.framework */; };
-		A21AEC2620BB9C22007180C1 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E7B8F52058D6B5002BCC12 /* RxBlocking.framework */; };
-		A22334E12277F6930091FEA9 /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22334DF2277F6920091FEA9 /* Swinject.framework */; };
-		A22334E22277F6930091FEA9 /* SwinjectAutoregistration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22334E02277F6930091FEA9 /* SwinjectAutoregistration.framework */; };
 		A22D93E12016D8FC008D6254 /* StopDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E02016D8FC008D6254 /* StopDetailPresentationController.swift */; };
 		A22D93E32016D9CC008D6254 /* StopDetailPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E22016D9CC008D6254 /* StopDetailPresentationManager.swift */; };
 		A22D93E52016E0C4008D6254 /* StopDetailPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E42016E0C4008D6254 /* StopDetailPresentationAnimator.swift */; };
@@ -43,9 +38,11 @@
 		A2B7C8B21FC526100012167F /* FuelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C8B11FC526100012167F /* FuelTests.swift */; };
 		A2B7C8BD1FC526100012167F /* FuelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C8BC1FC526100012167F /* FuelUITests.swift */; };
 		A2C842F11FEF5B330068BFAC /* OverviewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C842F01FEF5B330068BFAC /* OverviewContract.swift */; };
-		A2E7B8F92058D6B6002BCC12 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E7B8F52058D6B5002BCC12 /* RxBlocking.framework */; };
-		A2E7B8FA2058D6B6002BCC12 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E7B8F62058D6B5002BCC12 /* RxSwift.framework */; };
-		A2E7B8FB2058D6B6002BCC12 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E7B8F72058D6B6002BCC12 /* RxCocoa.framework */; };
+		A2C9396823418C9000AD07EB /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = A2C9396723418C9000AD07EB /* RxBlocking */; };
+		A2C9396A23418C9000AD07EB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A2C9396923418C9000AD07EB /* RxSwift */; };
+		A2C9396C23418C9000AD07EB /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A2C9396B23418C9000AD07EB /* RxCocoa */; };
+		A2C9396F2341900F00AD07EB /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = A2C9396E2341900F00AD07EB /* Swinject */; };
+		A2C93972234190FF00AD07EB /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = A2C93971234190FF00AD07EB /* SwinjectAutoregistration */; };
 		A2EFB6291FEB60A300AE7A98 /* OverviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EFB6281FEB60A300AE7A98 /* OverviewPresenter.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,12 +67,9 @@
 		A21AEC1D20BB9AB6007180C1 /* FuelStopsDataManagerContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelStopsDataManagerContract.swift; sourceTree = "<group>"; };
 		A21AEC1F20BB9B76007180C1 /* MockFuelStopsDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuelStopsDataManager.swift; sourceTree = "<group>"; };
 		A220B211215F47FA002DF784 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		A22334DF2277F6920091FEA9 /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
-		A22334E02277F6930091FEA9 /* SwinjectAutoregistration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwinjectAutoregistration.framework; path = Carthage/Build/iOS/SwinjectAutoregistration.framework; sourceTree = "<group>"; };
 		A22D93E02016D8FC008D6254 /* StopDetailPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailPresentationController.swift; sourceTree = "<group>"; };
 		A22D93E22016D9CC008D6254 /* StopDetailPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailPresentationManager.swift; sourceTree = "<group>"; };
 		A22D93E42016E0C4008D6254 /* StopDetailPresentationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailPresentationAnimator.swift; sourceTree = "<group>"; };
-		A231CA1A20E33BC500DCB275 /* RxCloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCloudKit.framework; path = Carthage/Build/iOS/RxCloudKit.framework; sourceTree = "<group>"; };
 		A23D59012293AAF3002CAEEF /* AddStopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStopTests.swift; sourceTree = "<group>"; };
 		A242C26B20A13F0300C46F78 /* LICENSES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSES.md; sourceTree = "<group>"; };
 		A2435C5A2055ABAD00EC990F /* Fuel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fuel.entitlements; sourceTree = "<group>"; };
@@ -87,7 +81,6 @@
 		A26644501FD32883000DDFED /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A26B1FE8203CFB1000E5BA22 /* MockOverviewContractView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOverviewContractView.swift; sourceTree = "<group>"; };
 		A26E5EE01FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2016-VW-Jetta-Fuel-Tracking.csv"; sourceTree = "<group>"; };
-		A26FA50E207DA78500E8AE81 /* SkyFloatingLabelTextField.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SkyFloatingLabelTextField.framework; path = Carthage/Build/iOS/SkyFloatingLabelTextField.framework; sourceTree = "<group>"; };
 		A26FCEAD21AF95D100D9CE41 /* CKDatabase+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CKDatabase+Rx.swift"; sourceTree = "<group>"; };
 		A275AC6A203E7D9100DC6CF4 /* MockAddStopContractView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAddStopContractView.swift; sourceTree = "<group>"; };
 		A276BE81200C6FB20069CCA8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -111,10 +104,6 @@
 		A2B7C8BE1FC526100012167F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2B7C8CB1FC5337C0012167F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A2C842F01FEF5B330068BFAC /* OverviewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewContract.swift; sourceTree = "<group>"; };
-		A2E7B8F42058D6B5002BCC12 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
-		A2E7B8F52058D6B5002BCC12 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
-		A2E7B8F62058D6B5002BCC12 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		A2E7B8F72058D6B6002BCC12 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		A2EFB6281FEB60A300AE7A98 /* OverviewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,13 +112,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2C9396A23418C9000AD07EB /* RxSwift in Frameworks */,
 				A276BE82200C6FB20069CCA8 /* CoreLocation.framework in Frameworks */,
+				A2C9396C23418C9000AD07EB /* RxCocoa in Frameworks */,
 				A2435C5C2055ABEB00EC990F /* CloudKit.framework in Frameworks */,
-				A2E7B8F92058D6B6002BCC12 /* RxBlocking.framework in Frameworks */,
-				A2E7B8FA2058D6B6002BCC12 /* RxSwift.framework in Frameworks */,
-				A2E7B8FB2058D6B6002BCC12 /* RxCocoa.framework in Frameworks */,
-				A22334E12277F6930091FEA9 /* Swinject.framework in Frameworks */,
-				A22334E22277F6930091FEA9 /* SwinjectAutoregistration.framework in Frameworks */,
+				A2C9396F2341900F00AD07EB /* Swinject in Frameworks */,
+				A2C9396823418C9000AD07EB /* RxBlocking in Frameworks */,
+				A2C93972234190FF00AD07EB /* SwinjectAutoregistration in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,9 +126,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A21AEC2620BB9C22007180C1 /* RxBlocking.framework in Frameworks */,
-				A21AEC2320BB9BD4007180C1 /* RxCocoa.framework in Frameworks */,
-				A21AEC2420BB9BD4007180C1 /* RxSwift.framework in Frameworks */,
 				A21AEC2220BB9BBB007180C1 /* CoreLocation.framework in Frameworks */,
 				A21AEC2120BB9BB1007180C1 /* CloudKit.framework in Frameworks */,
 			);
@@ -233,15 +219,7 @@
 		A2B7C8CA1FC5337B0012167F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A22334DF2277F6920091FEA9 /* Swinject.framework */,
-				A22334E02277F6930091FEA9 /* SwinjectAutoregistration.framework */,
 				A220B211215F47FA002DF784 /* UIKit.framework */,
-				A231CA1A20E33BC500DCB275 /* RxCloudKit.framework */,
-				A26FA50E207DA78500E8AE81 /* SkyFloatingLabelTextField.framework */,
-				A2E7B8F52058D6B5002BCC12 /* RxBlocking.framework */,
-				A2E7B8F72058D6B6002BCC12 /* RxCocoa.framework */,
-				A2E7B8F62058D6B5002BCC12 /* RxSwift.framework */,
-				A2E7B8F42058D6B5002BCC12 /* RxTest.framework */,
 				A2435C5B2055ABEB00EC990F /* CloudKit.framework */,
 				A276BE81200C6FB20069CCA8 /* CoreLocation.framework */,
 				A26644501FD32883000DDFED /* CoreData.framework */,
@@ -267,6 +245,13 @@
 			dependencies = (
 			);
 			name = Fuel;
+			packageProductDependencies = (
+				A2C9396723418C9000AD07EB /* RxBlocking */,
+				A2C9396923418C9000AD07EB /* RxSwift */,
+				A2C9396B23418C9000AD07EB /* RxCocoa */,
+				A2C9396E2341900F00AD07EB /* Swinject */,
+				A2C93971234190FF00AD07EB /* SwinjectAutoregistration */,
+			);
 			productName = Fuel;
 			productReference = A2B7C8971FC526100012167F /* Fuel.app */;
 			productType = "com.apple.product-type.application";
@@ -350,6 +335,11 @@
 				Base,
 			);
 			mainGroup = A2B7C88E1FC526100012167F;
+			packageReferences = (
+				A2C9396623418C9000AD07EB /* XCRemoteSwiftPackageReference "RxSwift" */,
+				A2C9396D2341900F00AD07EB /* XCRemoteSwiftPackageReference "Swinject" */,
+				A2C93970234190FF00AD07EB /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */,
+			);
 			productRefGroup = A2B7C8981FC526100012167F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -396,22 +386,17 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwinjectAutoregistration.framework",
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxBlocking.framework",
-				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
-				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
 				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Swinject.framework",
 				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwinjectAutoregistration.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+			shellScript = "
+";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -602,7 +587,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -621,7 +607,10 @@
 				);
 				INFOPLIST_FILE = Fuel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = io.leege.Fuel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -644,7 +633,10 @@
 				);
 				INFOPLIST_FILE = Fuel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = io.leege.Fuel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -665,7 +657,11 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = FuelTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.leege.FuelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -686,7 +682,11 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = FuelTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.leege.FuelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -702,7 +702,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98VS3NV9WE;
 				INFOPLIST_FILE = FuelUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.leege.FuelUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -718,7 +722,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98VS3NV9WE;
 				INFOPLIST_FILE = FuelUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.leege.FuelUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -767,6 +775,61 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A2C9396623418C9000AD07EB /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 4.5.0;
+			};
+		};
+		A2C9396D2341900F00AD07EB /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.6.1;
+			};
+		};
+		A2C93970234190FF00AD07EB /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/SwinjectAutoregistration.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A2C9396723418C9000AD07EB /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2C9396623418C9000AD07EB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		A2C9396923418C9000AD07EB /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2C9396623418C9000AD07EB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		A2C9396B23418C9000AD07EB /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2C9396623418C9000AD07EB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		A2C9396E2341900F00AD07EB /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2C9396D2341900F00AD07EB /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		A2C93971234190FF00AD07EB /* SwinjectAutoregistration */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2C93970234190FF00AD07EB /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */;
+			productName = SwinjectAutoregistration;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A2B7C88F1FC526100012167F /* Project object */;
 }
