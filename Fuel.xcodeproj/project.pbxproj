@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		A21AEC1E20BB9AB7007180C1 /* FuelStopsDataManagerContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21AEC1D20BB9AB6007180C1 /* FuelStopsDataManagerContract.swift */; };
 		A21AEC2020BB9B76007180C1 /* MockFuelStopsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21AEC1F20BB9B76007180C1 /* MockFuelStopsDataManager.swift */; };
-		A21AEC2120BB9BB1007180C1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2435C5B2055ABEB00EC990F /* CloudKit.framework */; };
-		A21AEC2220BB9BBB007180C1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276BE81200C6FB20069CCA8 /* CoreLocation.framework */; };
+		A21AEC2120BB9BB1007180C1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2435C5B2055ABEB00EC990F /* CloudKit.framework */; platformFilter = ios; };
+		A21AEC2220BB9BBB007180C1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276BE81200C6FB20069CCA8 /* CoreLocation.framework */; platformFilter = ios; };
 		A22D93E12016D8FC008D6254 /* StopDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E02016D8FC008D6254 /* StopDetailPresentationController.swift */; };
 		A22D93E32016D9CC008D6254 /* StopDetailPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E22016D9CC008D6254 /* StopDetailPresentationManager.swift */; };
 		A22D93E52016E0C4008D6254 /* StopDetailPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E42016E0C4008D6254 /* StopDetailPresentationAnimator.swift */; };
@@ -270,6 +270,8 @@
 				A2B7C8AF1FC526100012167F /* PBXTargetDependency */,
 			);
 			name = FuelTests;
+			packageProductDependencies = (
+			);
 			productName = FuelTests;
 			productReference = A2B7C8AD1FC526100012167F /* FuelTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -386,12 +388,8 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwinjectAutoregistration.framework",
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Swinject.framework",
-				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwinjectAutoregistration.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -662,6 +660,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-Xcc -fmodule-map-file=$(PROJECT_TEMP_ROOT)/GeneratedModuleMaps/iphonesimulator/RxCocoaRuntime.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = io.leege.FuelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -687,6 +686,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-Xcc -fmodule-map-file=$(PROJECT_TEMP_ROOT)/GeneratedModuleMaps/iphonesimulator/RxCocoaRuntime.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = io.leege.FuelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -782,7 +782,7 @@
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
 				kind = exactVersion;
-				version = 4.5.0;
+				version = 5.0.1;
 			};
 		};
 		A2C9396D2341900F00AD07EB /* XCRemoteSwiftPackageReference "Swinject" */ = {
