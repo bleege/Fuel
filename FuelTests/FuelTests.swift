@@ -11,6 +11,9 @@ import Swinject
 import SwinjectAutoregistration
 @testable import Fuel
 
+/// NOTE: Workaround required due to bug in Swift NIO
+/// https://github.com/ReactiveX/RxSwift/issues/2057
+
 class FuelTests: XCTestCase {
     
     private var mockOverViewContractView: MockOverviewContractView?

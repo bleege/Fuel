@@ -1,4 +1,4 @@
-Carthage/
+.build/
 Fuel.xcodeproj/project.xcworkspace/xcuserdata/
 Fuel.xcodeproj/project.xcworkspace/xcshareddata/
 Fuel.xcodeproj/xcuserdata/brad.xcuserdatad/xcdebugger/
