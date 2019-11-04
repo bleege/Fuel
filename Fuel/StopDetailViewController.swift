@@ -110,9 +110,9 @@ class StopDetailViewController: UIViewController {
         topStack.distribution = .fillProportionally
         topStack.spacing = 0
         topStack.translatesAutoresizingMaskIntoConstraints = false
-        topStack.addArrangedSubview(createPairingStack(dataLabel: costLabel, descriptionText: "Price"))
-        topStack.addArrangedSubview(createPairingStack(dataLabel: gallonsLabel, descriptionText: "Gallons"))
         topStack.addArrangedSubview(createPairingStack(dataLabel: ppgLabel, descriptionText: "$ / Gallon"))
+        topStack.addArrangedSubview(createPairingStack(dataLabel: gallonsLabel, descriptionText: "Gallons"))
+        topStack.addArrangedSubview(createPairingStack(dataLabel: costLabel, descriptionText: "Price"))
 
         view.addSubview(topStack)
         
