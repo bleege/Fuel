@@ -143,7 +143,6 @@ class StopDetailViewController: UIViewController {
         
         view.addSubview(bottomStack)
 
-        // TODO - Layout Constraints
         NSLayoutConstraint.activate([
             stopDateLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 16.0),
             stopDateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16.0),
@@ -154,8 +153,7 @@ class StopDetailViewController: UIViewController {
             bottomStack.topAnchor.constraint(equalTo: topStack.bottomAnchor, constant: 28.0),
             bottomStack.leadingAnchor.constraint(equalTo: topStack.leadingAnchor),
             bottomStack.trailingAnchor.constraint(equalTo: topStack.trailingAnchor),
-//            bottomStack.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])        
+        ])
     }
     
     private func createPairingStack(dataLabel: UILabel, descriptionText: String) -> UIStackView {
