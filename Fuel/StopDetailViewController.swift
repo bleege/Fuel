@@ -22,6 +22,7 @@ class StopDetailViewController: UIViewController {
     private let ppgLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -29,6 +30,7 @@ class StopDetailViewController: UIViewController {
     private let gallonsLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -36,6 +38,7 @@ class StopDetailViewController: UIViewController {
     private let costLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -43,6 +46,7 @@ class StopDetailViewController: UIViewController {
     private let tripOdometerLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -50,6 +54,7 @@ class StopDetailViewController: UIViewController {
     private let tripMPGLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -57,6 +62,7 @@ class StopDetailViewController: UIViewController {
     private let odometerLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -64,6 +70,7 @@ class StopDetailViewController: UIViewController {
     private let octaneLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -93,6 +100,8 @@ class StopDetailViewController: UIViewController {
     
     // MARK: - View Hierarchy Setup
     private func setupViewHierarchy() {
+        view.backgroundColor = UIColor(red: 242.0 / 255.0, green: 243.0 / 255.0, blue: 246.0 / 255.0, alpha: 1.0)
+        
         view.addSubview(stopDateLabel)
         
         let topStack = UIStackView()
@@ -100,6 +109,7 @@ class StopDetailViewController: UIViewController {
         topStack.alignment = .fill
         topStack.distribution = .fillProportionally
         topStack.spacing = 0
+        topStack.translatesAutoresizingMaskIntoConstraints = false
         topStack.addArrangedSubview(createPairingStack(dataLabel: costLabel, descriptionText: "Price"))
         topStack.addArrangedSubview(createPairingStack(dataLabel: gallonsLabel, descriptionText: "Gallons"))
         topStack.addArrangedSubview(createPairingStack(dataLabel: ppgLabel, descriptionText: "$ / Gallon"))
@@ -110,7 +120,7 @@ class StopDetailViewController: UIViewController {
         bottomLeftStack.axis = .vertical
         bottomLeftStack.alignment = .fill
         bottomLeftStack.distribution = .equalCentering
-        bottomLeftStack.spacing = 0
+        bottomLeftStack.spacing = 28
         bottomLeftStack.addArrangedSubview(createPairingStack(dataLabel: tripOdometerLabel, descriptionText: "Trip Odometer"))
         bottomLeftStack.addArrangedSubview(createPairingStack(dataLabel: odometerLabel, descriptionText: "Odometer"))
 
@@ -118,7 +128,7 @@ class StopDetailViewController: UIViewController {
         bottomRightStack.axis = .vertical
         bottomRightStack.alignment = .fill
         bottomRightStack.distribution = .equalCentering
-        bottomRightStack.spacing = 0
+        bottomRightStack.spacing = 28
         bottomRightStack.addArrangedSubview(createPairingStack(dataLabel: tripMPGLabel, descriptionText: "Trip MPG"))
         bottomRightStack.addArrangedSubview(createPairingStack(dataLabel: octaneLabel, descriptionText: "Octane"))
 
@@ -127,6 +137,7 @@ class StopDetailViewController: UIViewController {
         bottomStack.alignment = .fill
         bottomStack.distribution = .fillEqually
         bottomStack.spacing = 0
+        bottomStack.translatesAutoresizingMaskIntoConstraints = false
         bottomStack.addArrangedSubview(bottomLeftStack)
         bottomStack.addArrangedSubview(bottomRightStack)
         
@@ -164,6 +175,7 @@ class StopDetailViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17.0)
         label.text = text
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }

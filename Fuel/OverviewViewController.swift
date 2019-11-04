@@ -130,9 +130,8 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
     func displayStopDataView(index: Int) {
         print("display stop data view for index = \(index)")
         
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let stopDetailViewController = sb.instantiateViewController(withIdentifier: "stopDetailViewControllerId") as! StopDetailViewController
-
+        let stopDetailViewController = StopDetailViewController()
+        
         stopDetailViewController.stopData = fuelStops[index]
         stopDetailViewController.transitioningDelegate = stopDetailPresentationManager
         stopDetailViewController.modalPresentationStyle = .custom
