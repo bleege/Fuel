@@ -140,8 +140,7 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
     }
     
     func displayAddStopViewController() {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let addStopViewController = sb.instantiateViewController(withIdentifier: "addStopViewControllerId") as! AddStopViewController
+        let addStopViewController = AddStopViewController()
         
         addStopViewController.transitioningDelegate = stopDetailPresentationManager
         addStopViewController.modalPresentationStyle = .custom
