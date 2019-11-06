@@ -10,9 +10,9 @@ import UIKit
 
 class FABView: UIView {
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.isOpaque = false
+    convenience init() {
+        self.init(frame: .zero)
+        self.isOpaque = true
     }
     
     override func draw(_ rect: CGRect) {
