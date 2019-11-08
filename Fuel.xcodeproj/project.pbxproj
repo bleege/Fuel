@@ -32,7 +32,6 @@
 		A2B7C89B1FC526100012167F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C89A1FC526100012167F /* AppDelegate.swift */; };
 		A2B7C89D1FC526100012167F /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C89C1FC526100012167F /* OverviewViewController.swift */; };
 		A2B7C89F1FC526100012167F /* AddStopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C89E1FC526100012167F /* AddStopViewController.swift */; };
-		A2B7C8A21FC526100012167F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2B7C8A01FC526100012167F /* Main.storyboard */; };
 		A2B7C8A41FC526100012167F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2B7C8A31FC526100012167F /* Assets.xcassets */; };
 		A2B7C8A71FC526100012167F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2B7C8A51FC526100012167F /* LaunchScreen.storyboard */; };
 		A2B7C8B21FC526100012167F /* FuelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C8B11FC526100012167F /* FuelTests.swift */; };
@@ -92,7 +91,6 @@
 		A2B7C89A1FC526100012167F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2B7C89C1FC526100012167F /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		A2B7C89E1FC526100012167F /* AddStopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStopViewController.swift; sourceTree = "<group>"; };
-		A2B7C8A11FC526100012167F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A2B7C8A31FC526100012167F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2B7C8A61FC526100012167F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2B7C8A81FC526100012167F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 				A2AB951D202E82EE0012D8B4 /* AddStopContract.swift */,
 				A2AB951F202E84410012D8B4 /* AddStopPresenter.swift */,
 				A2B7C89E1FC526100012167F /* AddStopViewController.swift */,
-				A2B7C8A01FC526100012167F /* Main.storyboard */,
 				A2B7C8A31FC526100012167F /* Assets.xcassets */,
 				A2B7C8A51FC526100012167F /* LaunchScreen.storyboard */,
 				A2B7C8A81FC526100012167F /* Info.plist */,
@@ -361,7 +358,6 @@
 				A2B7C8A71FC526100012167F /* LaunchScreen.storyboard in Resources */,
 				A2B7C8A41FC526100012167F /* Assets.xcassets in Resources */,
 				A26E5EE11FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv in Resources */,
-				A2B7C8A21FC526100012167F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,14 +456,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A2B7C8A01FC526100012167F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A2B7C8A11FC526100012167F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A2B7C8A51FC526100012167F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
