@@ -15,7 +15,6 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
         let mapView = MKMapView()
         mapView.delegate = self
         mapView.showsUserLocation = true
-//        mapView.translatesAutoresizingMaskIntoConstraints = false
         return mapView
     }()
     
@@ -26,7 +25,6 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
         table.backgroundColor = UIColor(red: 242.0 / 255.0, green: 243.0 / 255.0, blue: 246.0 / 255.0, alpha: 1.0)
         table.separatorStyle = .none
         table.register(OverviewStopTableCell.self, forCellReuseIdentifier: "stopTableCell")
-//        table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
     
@@ -51,12 +49,6 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
-    
-//    @IBOutlet weak var mapView: MKMapView!
-//    @IBOutlet weak var stopsTableView: UITableView!
-//    @IBOutlet weak var addStopFAB: FABView!
-//    @IBOutlet var addStopFABGestureRecognizer: UITapGestureRecognizer!
-    
     
     private var presenter: OverviewContractPresenter?
     private var fuelStops = [FuelStop]()
@@ -87,7 +79,7 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
             addStopFAB.heightAnchor.constraint(equalToConstant: 50.0),
             addStopFAB.widthAnchor.constraint(equalToConstant: 50.0),
             addStopFAB.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            addStopFAB.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 40.0)
+            addStopFAB.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40.0)
         ])
         
         // Do any additional setup after loading the view, typically from a nib.

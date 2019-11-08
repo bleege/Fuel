@@ -12,7 +12,7 @@ class FABView: UIView {
     
     convenience init() {
         self.init(frame: .zero)
-        self.isOpaque = true
+        self.isOpaque = false
     }
     
     override func draw(_ rect: CGRect) {
