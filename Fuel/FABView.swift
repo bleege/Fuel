@@ -10,8 +10,8 @@ import UIKit
 
 class FABView: UIView {
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    convenience init() {
+        self.init(frame: .zero)
         self.isOpaque = false
     }
     

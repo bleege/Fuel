@@ -15,14 +15,71 @@ class AddStopViewController: UIViewController, AddStopContractView {
     var presenter: AddStopContractPresenter?
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let disposeBag = DisposeBag()
+        
+    // MARK: - Data Entry Text Fields
     
-    @IBOutlet weak var pricePerGallonTextField: UITextField!
-    @IBOutlet weak var gallonsTextField: UITextField!
-    @IBOutlet weak var costTextField: UITextField!
-    @IBOutlet weak var octaneTextField: UITextField!
-    @IBOutlet weak var tripOdometerTextField: UITextField!
-    @IBOutlet weak var tripMPGTextField: UITextField!
-    @IBOutlet weak var odometerTextField: UITextField!
+    private let pricePerGallonTextField: UITextField = {
+        let label = UITextField()
+        label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textAlignment = .center
+        label.placeholder = "$0.00"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private let gallonsTextField: UITextField = {
+        let label = UITextField()
+        label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textAlignment = .center
+        label.placeholder = "0.0000"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private let costTextField: UITextField = {
+        let label = UITextField()
+        label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textAlignment = .center
+        label.placeholder = "$0.00"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private let tripOdometerTextField: UITextField = {
+        let label = UITextField()
+        label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textAlignment = .center
+        label.placeholder = "0000"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private let tripMPGTextField: UITextField = {
+        let label = UITextField()
+        label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textAlignment = .center
+        label.placeholder = "00.000"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private let odometerTextField: UITextField = {
+        let label = UITextField()
+        label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textAlignment = .center
+        label.placeholder = "00000"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private let octaneTextField: UITextField = {
+        let label = UITextField()
+        label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textAlignment = .center
+        label.placeholder = "00"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     private var pricePerGallon: Double = 0
     private var gallons: Double = 0
@@ -34,8 +91,10 @@ class AddStopViewController: UIViewController, AddStopContractView {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        presenter = (UIApplication.shared.delegate as? AppDelegate)?.container?.resolve(AddStopContractPresenter.self)
+        setupViewHierarchy()
 
+        presenter = (UIApplication.shared.delegate as? AppDelegate)?.container?.resolve(AddStopContractPresenter.self)
+        
         // Dismiss Keyboard Input
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
@@ -67,11 +126,109 @@ class AddStopViewController: UIViewController, AddStopContractView {
         presenter?.onDetach()
         super.viewWillDisappear(animated)
     }
+    
+    // MARK: - View Hierarchy Setup
+    private func setupViewHierarchy() {
+        view.backgroundColor = UIColor(red: 242.0 / 255.0, green: 243.0 / 255.0, blue: 246.0 / 255.0, alpha: 1.0)
+                
+        let topStack = UIStackView()
+        topStack.axis = .horizontal
+        topStack.alignment = .fill
+        topStack.distribution = .fillProportionally
+        topStack.spacing = 0
+        topStack.translatesAutoresizingMaskIntoConstraints = false
+        topStack.addArrangedSubview(createPairingStack(dataTextField: pricePerGallonTextField, descriptionText: "$ / Gallon"))
+        topStack.addArrangedSubview(createPairingStack(dataTextField: gallonsTextField, descriptionText: "Gallons"))
+        topStack.addArrangedSubview(createPairingStack(dataTextField: costTextField, descriptionText: "Price"))
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        view.addSubview(topStack)
+        let bottomLeftStack = UIStackView()
+        bottomLeftStack.axis = .vertical
+        bottomLeftStack.alignment = .fill
+        bottomLeftStack.distribution = .equalCentering
+        bottomLeftStack.spacing = 28
+        bottomLeftStack.addArrangedSubview(createPairingStack(dataTextField: tripOdometerTextField, descriptionText: "Trip Odometer"))
+        bottomLeftStack.addArrangedSubview(createPairingStack(dataTextField: odometerTextField, descriptionText: "Odometer"))
+
+        let bottomRightStack = UIStackView()
+        bottomRightStack.axis = .vertical
+        bottomRightStack.alignment = .fill
+        bottomRightStack.distribution = .equalCentering
+        bottomRightStack.spacing = 28
+        bottomRightStack.addArrangedSubview(createPairingStack(dataTextField: tripMPGTextField, descriptionText: "Trip MPG"))
+        bottomRightStack.addArrangedSubview(createPairingStack(dataTextField: octaneTextField, descriptionText: "Octane"))
+
+        let bottomStack = UIStackView()
+        bottomStack.axis = .horizontal
+        bottomStack.alignment = .fill
+        bottomStack.distribution = .fillEqually
+        bottomStack.spacing = 0
+        bottomStack.translatesAutoresizingMaskIntoConstraints = false
+        bottomStack.addArrangedSubview(bottomLeftStack)
+        bottomStack.addArrangedSubview(bottomRightStack)
+        
+        view.addSubview(bottomStack)
+
+        let blue = UIColor(red: 0.0, green: 120.0 / 255.0, blue: 1.0, alpha: 1.0)
+        let saveButton = UIButton()
+        saveButton.setTitle("Save", for: .normal)
+        saveButton.setTitleColor(blue, for: .normal)
+        saveButton.titleLabel?.font = UIFont.systemFont(ofSize: 15.0, weight: .bold)
+        saveButton.addTarget(self, action: #selector(handleSaveTap(_:)), for: .touchUpInside)
+        
+        let cancelButton = UIButton()
+        cancelButton.setTitle("Cancel", for: .normal)
+        cancelButton.setTitleColor(blue, for: .normal)
+        cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 15.0, weight: .bold)
+        cancelButton.titleLabel?.textColor = UIColor(red: 0.0, green: 120.0 / 255.0, blue: 1.0, alpha: 1.0)
+        cancelButton.addTarget(self, action: #selector(handleCancelTap(_:)), for: .touchUpInside)
+        
+        let buttonStack = UIStackView()
+        buttonStack.axis = .horizontal
+        buttonStack.alignment = .fill
+        buttonStack.distribution = .fillEqually
+        buttonStack.spacing = 0
+        buttonStack.translatesAutoresizingMaskIntoConstraints = false
+        buttonStack.addArrangedSubview(saveButton)
+        buttonStack.addArrangedSubview(cancelButton)
+        
+        view.addSubview(buttonStack)
+
+        NSLayoutConstraint.activate([
+            topStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 16.0),
+            topStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16.0),
+            topStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16.0),
+            bottomStack.topAnchor.constraint(equalTo: topStack.bottomAnchor, constant: 28.0),
+            bottomStack.leadingAnchor.constraint(equalTo: topStack.leadingAnchor),
+            bottomStack.trailingAnchor.constraint(equalTo: topStack.trailingAnchor),
+            buttonStack.topAnchor.constraint(equalTo: bottomStack.bottomAnchor, constant: 10.0),
+            buttonStack.leadingAnchor.constraint(equalTo: bottomStack.leadingAnchor),
+            buttonStack.trailingAnchor.constraint(equalTo: bottomStack.trailingAnchor)
+        ])
     }
+    
+    private func createPairingStack(dataTextField: UITextField, descriptionText: String) -> UIStackView {
+        
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.alignment = .fill
+        stack.distribution = .fill
+        stack.spacing = 0.0
+        stack.addArrangedSubview(dataTextField)
+        stack.addArrangedSubview(createDescriptionLabel(text: descriptionText))
+        
+        return stack
+    }
+
+    private func createDescriptionLabel(text: String) -> UILabel {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 17.0)
+        label.text = text
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }
+    
     
     @IBAction func handleSaveTap(_ sender: Any) {
         presenter?.handleSaveTap()

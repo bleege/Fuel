@@ -11,10 +11,44 @@ import MapKit
 
 class OverviewViewController: UIViewController, OverviewContractView, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var stopsTableView: UITableView!
-    @IBOutlet weak var addStopFAB: FABView!
-    @IBOutlet var addStopFABGestureRecognizer: UITapGestureRecognizer!
+    private lazy var mapView: MKMapView = {
+        let mapView = MKMapView()
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        return mapView
+    }()
+    
+    private lazy var stopsTableView: UITableView = {
+        let table = UITableView()
+        table.dataSource = self
+        table.delegate = self
+        table.backgroundColor = UIColor(red: 242.0 / 255.0, green: 243.0 / 255.0, blue: 246.0 / 255.0, alpha: 1.0)
+        table.separatorStyle = .none
+        table.register(OverviewStopTableCell.self, forCellReuseIdentifier: "stopTableCell")
+        return table
+    }()
+    
+    private let addStopFAB: FABView = {
+        let fab = FABView()
+        fab.translatesAutoresizingMaskIntoConstraints = false
+        return fab
+    }()
+    
+    private lazy var addStopFABGestureRecognizer: UITapGestureRecognizer = {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(handleFABTap))
+        gesture.numberOfTouchesRequired = 1
+        return gesture
+    }()
+    
+    private let stack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.alignment = .fill
+        stack.distribution = .fillEqually
+        stack.spacing = 0.0
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
     
     private var presenter: OverviewContractPresenter?
     private var fuelStops = [FuelStop]()
@@ -28,13 +62,28 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Load View Hierarchy
+        stack.addArrangedSubview(mapView)
+        stack.addArrangedSubview(stopsTableView)
+        view.addSubview(stack)
+        
+        addStopFAB.addGestureRecognizer(addStopFABGestureRecognizer)
+        view.addSubview(addStopFAB)
+        
+        NSLayoutConstraint.activate([
+            stack.topAnchor.constraint(equalTo: view.topAnchor),
+            stack.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stack.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            stack.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            addStopFAB.heightAnchor.constraint(equalToConstant: 50.0),
+            addStopFAB.widthAnchor.constraint(equalToConstant: 50.0),
+            addStopFAB.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            addStopFAB.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40.0)
+        ])
+        
         // Do any additional setup after loading the view, typically from a nib.
         presenter = (UIApplication.shared.delegate as? AppDelegate)?.container?.resolve(OverviewContractPresenter.self)
-        
-        mapView.delegate = self
-        mapView.showsUserLocation = true
-        
-        self.addStopFABGestureRecognizer.numberOfTapsRequired = 1
         presenter?.loadFuelStops()
     }
 
@@ -47,13 +96,9 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
         presenter?.onDetach()
         super.viewWillDisappear(animated)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func handleFABTap(_ sender: UITapGestureRecognizer) {
+        
+    @objc
+    func handleFABTap(_ sender: UITapGestureRecognizer) {
         presenter?.handleAddStopFABTap()
     }
     
@@ -130,9 +175,8 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
     func displayStopDataView(index: Int) {
         print("display stop data view for index = \(index)")
         
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let stopDetailViewController = sb.instantiateViewController(withIdentifier: "stopDetailViewControllerId") as! StopDetailViewController
-
+        let stopDetailViewController = StopDetailViewController()
+        
         stopDetailViewController.stopData = fuelStops[index]
         stopDetailViewController.transitioningDelegate = stopDetailPresentationManager
         stopDetailViewController.modalPresentationStyle = .custom
@@ -141,8 +185,7 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
     }
     
     func displayAddStopViewController() {
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let addStopViewController = sb.instantiateViewController(withIdentifier: "addStopViewControllerId") as! AddStopViewController
+        let addStopViewController = AddStopViewController()
         
         addStopViewController.transitioningDelegate = stopDetailPresentationManager
         addStopViewController.modalPresentationStyle = .custom
