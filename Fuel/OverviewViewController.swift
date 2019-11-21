@@ -201,6 +201,21 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
     }
     
     // MARK: - MKMapViewDelegate
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        
+        var pin = mapView.dequeueReusableAnnotationView(withIdentifier: "Pin")
+        
+        if (pin == nil) {
+            pin = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "Pin")
+        }
+        pin?.displayPriority = .required
+        
+        return pin
+    }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let selectedAnnotation = view.annotation {
