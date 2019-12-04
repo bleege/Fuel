@@ -57,7 +57,11 @@ class OverviewStopTableCell: UITableViewCell {
     }
     
     private func commonSetup() {
-        backgroundColor = UIColor(red: 242.0 / 255.0, green: 243.0 / 255.0, blue: 246.0 / 255.0, alpha: 1.0)
+        let gray = UIColor(red: 242.0 / 255.0, green: 243.0 / 255.0, blue: 246.0 / 255.0, alpha: 1.0)
+        backgroundColor = gray
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = gray
+        selectedBackgroundView = backgroundView
         
         stageView.addSubview(stopDate)
         stageView.addSubview(gallonsFilled)

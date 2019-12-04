@@ -248,6 +248,7 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
         presenter?.handleStopSelection(index: indexPath.row)
     }
     
