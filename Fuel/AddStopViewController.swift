@@ -23,6 +23,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
         label.font = UIFont.systemFont(ofSize: 30.0)
         label.textAlignment = .center
         label.placeholder = "$0.00"
+        label.keyboardType = .decimalPad
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -32,6 +33,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
         label.font = UIFont.systemFont(ofSize: 30.0)
         label.textAlignment = .center
         label.placeholder = "0.0000"
+        label.keyboardType = .decimalPad
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -41,6 +43,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
         label.font = UIFont.systemFont(ofSize: 30.0)
         label.textAlignment = .center
         label.placeholder = "$0.00"
+        label.keyboardType = .decimalPad
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -50,6 +53,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
         label.font = UIFont.systemFont(ofSize: 30.0)
         label.textAlignment = .center
         label.placeholder = "0000"
+        label.keyboardType = .decimalPad
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -59,6 +63,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
         label.font = UIFont.systemFont(ofSize: 30.0)
         label.textAlignment = .center
         label.placeholder = "00.000"
+        label.keyboardType = .decimalPad
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -68,6 +73,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
         label.font = UIFont.systemFont(ofSize: 30.0)
         label.textAlignment = .center
         label.placeholder = "00000"
+        label.keyboardType = .numberPad
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -77,6 +83,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
         label.font = UIFont.systemFont(ofSize: 30.0)
         label.textAlignment = .center
         label.placeholder = "00"
+        label.keyboardType = .numberPad
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
