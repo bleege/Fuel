@@ -777,8 +777,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.6.1;
+				kind = exactVersion;
+				version = 2.7.1;
 			};
 		};
 		A2C93970234190FF00AD07EB /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */ = {
