@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A214D4912432F81D00033A02 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A214D4902432F81D00033A02 /* Log.swift */; };
 		A21AEC1E20BB9AB7007180C1 /* FuelStopsDataManagerContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21AEC1D20BB9AB6007180C1 /* FuelStopsDataManagerContract.swift */; };
 		A21AEC2020BB9B76007180C1 /* MockFuelStopsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21AEC1F20BB9B76007180C1 /* MockFuelStopsDataManager.swift */; };
 		A21AEC2120BB9BB1007180C1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2435C5B2055ABEB00EC990F /* CloudKit.framework */; platformFilter = ios; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A214D4902432F81D00033A02 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		A21AEC1D20BB9AB6007180C1 /* FuelStopsDataManagerContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelStopsDataManagerContract.swift; sourceTree = "<group>"; };
 		A21AEC1F20BB9B76007180C1 /* MockFuelStopsDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuelStopsDataManager.swift; sourceTree = "<group>"; };
 		A220B211215F47FA002DF784 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -187,6 +189,7 @@
 				A22D93E22016D9CC008D6254 /* StopDetailPresentationManager.swift */,
 				A27BC0D92018575D00E94BD2 /* Extensions.swift */,
 				A26FCEAD21AF95D100D9CE41 /* CKDatabase+Rx.swift */,
+				A214D4902432F81D00033A02 /* Log.swift */,
 			);
 			path = Fuel;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				A27BC0DA2018575D00E94BD2 /* Extensions.swift in Sources */,
 				A2A69BE1200DB595006DBED8 /* StopDetailViewController.swift in Sources */,
 				A2AB951E202E82EE0012D8B4 /* AddStopContract.swift in Sources */,
+				A214D4912432F81D00033A02 /* Log.swift in Sources */,
 				A2C842F11FEF5B330068BFAC /* OverviewContract.swift in Sources */,
 				A2435C5E2055D6EA00EC990F /* FuelStop.swift in Sources */,
 				A250C6B21FECB0230025A962 /* OverviewStopTableCell.swift in Sources */,
