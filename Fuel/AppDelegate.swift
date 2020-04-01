@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import RxSwift
 import Swinject
+import os.log
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
@@ -77,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         guard let filePath = Bundle.main.path(forResource: "2016-VW-Jetta-Fuel-Tracking", ofType: ".csv")
             else {
-                print("Couldn't load data file")
+                os_log(.info, log: Log.general, "Couldn't load data file")
                 return
         }
         
@@ -85,25 +86,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             let csvContent = try String(contentsOfFile: filePath, encoding: .utf8)
             print(csvContent)
             let lines: [String] = csvContent.components(separatedBy: .newlines)
-            
-            print("Number of lines / records to save: \(lines.count)")
+
+            os_log(.info, log: Log.general, "Number of lines / records to save: %@", lines.count)
             
             for line in lines {
                 let values = line.components(separatedBy: ",")
                 if (values.count > 1) {
                     
                     dataManager.addFuelStop(csv: values).subscribe(onSuccess: { (record) in
-                            print("Successfully added Fuel Stop \(record.recordID.recordName)")
+                        os_log(.info, log: Log.general, "Successfully added Fuel Stop %@", record.recordID.recordName)
                         }, onError: { (error) in
-                            print("Error adding fuel stop: \(error)")
+                            os_log(.error, log: Log.general, "Error adding fuel stop: %@", error.localizedDescription)
                         }, onCompleted: {
-                            print("Completed adding Fuel Stop")
+                            os_log(.info, log: Log.general, "Completed adding Fuel Stop")
                         }).disposed(by: disposeBag)
                     
                 }
             }
-        } catch {
-            print("Couldn't load data file")
+        } catch (let error) {
+            os_log(.error, log: Log.general, "Couldn't load data file: %@", error.localizedDescription)
             return
         }
         
