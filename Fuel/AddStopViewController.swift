@@ -9,6 +9,7 @@
 import CoreLocation
 import UIKit
 import RxSwift
+import os.log
 
 class AddStopViewController: UIViewController, AddStopContractView {
 
@@ -252,7 +253,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     
     func dismissAfterSave(record: FuelStop) {
         if (self.presentingViewController != nil) {
-            print("presentingViewController is not null")
+            os_log(.info, log: Log.general, "presentingViewController is not null")
             (self.presentingViewController as! OverviewViewController).addFuelStopToTable(fuelStop: record)
             dismiss()
         }

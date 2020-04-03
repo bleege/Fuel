@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import RxSwift
+import os.log
 
 class OverviewPresenter: OverviewContractPresenter {
     
@@ -46,7 +47,7 @@ class OverviewPresenter: OverviewContractPresenter {
                 }
                 self.view?.displayStops(fuelStops: stops)
             }, onError: { (error) in
-                print("Error = \(error)")
+                os_log(.error, log: Log.general, "Error loading Fuel Stops: %@", error.localizedDescription)
                 self.view?.displayError(message: "Error getting fuel stops.")
             }).disposed(by: disposeBag)
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import os.log
 
 class OverviewViewController: UIViewController, OverviewContractView, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -173,8 +174,7 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
     }
     
     func displayStopDataView(index: Int) {
-        print("display stop data view for index = \(index)")
-        
+        os_log(.info, log: Log.general, "display stop data view for index = %d", index)
         let stopDetailViewController = StopDetailViewController()
         
         stopDetailViewController.stopData = fuelStops[index]
