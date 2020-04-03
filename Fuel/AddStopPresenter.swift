@@ -10,6 +10,7 @@ import CoreLocation
 import UIKit
 import RxSwift
 import RxCocoa
+import os.log
 
 class AddStopPresenter: AddStopContractPresenter {
 
@@ -39,7 +40,7 @@ class AddStopPresenter: AddStopContractPresenter {
     
     func handleSaveTap() {
         if (view?.validateForm())! {
-            print("Form is valid, so can save.")
+            os_log(.info, log: Log.general, "Form is valid, so can save.")
             
             guard let location = view?.locationData(),
                 let gallons = view?.gallonsData(),
@@ -49,7 +50,7 @@ class AddStopPresenter: AddStopContractPresenter {
                 let ppg = view?.ppgData(),
                 let stopDate = view?.stopDateData(),
                 let tripOdometer = view?.tripOdometerData() else {
-                print("Missing Trip Data to save.")
+                os_log(.info, log: Log.general, "Missing Trip Data to save.")
                 return
             }
             
@@ -69,14 +70,14 @@ class AddStopPresenter: AddStopContractPresenter {
                         case .success(let record):
                             self.view?.dismissAfterSave(record: FuelStop(record: record))
                         case .error(let error):
+                            os_log(.error, log: Log.general, "Error Adding Fuel Stop: %@", error.localizedDescription)
                             self.view?.displayError(message: error.localizedDescription)
-                            print("Error: ", error)
                         case .completed:
                             break
                         }
                     }.disposed(by: disposeBag)
         } else {
-            print("Form is not valid.")
+            os_log(.info, log: Log.general, "Form is not valid.")
         }
     }
 }

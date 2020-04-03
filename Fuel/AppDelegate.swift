@@ -84,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         do {
             let csvContent = try String(contentsOfFile: filePath, encoding: .utf8)
-            print(csvContent)
+            os_log(.debug, log: Log.general, "%@", csvContent)
             let lines: [String] = csvContent.components(separatedBy: .newlines)
 
             os_log(.info, log: Log.general, "Number of lines / records to save: %@", lines.count)
