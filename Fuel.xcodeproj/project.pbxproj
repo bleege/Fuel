@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2025FA924FDFDB0001C257A /* Combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2025FA824FDFDB0001C257A /* Combine.framework */; };
 		A214D4912432F81D00033A02 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A214D4902432F81D00033A02 /* Log.swift */; };
 		A21AEC1E20BB9AB7007180C1 /* FuelStopsDataManagerContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21AEC1D20BB9AB6007180C1 /* FuelStopsDataManagerContract.swift */; };
 		A21AEC2020BB9B76007180C1 /* MockFuelStopsDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21AEC1F20BB9B76007180C1 /* MockFuelStopsDataManager.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A2025FA824FDFDB0001C257A /* Combine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Combine.framework; path = System/Library/Frameworks/Combine.framework; sourceTree = SDKROOT; };
 		A214D4902432F81D00033A02 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		A21AEC1D20BB9AB6007180C1 /* FuelStopsDataManagerContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelStopsDataManagerContract.swift; sourceTree = "<group>"; };
 		A21AEC1F20BB9B76007180C1 /* MockFuelStopsDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFuelStopsDataManager.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			files = (
 				A2C9396A23418C9000AD07EB /* RxSwift in Frameworks */,
 				A276BE82200C6FB20069CCA8 /* CoreLocation.framework in Frameworks */,
+				A2025FA924FDFDB0001C257A /* Combine.framework in Frameworks */,
 				A2C9396C23418C9000AD07EB /* RxCocoa in Frameworks */,
 				A2435C5C2055ABEB00EC990F /* CloudKit.framework in Frameworks */,
 				A2C9396F2341900F00AD07EB /* Swinject in Frameworks */,
@@ -219,6 +222,7 @@
 		A2B7C8CA1FC5337B0012167F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A2025FA824FDFDB0001C257A /* Combine.framework */,
 				A220B211215F47FA002DF784 /* UIKit.framework */,
 				A2435C5B2055ABEB00EC990F /* CloudKit.framework */,
 				A276BE81200C6FB20069CCA8 /* CoreLocation.framework */,
@@ -521,7 +525,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -574,7 +578,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;

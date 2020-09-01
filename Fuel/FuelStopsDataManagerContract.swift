@@ -9,10 +9,11 @@
 import Foundation
 import CloudKit
 import RxSwift
+import Combine
 
 protocol FuelStopsDataManagerContract: class {
 
-    func getAllFuelStops() -> Single<[CKRecord]>
+    func getAllFuelStops() -> AnyPublisher<[CKRecord], Error>
     
     func deleteFuelStop(fuelStop: FuelStop)
     

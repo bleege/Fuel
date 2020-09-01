@@ -9,6 +9,7 @@
 import CloudKit
 import CoreLocation
 import RxSwift
+import Combine
 
 class FuelStopsDataManager: FuelStopsDataManagerContract {
     
@@ -21,8 +22,8 @@ class FuelStopsDataManager: FuelStopsDataManagerContract {
         container = CKContainer.default()
         userDB = container.privateCloudDatabase
     }
-    
-    func getAllFuelStops() -> Single<[CKRecord]>  {
+        
+    func getAllFuelStops() -> AnyPublisher<[CKRecord], Error> {
         return userDB.fetchAll(recordType: FuelStopType, sortDescriptors: [stopsSortByDate])
     }
     
