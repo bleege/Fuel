@@ -92,15 +92,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             for line in lines {
                 let values = line.components(separatedBy: ",")
                 if (values.count > 1) {
-                    
-                    dataManager.addFuelStop(csv: values).subscribe(onSuccess: { (record) in
-                        os_log(.info, log: Log.general, "Successfully added Fuel Stop %@", record.recordID.recordName)
-                        }, onError: { (error) in
+                    dataManager.addFuelStop(csv: values)
+                        .subscribe(on: DispatchQueue.global())
+                        .sink(receiveCompletion: { completion in
+                        switch completion {
+                        case .failure(let error):
                             os_log(.error, log: Log.general, "Error adding fuel stop: %@", error.localizedDescription)
-                        }, onCompleted: {
+                        case .finished:
                             os_log(.info, log: Log.general, "Completed adding Fuel Stop")
-                        }).disposed(by: disposeBag)
-                    
+                        }
+                    }, receiveValue: { value in
+                        os_log(.info, log: Log.general, "Successfully added Fuel Stop %@", value.recordID.recordName)
+                    })
                 }
             }
         } catch (let error) {

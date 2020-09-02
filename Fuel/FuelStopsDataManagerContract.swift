@@ -8,7 +8,6 @@
 
 import Foundation
 import CloudKit
-import RxSwift
 import Combine
 
 protocol FuelStopsDataManagerContract: class {
@@ -17,10 +16,10 @@ protocol FuelStopsDataManagerContract: class {
     
     func deleteFuelStop(fuelStop: FuelStop)
     
-    func addFuelStop(fuelStop: FuelStop) -> Maybe<CKRecord>
+    func addFuelStop(fuelStop: FuelStop) -> AnyPublisher<CKRecord, Error>
     
     func addFuelStop(gallons: Double, latitude: Double, longitude: Double, octane: Int,
-                     odometer: Int, price: Double, ppg: Double, stopDate: Date, tripOdometer: Double) -> Maybe<CKRecord>
+                     odometer: Int, price: Double, ppg: Double, stopDate: Date, tripOdometer: Double) -> AnyPublisher<CKRecord, Error>
     
-    func addFuelStop(csv: [String]) -> Maybe<CKRecord>
+    func addFuelStop(csv: [String]) -> AnyPublisher<CKRecord, Error>
 }

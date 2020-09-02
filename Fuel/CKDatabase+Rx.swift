@@ -7,7 +7,6 @@
 //
 
 import CloudKit
-import RxSwift
 import Combine
 
 extension CKDatabase {
@@ -29,17 +28,19 @@ extension CKDatabase {
         }.eraseToAnyPublisher()
     }
     
-    func save(stop: CKRecord) -> Maybe<CKRecord> {
-
-        return Maybe<CKRecord>.create { [weak self] maybe in
-            self?.save(stop, completionHandler: { (record, error) in
-                if let error = error {
-                    maybe(.error(error))
-                } else {
-                    maybe(.success(record!))
+    func save(stop: CKRecord) -> AnyPublisher<CKRecord, Error> {
+        
+        return Deferred {
+            Future { promise in
+                self.save(stop) { (record, error) in
+                    if let error = error {
+                        promise(.failure(error))
+                    } else {
+                        promise(.success(record!))
+                    }
                 }
-            })
-            return Disposables.create { }
-        }
+            }
+        }.eraseToAnyPublisher()
+        
     }
 }
