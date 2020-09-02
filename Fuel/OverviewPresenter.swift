@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import RxSwift
 import Combine
 import os.log
 
@@ -17,9 +16,7 @@ class OverviewPresenter: OverviewContractPresenter {
     private weak var view: OverviewContractView?
     
     private var dataManager: FuelStopsDataManagerContract
-    
-    private let disposeBag = DisposeBag()
-    
+        
     init() {
         self.dataManager = (UIApplication.shared.delegate as! AppDelegate).dataManager
     }
