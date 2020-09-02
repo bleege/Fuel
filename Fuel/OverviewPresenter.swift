@@ -39,21 +39,25 @@ class OverviewPresenter: OverviewContractPresenter {
     }
     
     func loadFuelStops() {
-        dataManager.getAllFuelStops().sink(receiveCompletion: { completion in
-            switch completion {
-            case .failure(let error):
-                os_log(.error, log: Log.general, "Error loading Fuel Stops: %@", error.localizedDescription)
-                self.view?.displayError(message: "Error getting fuel stops.")
-            case .finished:
-                os_log(.info, log: Log.general, "Finished getAllFuelStops")
-            }
-        }, receiveValue: { elements in
-            var stops = [FuelStop]()
-            for ckr in elements {
-                stops.append(FuelStop(record: ckr))
-            }
-            self.view?.displayStops(fuelStops: stops)
-        })
+        
+        dataManager.getAllFuelStops()
+            .subscribe(on: DispatchQueue.global())
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                    case .failure(let error):
+                        os_log(.error, log: Log.general, "Error loading Fuel Stops: %@", error.localizedDescription)
+                        self.view?.displayError(message: "Error getting fuel stops.")
+                    case .finished:
+                        os_log(.info, log: Log.general, "Finished getAllFuelStops")
+                }
+            }, receiveValue: { elements in
+                var stops = [FuelStop]()
+                for ckr in elements {
+                    stops.append(FuelStop(record: ckr))
+                }
+                self.view?.displayStops(fuelStops: stops)
+            })
     }
     
     func handleStopSelection(index: Int) {
