@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import RxSwift
+import Combine
 import os.log
 
 class OverviewPresenter: OverviewContractPresenter {
@@ -38,18 +39,25 @@ class OverviewPresenter: OverviewContractPresenter {
     }
     
     func loadFuelStops() {
+        
         dataManager.getAllFuelStops()
-            .observeOn(MainScheduler.instance)
-            .subscribe(onSuccess: { (element) in
+            .subscribe(on: DispatchQueue.global())
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                    case .failure(let error):
+                        os_log(.error, log: Log.general, "Error loading Fuel Stops: %@", error.localizedDescription)
+                        self.view?.displayError(message: "Error getting fuel stops.")
+                    case .finished:
+                        os_log(.info, log: Log.general, "Finished getAllFuelStops")
+                }
+            }, receiveValue: { elements in
                 var stops = [FuelStop]()
-                for ckr in element {
+                for ckr in elements {
                     stops.append(FuelStop(record: ckr))
                 }
                 self.view?.displayStops(fuelStops: stops)
-            }, onError: { (error) in
-                os_log(.error, log: Log.general, "Error loading Fuel Stops: %@", error.localizedDescription)
-                self.view?.displayError(message: "Error getting fuel stops.")
-            }).disposed(by: disposeBag)
+            })
     }
     
     func handleStopSelection(index: Int) {

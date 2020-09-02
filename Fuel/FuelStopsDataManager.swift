@@ -9,6 +9,7 @@
 import CloudKit
 import CoreLocation
 import RxSwift
+import Combine
 
 class FuelStopsDataManager: FuelStopsDataManagerContract {
     
@@ -21,8 +22,8 @@ class FuelStopsDataManager: FuelStopsDataManagerContract {
         container = CKContainer.default()
         userDB = container.privateCloudDatabase
     }
-    
-    func getAllFuelStops() -> Single<[CKRecord]>  {
+        
+    func getAllFuelStops() -> AnyPublisher<[CKRecord], Error> {
         return userDB.fetchAll(recordType: FuelStopType, sortDescriptors: [stopsSortByDate])
     }
     
@@ -30,12 +31,12 @@ class FuelStopsDataManager: FuelStopsDataManagerContract {
 //        persistentContainer.viewContext.delete(fuelStop)
     }
     
-    func addFuelStop(fuelStop: FuelStop) -> Maybe<CKRecord> {
+    func addFuelStop(fuelStop: FuelStop) -> AnyPublisher<CKRecord, Error> {
         return addFuelStop(gallons: fuelStop.gallons, latitude: fuelStop.location.coordinate.latitude, longitude: fuelStop.location.coordinate.longitude, octane: Int(fuelStop.octane), odometer: Int(fuelStop.odometer), price: fuelStop.price, ppg: fuelStop.pricePerGallon, stopDate: fuelStop.stopDate, tripOdometer: fuelStop.tripOdometer)
     }
     
     func addFuelStop(gallons: Double, latitude: Double, longitude: Double, octane: Int,
-                     odometer: Int, price: Double, ppg: Double, stopDate: Date, tripOdometer: Double) -> Maybe<CKRecord> {
+                     odometer: Int, price: Double, ppg: Double, stopDate: Date, tripOdometer: Double) -> AnyPublisher<CKRecord, Error> {
  
         let stop = CKRecord(recordType: FuelStopType)
         stop.setValue(gallons, forKey: FuelStop.KEY_GALLONS)
@@ -51,7 +52,7 @@ class FuelStopsDataManager: FuelStopsDataManagerContract {
         return userDB.save(stop: stop)
     }
     
-    func addFuelStop(csv: [String]) -> Maybe<CKRecord> {
+    func addFuelStop(csv: [String]) -> AnyPublisher<CKRecord, Error> {
         
         let df: DateFormatter = DateFormatter()
         df.locale = Locale(identifier: "en_US")

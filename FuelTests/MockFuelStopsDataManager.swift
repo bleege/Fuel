@@ -8,41 +8,40 @@
 
 import Foundation
 import CloudKit
-import RxSwift
+import Combine
 @testable import Fuel
 
 class MockFuelStopsDataManager: FuelStopsDataManagerContract {
-    func getAllFuelStops() -> Single<[CKRecord]> {
+    func getAllFuelStops() -> AnyPublisher<[CKRecord], Error> {
         let record = [CKRecord(recordType: "FuelStop")]
-        return Single<[CKRecord]>.just(record)
+        return Future { promise in
+            promise(.success(record))
+        }.eraseToAnyPublisher()
     }
     
     func deleteFuelStop(fuelStop: FuelStop) {
         // No Op
     }
     
-    func addFuelStop(fuelStop: FuelStop) -> Maybe<CKRecord> {
+    func addFuelStop(fuelStop: FuelStop) -> AnyPublisher<CKRecord, Error> {
         let record = CKRecord(recordType: "FuelStop")
         
-        return Maybe<CKRecord>.create { maybe in
-            maybe(.success(record))
-            return Disposables.create {}
-        }
+        return Future { promise in
+            promise(.success(record))
+        }.eraseToAnyPublisher()
     }
     
-    func addFuelStop(gallons: Double, latitude: Double, longitude: Double, octane: Int, odometer: Int, price: Double, ppg: Double, stopDate: Date, tripOdometer: Double) -> Maybe<CKRecord> {
+    func addFuelStop(gallons: Double, latitude: Double, longitude: Double, octane: Int, odometer: Int, price: Double, ppg: Double, stopDate: Date, tripOdometer: Double) -> AnyPublisher<CKRecord, Error> {
         let record = CKRecord(recordType: "FuelStop")
-        return Maybe<CKRecord>.create { maybe in
-            maybe(.success(record))
-            return Disposables.create {}
-        }
+        return Future { promise in
+            promise(.success(record))
+        }.eraseToAnyPublisher()
     }
     
-    func addFuelStop(csv: [String]) -> Maybe<CKRecord> {
+    func addFuelStop(csv: [String]) -> AnyPublisher<CKRecord, Error> {
         let record = CKRecord(recordType: "Test Record Added From CSV")
-        return Maybe<CKRecord>.create { maybe in
-            maybe(.success(record))
-            return Disposables.create {}
-        }
+        return Future { promise in
+            promise(.success(record))
+        }.eraseToAnyPublisher()
     }
 }

@@ -64,18 +64,18 @@ class AddStopPresenter: AddStopContractPresenter {
                              ppg: ppg,
                              stopDate: stopDate,
                              tripOdometer: tripOdometer)
-                .observeOn(MainScheduler.instance)
-                .subscribe { event in
-                    switch event {
-                        case .success(let record):
-                            self.view?.dismissAfterSave(record: FuelStop(record: record))
-                        case .error(let error):
-                            os_log(.error, log: Log.general, "Error Adding Fuel Stop: %@", error.localizedDescription)
-                            self.view?.displayError(message: error.localizedDescription)
-                        case .completed:
-                            break
-                        }
-                    }.disposed(by: disposeBag)
+                .subscribe(on: DispatchQueue.global())
+                .receive(on: DispatchQueue.main)
+                .sink(receiveCompletion: { completion in
+                    switch completion {
+                    case .failure(let error):
+                        os_log(.error, log: Log.general, "Error Adding Fuel Stop: %@", error.localizedDescription)
+                    case .finished:
+                        break
+                    }
+                }, receiveValue: { value in
+                    self.view?.dismissAfterSave(record: FuelStop(record: value))
+                })
         } else {
             os_log(.info, log: Log.general, "Form is not valid.")
         }
