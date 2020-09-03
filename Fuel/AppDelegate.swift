@@ -87,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             os_log(.debug, log: Log.general, "%@", csvContent)
             let lines: [String] = csvContent.components(separatedBy: .newlines)
 
-            os_log(.info, log: Log.general, "Number of lines / records to save: %@", lines.count)
+            os_log(.info, log: Log.general, "Number of lines / records to save: %d", lines.count)
             
             for line in lines {
                 let values = line.components(separatedBy: ",")
