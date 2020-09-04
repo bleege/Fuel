@@ -8,8 +8,6 @@
 
 import CoreLocation
 import UIKit
-import RxSwift
-import RxCocoa
 import Combine
 import CombineCocoa
 import os.log
@@ -18,7 +16,6 @@ class AddStopViewController: UIViewController, AddStopContractView {
 
     var presenter: AddStopContractPresenter?
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    private let disposeBag = DisposeBag()
         
     // MARK: - Data Entry Text Fields
     
@@ -362,7 +359,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     }
     
     func stripDollarSign(string: String) -> String {
-        return string.replacingOccurrences(of: "$", with: "")
+            return string.replacingOccurrences(of: "$", with: "")
     }
     
     private func updatePricePerGallonTextField() {

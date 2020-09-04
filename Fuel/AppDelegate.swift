@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreLocation
-import RxSwift
 import Swinject
 import os.log
 
@@ -19,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     let dataManager = FuelStopsDataManager()
     private let locationManager = CLLocationManager()
     var currentLocation: CLLocation? = nil
-    private let disposeBag = DisposeBag()
     var container: Container?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
