@@ -129,28 +129,14 @@ class AddStopViewController: UIViewController, AddStopContractView {
                 self.updateTripMPGTextField()
             })
 
-        
-/*
-        pricePerGallonTextField.rx.value.filter { str in !(str ?? "").isEmpty } .subscribe({event in
-            self.pricePerGallon = Double(self.stripDollarSign(string: event.element!!))!
-            self.updatePriceTextField()
-        }).disposed(by: disposeBag)
-        
-        gallonsTextField.rx.value.filter { str in !(str ?? "").isEmpty } .subscribe({event in
-            self.gallons = Double(event.element!!)!
-            self.updatePriceTextField()
-            self.updateTripMPGTextField()
-        }).disposed(by: disposeBag)
-
-        tripOdometerTextField.rx.value.filter { str in !(str ?? "").isEmpty } .subscribe({event in
-            self.tripOdometer = Double(event.element!!)!
-            self.updateTripMPGTextField()
-        }).disposed(by: disposeBag)
-        
-        pricePerGallonTextField.rx.controlEvent(UIControlEvents.editingDidEnd)
-            .subscribe({event in self.updatePricePerGallonTextField() })
-            .disposed(by: disposeBag)
- */
+        tripOdometerTextField.textPublisher
+            .subscribe(on: DispatchQueue.main)
+            .receive(on: DispatchQueue.main)
+            .filter { string in !(string ?? "").isEmpty }
+            .sink(receiveValue: { value in
+                self.tripOdometer = Double(value!)!
+                self.updateTripMPGTextField()
+            })
     }
         
     override func viewWillAppear(_ animated: Bool) {
