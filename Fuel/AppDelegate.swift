@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreLocation
-import RxSwift
 import Swinject
 import os.log
 
@@ -19,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     let dataManager = FuelStopsDataManager()
     private let locationManager = CLLocationManager()
     var currentLocation: CLLocation? = nil
-    private let disposeBag = DisposeBag()
     var container: Container?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -87,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             os_log(.debug, log: Log.general, "%@", csvContent)
             let lines: [String] = csvContent.components(separatedBy: .newlines)
 
-            os_log(.info, log: Log.general, "Number of lines / records to save: %@", lines.count)
+            os_log(.info, log: Log.general, "Number of lines / records to save: %d", lines.count)
             
             for line in lines {
                 let values = line.components(separatedBy: ",")

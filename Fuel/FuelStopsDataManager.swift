@@ -8,7 +8,6 @@
 
 import CloudKit
 import CoreLocation
-import RxSwift
 import Combine
 
 class FuelStopsDataManager: FuelStopsDataManagerContract {

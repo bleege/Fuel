@@ -8,15 +8,12 @@
 
 import CoreLocation
 import UIKit
-import RxSwift
-import RxCocoa
 import os.log
 
 class AddStopPresenter: AddStopContractPresenter {
 
     private weak var view:AddStopContractView?
     private var dataManager: FuelStopsDataManagerContract
-    private let disposeBag = DisposeBag()
     
     init() {
         self.dataManager = (UIApplication.shared.delegate as! AppDelegate).dataManager

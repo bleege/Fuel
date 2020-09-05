@@ -8,14 +8,14 @@
 
 import CoreLocation
 import UIKit
-import RxSwift
+import Combine
+import CombineCocoa
 import os.log
 
 class AddStopViewController: UIViewController, AddStopContractView {
 
     var presenter: AddStopContractPresenter?
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    private let disposeBag = DisposeBag()
         
     // MARK: - Data Entry Text Fields
     
@@ -105,24 +105,35 @@ class AddStopViewController: UIViewController, AddStopContractView {
         
         // Dismiss Keyboard Input
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
-        
-        pricePerGallonTextField.rx.value.filter { str in !(str ?? "").isEmpty } .subscribe({event in
-            self.pricePerGallon = Double(self.stripDollarSign(string: event.element!!))!
-            self.updatePriceTextField()
-        }).disposed(by: disposeBag)
-        gallonsTextField.rx.value.filter { str in !(str ?? "").isEmpty } .subscribe({event in
-            self.gallons = Double(event.element!!)!
-            self.updatePriceTextField()
-            self.updateTripMPGTextField()
-        }).disposed(by: disposeBag)
-        tripOdometerTextField.rx.value.filter { str in !(str ?? "").isEmpty } .subscribe({event in
-            self.tripOdometer = Double(event.element!!)!
-            self.updateTripMPGTextField()
-        }).disposed(by: disposeBag)
-        
-        pricePerGallonTextField.rx.controlEvent(UIControlEvents.editingDidEnd)
-            .subscribe({event in self.updatePricePerGallonTextField() })
-            .disposed(by: disposeBag)
+      
+        pricePerGallonTextField.textPublisher
+            .subscribe(on: DispatchQueue.main)
+            .receive(on: DispatchQueue.main)
+            .filter { string in !(string ?? "").isEmpty }
+            .sink(receiveCompletion: { completion in },
+                  receiveValue: { value in
+                    self.pricePerGallon = Double(self.stripDollarSign(string: value!))!
+                    self.updatePriceTextField()
+                  })
+
+        gallonsTextField.textPublisher
+            .subscribe(on: DispatchQueue.main)
+            .receive(on: DispatchQueue.main)
+            .filter { string in !(string ?? "").isEmpty }
+            .sink(receiveValue: { value in
+                self.gallons = Double(value!)!
+                self.updatePriceTextField()
+                self.updateTripMPGTextField()
+            })
+
+        tripOdometerTextField.textPublisher
+            .subscribe(on: DispatchQueue.main)
+            .receive(on: DispatchQueue.main)
+            .filter { string in !(string ?? "").isEmpty }
+            .sink(receiveValue: { value in
+                self.tripOdometer = Double(value!)!
+                self.updateTripMPGTextField()
+            })
     }
         
     override func viewWillAppear(_ animated: Bool) {
@@ -348,7 +359,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     }
     
     func stripDollarSign(string: String) -> String {
-        return string.replacingOccurrences(of: "$", with: "")
+            return string.replacingOccurrences(of: "$", with: "")
     }
     
     private func updatePricePerGallonTextField() {

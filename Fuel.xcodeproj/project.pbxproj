@@ -25,6 +25,7 @@
 		A26B1FE9203CFB1000E5BA22 /* MockOverviewContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26B1FE8203CFB1000E5BA22 /* MockOverviewContractView.swift */; };
 		A26E5EE11FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv in Resources */ = {isa = PBXBuildFile; fileRef = A26E5EE01FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv */; };
 		A26FCEAE21AF95D100D9CE41 /* CKDatabase+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26FCEAD21AF95D100D9CE41 /* CKDatabase+Rx.swift */; };
+		A27519C52501B1AE001F013B /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A27519C42501B1AE001F013B /* CombineCocoa */; };
 		A275AC6B203E7D9100DC6CF4 /* MockAddStopContractView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A275AC6A203E7D9100DC6CF4 /* MockAddStopContractView.swift */; };
 		A276BE82200C6FB20069CCA8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276BE81200C6FB20069CCA8 /* CoreLocation.framework */; };
 		A27BC0DA2018575D00E94BD2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27BC0D92018575D00E94BD2 /* Extensions.swift */; };
@@ -39,9 +40,6 @@
 		A2B7C8B21FC526100012167F /* FuelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C8B11FC526100012167F /* FuelTests.swift */; };
 		A2B7C8BD1FC526100012167F /* FuelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C8BC1FC526100012167F /* FuelUITests.swift */; };
 		A2C842F11FEF5B330068BFAC /* OverviewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C842F01FEF5B330068BFAC /* OverviewContract.swift */; };
-		A2C9396823418C9000AD07EB /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = A2C9396723418C9000AD07EB /* RxBlocking */; };
-		A2C9396A23418C9000AD07EB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A2C9396923418C9000AD07EB /* RxSwift */; };
-		A2C9396C23418C9000AD07EB /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A2C9396B23418C9000AD07EB /* RxCocoa */; };
 		A2C9396F2341900F00AD07EB /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = A2C9396E2341900F00AD07EB /* Swinject */; };
 		A2C93972234190FF00AD07EB /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = A2C93971234190FF00AD07EB /* SwinjectAutoregistration */; };
 		A2EFB6291FEB60A300AE7A98 /* OverviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EFB6281FEB60A300AE7A98 /* OverviewPresenter.swift */; };
@@ -114,13 +112,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2C9396A23418C9000AD07EB /* RxSwift in Frameworks */,
 				A276BE82200C6FB20069CCA8 /* CoreLocation.framework in Frameworks */,
 				A2025FA924FDFDB0001C257A /* Combine.framework in Frameworks */,
-				A2C9396C23418C9000AD07EB /* RxCocoa in Frameworks */,
 				A2435C5C2055ABEB00EC990F /* CloudKit.framework in Frameworks */,
 				A2C9396F2341900F00AD07EB /* Swinject in Frameworks */,
-				A2C9396823418C9000AD07EB /* RxBlocking in Frameworks */,
+				A27519C52501B1AE001F013B /* CombineCocoa in Frameworks */,
 				A2C93972234190FF00AD07EB /* SwinjectAutoregistration in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,11 +246,9 @@
 			);
 			name = Fuel;
 			packageProductDependencies = (
-				A2C9396723418C9000AD07EB /* RxBlocking */,
-				A2C9396923418C9000AD07EB /* RxSwift */,
-				A2C9396B23418C9000AD07EB /* RxCocoa */,
 				A2C9396E2341900F00AD07EB /* Swinject */,
 				A2C93971234190FF00AD07EB /* SwinjectAutoregistration */,
+				A27519C42501B1AE001F013B /* CombineCocoa */,
 			);
 			productName = Fuel;
 			productReference = A2B7C8971FC526100012167F /* Fuel.app */;
@@ -342,9 +336,9 @@
 			);
 			mainGroup = A2B7C88E1FC526100012167F;
 			packageReferences = (
-				A2C9396623418C9000AD07EB /* XCRemoteSwiftPackageReference "RxSwift" */,
 				A2C9396D2341900F00AD07EB /* XCRemoteSwiftPackageReference "Swinject" */,
 				A2C93970234190FF00AD07EB /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */,
+				A27519C32501B1AE001F013B /* XCRemoteSwiftPackageReference "CombineCocoa" */,
 			);
 			productRefGroup = A2B7C8981FC526100012167F /* Products */;
 			projectDirPath = "";
@@ -656,7 +650,6 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				OTHER_SWIFT_FLAGS = "-Xcc -fmodule-map-file=$(PROJECT_TEMP_ROOT)/GeneratedModuleMaps/iphonesimulator/RxCocoaRuntime.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = io.leege.FuelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -682,7 +675,6 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				OTHER_SWIFT_FLAGS = "-Xcc -fmodule-map-file=$(PROJECT_TEMP_ROOT)/GeneratedModuleMaps/iphonesimulator/RxCocoaRuntime.modulemap";
 				PRODUCT_BUNDLE_IDENTIFIER = io.leege.FuelTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -773,12 +765,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A2C9396623418C9000AD07EB /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+		A27519C32501B1AE001F013B /* XCRemoteSwiftPackageReference "CombineCocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			repositoryURL = "https://github.com/CombineCommunity/CombineCocoa.git";
 			requirement = {
 				kind = exactVersion;
-				version = 5.1.1;
+				version = 0.1.0;
 			};
 		};
 		A2C9396D2341900F00AD07EB /* XCRemoteSwiftPackageReference "Swinject" */ = {
@@ -800,20 +792,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A2C9396723418C9000AD07EB /* RxBlocking */ = {
+		A27519C42501B1AE001F013B /* CombineCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A2C9396623418C9000AD07EB /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxBlocking;
-		};
-		A2C9396923418C9000AD07EB /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A2C9396623418C9000AD07EB /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
-		A2C9396B23418C9000AD07EB /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A2C9396623418C9000AD07EB /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
+			package = A27519C32501B1AE001F013B /* XCRemoteSwiftPackageReference "CombineCocoa" */;
+			productName = CombineCocoa;
 		};
 		A2C9396E2341900F00AD07EB /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
