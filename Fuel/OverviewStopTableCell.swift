@@ -20,6 +20,7 @@ class OverviewStopTableCell: UITableViewCell {
     let stopDate: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17.0, weight: .bold)
+        label.textColor = UIColor.label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -27,6 +28,7 @@ class OverviewStopTableCell: UITableViewCell {
     let gallonsFilled: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17.0)
+        label.textColor = UIColor.label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -35,6 +37,7 @@ class OverviewStopTableCell: UITableViewCell {
         let label = UILabel()
         label.text = "gallons"
         label.font = UIFont.systemFont(ofSize: 17.0)
+        label.textColor = UIColor.label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -42,6 +45,7 @@ class OverviewStopTableCell: UITableViewCell {
     let totalPrice: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 25.0)
+        label.textColor = UIColor.label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -57,10 +61,8 @@ class OverviewStopTableCell: UITableViewCell {
     }
     
     private func commonSetup() {
-        let gray = UIColor(red: 242.0 / 255.0, green: 243.0 / 255.0, blue: 246.0 / 255.0, alpha: 1.0)
-        backgroundColor = gray
         let backgroundView = UIView()
-        backgroundView.backgroundColor = gray
+        backgroundView.backgroundColor = UIColor.systemGray6
         selectedBackgroundView = backgroundView
         
         stageView.addSubview(stopDate)
