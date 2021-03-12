@@ -22,6 +22,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     private let pricePerGallonTextField: UITextField = {
         let label = UITextField()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textColor = UIColor.label
         label.textAlignment = .center
         label.placeholder = "$0.00"
         label.keyboardType = .decimalPad
@@ -32,6 +33,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     private let gallonsTextField: UITextField = {
         let label = UITextField()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textColor = UIColor.label
         label.textAlignment = .center
         label.placeholder = "0.0000"
         label.keyboardType = .decimalPad
@@ -42,6 +44,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     private let costTextField: UITextField = {
         let label = UITextField()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textColor = UIColor.label
         label.textAlignment = .center
         label.placeholder = "$0.00"
         label.keyboardType = .decimalPad
@@ -52,6 +55,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     private let tripOdometerTextField: UITextField = {
         let label = UITextField()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textColor = UIColor.label
         label.textAlignment = .center
         label.placeholder = "0000"
         label.keyboardType = .decimalPad
@@ -62,6 +66,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     private let tripMPGTextField: UITextField = {
         let label = UITextField()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textColor = UIColor.label
         label.textAlignment = .center
         label.placeholder = "00.000"
         label.keyboardType = .decimalPad
@@ -72,6 +77,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     private let odometerTextField: UITextField = {
         let label = UITextField()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textColor = UIColor.label
         label.textAlignment = .center
         label.placeholder = "00000"
         label.keyboardType = .numberPad
@@ -82,6 +88,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     private let octaneTextField: UITextField = {
         let label = UITextField()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textColor = UIColor.label
         label.textAlignment = .center
         label.placeholder = "00"
         label.keyboardType = .numberPad
@@ -148,7 +155,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     
     // MARK: - View Hierarchy Setup
     private func setupViewHierarchy() {
-        view.backgroundColor = UIColor(red: 242.0 / 255.0, green: 243.0 / 255.0, blue: 246.0 / 255.0, alpha: 1.0)
+        view.backgroundColor = UIColor.systemGray6
                 
         let topStack = UIStackView()
         topStack.axis = .horizontal
@@ -188,18 +195,16 @@ class AddStopViewController: UIViewController, AddStopContractView {
         
         view.addSubview(bottomStack)
 
-        let blue = UIColor(red: 0.0, green: 120.0 / 255.0, blue: 1.0, alpha: 1.0)
         let saveButton = UIButton()
         saveButton.setTitle("Save", for: .normal)
-        saveButton.setTitleColor(blue, for: .normal)
-        saveButton.titleLabel?.font = UIFont.systemFont(ofSize: 15.0, weight: .bold)
+        saveButton.setTitleColor(UIColor.systemBlue, for: .normal)
+        saveButton.titleLabel?.font = UIFont.systemFont(ofSize: 17.0, weight: .bold)
         saveButton.addTarget(self, action: #selector(handleSaveTap(_:)), for: .touchUpInside)
         
         let cancelButton = UIButton()
         cancelButton.setTitle("Cancel", for: .normal)
-        cancelButton.setTitleColor(blue, for: .normal)
-        cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 15.0, weight: .bold)
-        cancelButton.titleLabel?.textColor = UIColor(red: 0.0, green: 120.0 / 255.0, blue: 1.0, alpha: 1.0)
+        cancelButton.setTitleColor(UIColor.systemBlue, for: .normal)
+        cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 17.0, weight: .bold)
         cancelButton.addTarget(self, action: #selector(handleCancelTap(_:)), for: .touchUpInside)
         
         let buttonStack = UIStackView()
@@ -242,6 +247,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     private func createDescriptionLabel(text: String) -> UILabel {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17.0)
+        label.textColor = UIColor.label
         label.text = text
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
