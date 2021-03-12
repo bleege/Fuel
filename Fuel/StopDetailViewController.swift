@@ -15,6 +15,7 @@ class StopDetailViewController: UIViewController {
     private let stopDateLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17.0, weight: .bold)
+        label.textColor = UIColor.label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -22,6 +23,7 @@ class StopDetailViewController: UIViewController {
     private let ppgLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textColor = UIColor.label
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -30,6 +32,7 @@ class StopDetailViewController: UIViewController {
     private let gallonsLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textColor = UIColor.label
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -38,6 +41,7 @@ class StopDetailViewController: UIViewController {
     private let costLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textColor = UIColor.label
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -46,6 +50,7 @@ class StopDetailViewController: UIViewController {
     private let tripOdometerLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textColor = UIColor.label
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -54,6 +59,7 @@ class StopDetailViewController: UIViewController {
     private let tripMPGLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textColor = UIColor.label
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -62,6 +68,7 @@ class StopDetailViewController: UIViewController {
     private let odometerLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textColor = UIColor.label
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -70,6 +77,7 @@ class StopDetailViewController: UIViewController {
     private let octaneLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 30.0)
+        label.textColor = UIColor.label
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -172,6 +180,7 @@ class StopDetailViewController: UIViewController {
     private func createDescriptionLabel(text: String) -> UILabel {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17.0)
+        label.textColor = UIColor.label
         label.text = text
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
