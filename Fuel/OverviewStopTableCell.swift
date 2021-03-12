@@ -12,7 +12,7 @@ class OverviewStopTableCell: UITableViewCell {
     
     private let stageView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.systemBackground
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
