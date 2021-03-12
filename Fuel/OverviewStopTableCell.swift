@@ -12,7 +12,7 @@ class OverviewStopTableCell: UITableViewCell {
     
     private let stageView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.systemBackground
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -61,8 +61,10 @@ class OverviewStopTableCell: UITableViewCell {
     }
     
     private func commonSetup() {
+        self.contentView.backgroundColor = .systemGray6
+        
         let backgroundView = UIView()
-        backgroundView.backgroundColor = UIColor.systemGray6
+        backgroundView.backgroundColor = .systemGray3
         selectedBackgroundView = backgroundView
         
         stageView.addSubview(stopDate)
