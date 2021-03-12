@@ -108,7 +108,7 @@ class StopDetailViewController: UIViewController {
     
     // MARK: - View Hierarchy Setup
     private func setupViewHierarchy() {
-        view.backgroundColor = UIColor(red: 242.0 / 255.0, green: 243.0 / 255.0, blue: 246.0 / 255.0, alpha: 1.0)
+        view.backgroundColor = UIColor.systemGray6
         
         view.addSubview(stopDateLabel)
         
