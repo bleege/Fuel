@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     var currentLocation: CLLocation? = nil
     var container: Container?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         container = setupDependencyInjection()
 
@@ -121,7 +121,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         if (status == .denied) {
             let controller = UIAlertController(title: "Location Required", message: "The app needs this permission to find the fuel stations.",  preferredStyle: .alert)
-            let yesButton = UIAlertAction(title:"Ok", style: UIAlertActionStyle.default, handler:nil);
+            let yesButton = UIAlertAction(title:"Ok", style: UIAlertAction.Style.default, handler:nil);
             controller.addAction(yesButton)
             self.window?.rootViewController?.present(controller, animated: true) { }
         }
