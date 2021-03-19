@@ -143,17 +143,17 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
         mapView.removeAnnotations(mapView.annotations)
         fuelStopAnnotations.removeAll()
 
-        var mapRect = MKMapRect.null
+        var mapRect = MKMapRectNull
         fuelStopAnnotations.append(contentsOf: fuelStops.map({(value: FuelStop) in
             let pin = MKPointAnnotation()
             pin.coordinate = CLLocationCoordinate2DMake(value.location.coordinate.latitude, value.location.coordinate.longitude)
             mapView.addAnnotation(pin)
-            let annPoint = MKMapPoint(pin.coordinate)
-            let pointRect = MKMapRect(x: annPoint.x, y: annPoint.y, width: 0.0, height: 0.0)
+            let annPoint = MKMapPointForCoordinate(pin.coordinate)
+            let pointRect = MKMapRectMake(annPoint.x, annPoint.y, 0.0, 0.0)
             if (mapRect.isNull) {
                 mapRect = pointRect
             } else {
-                mapRect = mapRect.union(pointRect)
+                mapRect = MKMapRectUnion(mapRect, pointRect)
             }
             return pin
         }))
@@ -164,12 +164,12 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
     }
     
     func zoomToUserLocation() {
-        mapView.region = MKCoordinateRegion(center: mapView.userLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        mapView.region = MKCoordinateRegionMakeWithDistance(mapView.userLocation.coordinate, 1000, 1000)
     }
     
     func displayStopOnMap(index: Int) {
         let ann = fuelStopAnnotations[index]
-        mapView.region = MKCoordinateRegion(center: ann.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        mapView.region = MKCoordinateRegionMakeWithDistance(ann.coordinate, 1000, 1000)
         mapView.selectAnnotation(ann, animated: true)
     }
     
