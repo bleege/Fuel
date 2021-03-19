@@ -16,6 +16,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      run: xcodebuild  -project Fuel.xcodeproj -scheme Fuel -sdk iphoneos
+      run: xcodebuild  -project Fuel.xcodeproj -scheme Fuel -sdk iphoneos -allowProvisioningUpdates
     - name: Run tests
-      run: xcodebuild -project Fuel.xcodeproj -scheme Fuel -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.4' test
+      run: xcodebuild -project Fuel.xcodeproj -scheme Fuel -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.4' -allowProvisioningUpdates test
