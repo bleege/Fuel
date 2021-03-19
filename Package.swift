@@ -23,9 +23,9 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "Fuel",
-            dependencies: ["RxSwift", "Swinject", "SwinjectAutoregistration"])
+            dependencies: ["RxSwift", "Swinject", "SwinjectAutoregistration"]),
         .testTarget(
             name: "FuelTests",
-            dependencies: ["Fuel"]),
+            dependencies: ["Fuel"])
     ]
 )
