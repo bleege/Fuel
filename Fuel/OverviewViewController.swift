@@ -150,14 +150,14 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
             mapView.addAnnotation(pin)
             let annPoint = MKMapPointForCoordinate(pin.coordinate)
             let pointRect = MKMapRectMake(annPoint.x, annPoint.y, 0.0, 0.0)
-            if (mapRect.isNull) {
+            if (MKMapRectIsNull(mapRect)) {
                 mapRect = pointRect
             } else {
                 mapRect = MKMapRectUnion(mapRect, pointRect)
             }
             return pin
         }))
-        if (!mapRect.isNull) {
+        if (!MKMapRectIsNull(mapRect)) {
             let padding = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
             mapView.setVisibleMapRect(mapRect, edgePadding: padding, animated: true)
         }

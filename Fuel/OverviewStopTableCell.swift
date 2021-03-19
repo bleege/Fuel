@@ -50,7 +50,7 @@ class OverviewStopTableCell: UITableViewCell {
         return label
     }()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         commonSetup()
     }
