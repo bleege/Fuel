@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CombineCocoa",
+        "repositoryURL": "https://github.com/CombineCommunity/CombineCocoa.git",
+        "state": {
+          "branch": null,
+          "revision": "c31c85b6f8494247b69997324312dce8bf55b34b",
+          "version": "0.1.0"
+        }
+      },
+      {
+        "package": "Swinject",
+        "repositoryURL": "https://github.com/Swinject/Swinject.git",
+        "state": {
+          "branch": null,
+          "revision": "8a76d2c74bafbb455763487cc6a08e91bad1f78b",
+          "version": "2.7.1"
+        }
+      },
+      {
+        "package": "SwinjectAutoregistration",
+        "repositoryURL": "https://github.com/Swinject/SwinjectAutoregistration.git",
+        "state": {
+          "branch": null,
+          "revision": "09618f4e018e3f16745192bf88809d511e97ea83",
+          "version": "2.6.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
