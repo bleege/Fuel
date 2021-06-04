@@ -6,6 +6,7 @@
 //  Copyright © 2017 Brad Leege. All rights reserved.
 //
 
+import Combine
 import UIKit
 import CoreLocation
 import Swinject
@@ -19,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     private let locationManager = CLLocationManager()
     var currentLocation: CLLocation? = nil
     var container: Container?
+    
+    private var cancellables = Set<AnyCancellable>()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -101,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                         }
                     }, receiveValue: { value in
                         os_log(.info, log: Log.general, "Successfully added Fuel Stop %@", value.recordID.recordName)
-                    })
+                    }).store(in: &cancellables)
                 }
             }
         } catch (let error) {

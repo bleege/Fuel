@@ -103,6 +103,8 @@ class AddStopViewController: UIViewController, AddStopContractView {
     private var tripOdometer: Double = 0
     private var odometer: Double = 0
     
+    private var cancellables = Set<AnyCancellable>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -121,7 +123,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
                   receiveValue: { value in
                     self.pricePerGallon = Double(self.stripDollarSign(string: value!))!
                     self.updatePriceTextField()
-                  })
+                  }).store(in: &cancellables)
 
         gallonsTextField.textPublisher
             .subscribe(on: DispatchQueue.main)
@@ -131,7 +133,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
                 self.gallons = Double(value!)!
                 self.updatePriceTextField()
                 self.updateTripMPGTextField()
-            })
+            }).store(in: &cancellables)
 
         tripOdometerTextField.textPublisher
             .subscribe(on: DispatchQueue.main)
@@ -140,7 +142,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
             .sink(receiveValue: { value in
                 self.tripOdometer = Double(value!)!
                 self.updateTripMPGTextField()
-            })
+            }).store(in: &cancellables)
     }
         
     override func viewWillAppear(_ animated: Bool) {
