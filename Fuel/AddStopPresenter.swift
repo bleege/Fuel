@@ -6,6 +6,7 @@
 //  Copyright © 2018 Brad Leege. All rights reserved.
 //
 
+import Combine
 import CoreLocation
 import UIKit
 import os.log
@@ -14,6 +15,7 @@ class AddStopPresenter: AddStopContractPresenter {
 
     private weak var view:AddStopContractView?
     private var dataManager: FuelStopsDataManagerContract
+    private var cancellables = Set<AnyCancellable>()
     
     init() {
         self.dataManager = (UIApplication.shared.delegate as! AppDelegate).dataManager
@@ -72,7 +74,7 @@ class AddStopPresenter: AddStopContractPresenter {
                     }
                 }, receiveValue: { value in
                     self.view?.dismissAfterSave(record: FuelStop(record: value))
-                })
+                }).store(in: &cancellables)
         } else {
             os_log(.info, log: Log.general, "Form is not valid.")
         }

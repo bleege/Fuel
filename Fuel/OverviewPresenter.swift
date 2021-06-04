@@ -16,6 +16,8 @@ class OverviewPresenter: OverviewContractPresenter {
     private weak var view: OverviewContractView?
     
     private var dataManager: FuelStopsDataManagerContract
+    
+    private var cancellables = Set<AnyCancellable>()
         
     init() {
         self.dataManager = (UIApplication.shared.delegate as! AppDelegate).dataManager
@@ -54,7 +56,7 @@ class OverviewPresenter: OverviewContractPresenter {
                     stops.append(FuelStop(record: ckr))
                 }
                 self.view?.displayStops(fuelStops: stops)
-            })
+            }).store(in: &cancellables)
     }
     
     func handleStopSelection(index: Int) {
