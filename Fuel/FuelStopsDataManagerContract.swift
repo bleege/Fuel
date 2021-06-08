@@ -10,7 +10,7 @@ import Foundation
 import CloudKit
 import Combine
 
-protocol FuelStopsDataManagerContract: class {
+protocol FuelStopsDataManagerContract: AnyObject {
 
     func getAllFuelStops() -> AnyPublisher<[CKRecord], Error>
     
