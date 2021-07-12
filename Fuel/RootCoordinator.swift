@@ -7,12 +7,18 @@
 //
 
 import Foundation
+import UIKit
 
 class RootCoordinator: Coordinator {
 
-
+    let navigationController: UINavigationController = {
+        let nav = UINavigationController(rootViewController: OverviewViewController())
+        nav.isNavigationBarHidden = true
+        return nav
+    }()
+    
     func start() {
-        
+
     }
     
 }
