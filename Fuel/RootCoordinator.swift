@@ -18,7 +18,13 @@ class RootCoordinator: Coordinator {
     }()
     
     func start() {
-        navigationController.viewControllers = [OverviewViewController()]
+        showStopsFlow()
+    }
+    
+    private func showStopsFlow() {
+//        self.navigationController.viewControllers = [OverviewViewController()]
+        let stops = StopsFlowCoordinator(navigationController)
+        stops.start()
     }
     
 }
