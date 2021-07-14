@@ -27,7 +27,9 @@ class StopDetailPresentationController: UIPresentationController {
     override func dismissalTransitionDidEnd(_ completed: Bool) {
         super.dismissalTransitionDidEnd(completed)
         
-        let ovc = self.presentingViewController as! OverviewViewController
-        ovc.refreshMap()
+        if let navVC = self.presentingViewController as? UINavigationController,
+           let ovc = navVC.topViewController as? OverviewViewController {
+            ovc.refreshMap()
+        }
     }
 }
