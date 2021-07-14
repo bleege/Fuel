@@ -12,13 +12,13 @@ import UIKit
 class RootCoordinator: Coordinator {
 
     let navigationController: UINavigationController = {
-        let nav = UINavigationController(rootViewController: OverviewViewController())
+        let nav = UINavigationController()
         nav.isNavigationBarHidden = true
         return nav
     }()
     
     func start() {
-
+        navigationController.viewControllers = [OverviewViewController()]
     }
     
 }
