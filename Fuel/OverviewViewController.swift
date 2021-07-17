@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import os.log
+import Combine
 
 class OverviewViewController: UIViewController, OverviewContractView, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -23,6 +24,7 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
         let table = UITableView()
         table.dataSource = self
         table.delegate = self
+        table.isMultipleTouchEnabled = false
         table.backgroundColor = UIColor.systemGray6
         table.separatorStyle = .none
         table.register(OverviewStopTableCell.self, forCellReuseIdentifier: "stopTableCell")
@@ -60,7 +62,10 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
     private var fabY: CGFloat?
     
     let stopDetailPresentationManager = StopDetailPresentationManager()
-
+    private var isPresenting = false
+    
+    private var cancellables = Set<AnyCancellable>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -174,25 +179,47 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
     }
     
     func displayStopDataView(index: Int) {
+        if isPresenting {
+            return
+        }
         os_log(.info, log: Log.general, "display stop data view for index = %d", index)
         let stopDetailViewController = StopDetailViewController()
         
         stopDetailViewController.stopData = fuelStops[index]
         stopDetailViewController.transitioningDelegate = stopDetailPresentationManager
         stopDetailViewController.modalPresentationStyle = .custom
+
+        stopDetailViewController.dismissPublisher.sink(receiveValue: { [weak self] _ in
+            self?.stopDisplayDismissed()
+        }).store(in: &cancellables)
         
+        isPresenting = true
         present(stopDetailViewController, animated: true, completion: nil)
     }
     
     func displayAddStopViewController() {
+        if isPresenting {
+            return
+        }
+
         let addStopViewController = AddStopViewController()
         
         addStopViewController.transitioningDelegate = stopDetailPresentationManager
         addStopViewController.modalPresentationStyle = .custom
+
+        addStopViewController.dismissPublisher.sink(receiveValue: { [weak self] _ in
+            self?.stopDisplayDismissed()
+        }).store(in: &cancellables)
         
+        isPresenting = true
         present(addStopViewController, animated: true, completion: nil)
     }
     
+    func stopDisplayDismissed() {
+        isPresenting = false
+        cancellables.removeAll()
+    }
+        
     func displayError(message: String) {
         let alertController = UIAlertController(title: "Whoops", message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
