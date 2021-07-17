@@ -275,8 +275,12 @@ class AddStopViewController: UIViewController, AddStopContractView {
     func dismissAfterSave(record: FuelStop) {
         if (self.presentingViewController != nil) {
             os_log(.info, log: Log.general, "presentingViewController is not null")
-            (self.presentingViewController as! OverviewViewController).addFuelStopToTable(fuelStop: record)
-            dismiss()
+            
+            if let navVC = self.presentingViewController as? UINavigationController,
+               let ovc = navVC.topViewController as? OverviewViewController {
+                ovc.addFuelStopToTable(fuelStop: record)
+                dismiss()
+            }
         }
     }
     
