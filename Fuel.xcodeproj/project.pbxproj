@@ -39,9 +39,12 @@
 		A2B7C8A71FC526100012167F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2B7C8A51FC526100012167F /* LaunchScreen.storyboard */; };
 		A2B7C8B21FC526100012167F /* FuelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C8B11FC526100012167F /* FuelTests.swift */; };
 		A2B7C8BD1FC526100012167F /* FuelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C8BC1FC526100012167F /* FuelUITests.swift */; };
+		A2BFDB75269E81870006A38C /* StopsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BFDB74269E81870006A38C /* StopsFlowCoordinator.swift */; };
 		A2C842F11FEF5B330068BFAC /* OverviewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C842F01FEF5B330068BFAC /* OverviewContract.swift */; };
 		A2C9396F2341900F00AD07EB /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = A2C9396E2341900F00AD07EB /* Swinject */; };
 		A2C93972234190FF00AD07EB /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = A2C93971234190FF00AD07EB /* SwinjectAutoregistration */; };
+		A2ED71B12690EA9F00993182 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ED71B02690EA9F00993182 /* RootCoordinator.swift */; };
+		A2ED71B32690EAB500993182 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ED71B22690EAB500993182 /* Coordinator.swift */; };
 		A2EFB6291FEB60A300AE7A98 /* OverviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EFB6281FEB60A300AE7A98 /* OverviewPresenter.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,7 +106,10 @@
 		A2B7C8BC1FC526100012167F /* FuelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelUITests.swift; sourceTree = "<group>"; };
 		A2B7C8BE1FC526100012167F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2B7C8CB1FC5337C0012167F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A2BFDB74269E81870006A38C /* StopsFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopsFlowCoordinator.swift; sourceTree = "<group>"; };
 		A2C842F01FEF5B330068BFAC /* OverviewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewContract.swift; sourceTree = "<group>"; };
+		A2ED71B02690EA9F00993182 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
+		A2ED71B22690EAB500993182 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A2EFB6281FEB60A300AE7A98 /* OverviewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +171,9 @@
 		A2B7C8991FC526100012167F /* Fuel */ = {
 			isa = PBXGroup;
 			children = (
+				A2ED71B22690EAB500993182 /* Coordinator.swift */,
+				A2ED71B02690EA9F00993182 /* RootCoordinator.swift */,
+				A2BFDB74269E81870006A38C /* StopsFlowCoordinator.swift */,
 				A2435C5A2055ABAD00EC990F /* Fuel.entitlements */,
 				A2B7C89A1FC526100012167F /* AppDelegate.swift */,
 				A26E5EE01FD4CF8700865521 /* 2016-VW-Jetta-Fuel-Tracking.csv */,
@@ -397,6 +406,8 @@
 				A2AB9520202E84410012D8B4 /* AddStopPresenter.swift in Sources */,
 				A25DDFFB201AEB84000F34CB /* FABView.swift in Sources */,
 				A27BC0DA2018575D00E94BD2 /* Extensions.swift in Sources */,
+				A2BFDB75269E81870006A38C /* StopsFlowCoordinator.swift in Sources */,
+				A2ED71B12690EA9F00993182 /* RootCoordinator.swift in Sources */,
 				A2A69BE1200DB595006DBED8 /* StopDetailViewController.swift in Sources */,
 				A2AB951E202E82EE0012D8B4 /* AddStopContract.swift in Sources */,
 				A214D4912432F81D00033A02 /* Log.swift in Sources */,
@@ -404,6 +415,7 @@
 				A2435C5E2055D6EA00EC990F /* FuelStop.swift in Sources */,
 				A250C6B21FECB0230025A962 /* OverviewStopTableCell.swift in Sources */,
 				A22D93E32016D9CC008D6254 /* StopDetailPresentationManager.swift in Sources */,
+				A2ED71B32690EAB500993182 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

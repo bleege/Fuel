@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     var currentLocation: CLLocation? = nil
     var container: Container?
     
+    let rootCoordinator = RootCoordinator()
+    
     private var cancellables = Set<AnyCancellable>()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -28,8 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         container = setupDependencyInjection()
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = OverviewViewController()
+        window?.rootViewController = rootCoordinator.navigationController
         window?.makeKeyAndVisible()
+
+        rootCoordinator.start()
         
         setupLocationManager()
         

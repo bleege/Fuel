@@ -104,6 +104,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     private var odometer: Double = 0
     
     private var cancellables = Set<AnyCancellable>()
+    let dismissPublisher = PassthroughSubject<Bool, Never>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -268,13 +269,18 @@ class AddStopViewController: UIViewController, AddStopContractView {
     
     func dismiss() {
         dismiss(animated: true)
+        dismissPublisher.send(true)
     }
     
     func dismissAfterSave(record: FuelStop) {
         if (self.presentingViewController != nil) {
             os_log(.info, log: Log.general, "presentingViewController is not null")
-            (self.presentingViewController as! OverviewViewController).addFuelStopToTable(fuelStop: record)
-            dismiss()
+            
+            if let navVC = self.presentingViewController as? UINavigationController,
+               let ovc = navVC.topViewController as? OverviewViewController {
+                ovc.addFuelStopToTable(fuelStop: record)
+                dismiss()
+            }
         }
     }
     

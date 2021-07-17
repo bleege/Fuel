@@ -8,6 +8,7 @@
 
 
 import UIKit
+import Combine
 
 class StopDetailViewController: UIViewController {
     
@@ -84,6 +85,8 @@ class StopDetailViewController: UIViewController {
     }()
         
     var stopData: FuelStop?
+    
+    let dismissPublisher = PassthroughSubject<Bool, Never>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -196,5 +199,6 @@ class StopDetailViewController: UIViewController {
     
     @objc private func handleTap(gestureRecognizer: UITapGestureRecognizer) {
         dismiss(animated: true)
+        dismissPublisher.send(true)
     }
 }
