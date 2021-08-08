@@ -22,7 +22,6 @@ class RootCoordinator: Coordinator {
     }
     
     private func showStopsFlow() {
-//        self.navigationController.viewControllers = [OverviewViewController()]
         let stops = StopsFlowCoordinator(navigationController)
         stops.start()
     }
