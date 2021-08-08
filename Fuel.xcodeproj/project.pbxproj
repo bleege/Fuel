@@ -763,7 +763,7 @@
 			repositoryURL = "https://github.com/CombineCommunity/CombineCocoa.git";
 			requirement = {
 				kind = exactVersion;
-				version = 0.1.0;
+				version = 0.3.0;
 			};
 		};
 		A2C9396D2341900F00AD07EB /* XCRemoteSwiftPackageReference "Swinject" */ = {
