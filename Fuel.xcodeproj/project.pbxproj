@@ -16,6 +16,8 @@
 		A22D93E12016D8FC008D6254 /* StopDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E02016D8FC008D6254 /* StopDetailPresentationController.swift */; };
 		A22D93E32016D9CC008D6254 /* StopDetailPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E22016D9CC008D6254 /* StopDetailPresentationManager.swift */; };
 		A22D93E52016E0C4008D6254 /* StopDetailPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22D93E42016E0C4008D6254 /* StopDetailPresentationAnimator.swift */; };
+		A235DB8226C4C8DE005905FF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235DB8126C4C8DE005905FF /* RootViewController.swift */; };
+		A235DB8426C4C932005905FF /* NavDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235DB8326C4C932005905FF /* NavDrawerViewController.swift */; };
 		A23D59022293AAF3002CAEEF /* AddStopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23D59012293AAF3002CAEEF /* AddStopTests.swift */; };
 		A2435C5C2055ABEB00EC990F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2435C5B2055ABEB00EC990F /* CloudKit.framework */; };
 		A2435C5E2055D6EA00EC990F /* FuelStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2435C5D2055D6EA00EC990F /* FuelStop.swift */; };
@@ -74,6 +76,8 @@
 		A22D93E02016D8FC008D6254 /* StopDetailPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailPresentationController.swift; sourceTree = "<group>"; };
 		A22D93E22016D9CC008D6254 /* StopDetailPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailPresentationManager.swift; sourceTree = "<group>"; };
 		A22D93E42016E0C4008D6254 /* StopDetailPresentationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailPresentationAnimator.swift; sourceTree = "<group>"; };
+		A235DB8126C4C8DE005905FF /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		A235DB8326C4C932005905FF /* NavDrawerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavDrawerViewController.swift; sourceTree = "<group>"; };
 		A23D59012293AAF3002CAEEF /* AddStopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStopTests.swift; sourceTree = "<group>"; };
 		A242C26B20A13F0300C46F78 /* LICENSES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSES.md; sourceTree = "<group>"; };
 		A2435C5A2055ABAD00EC990F /* Fuel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fuel.entitlements; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 			children = (
 				A2ED71B22690EAB500993182 /* Coordinator.swift */,
 				A2ED71B02690EA9F00993182 /* RootCoordinator.swift */,
+				A235DB8126C4C8DE005905FF /* RootViewController.swift */,
+				A235DB8326C4C932005905FF /* NavDrawerViewController.swift */,
 				A2BFDB74269E81870006A38C /* StopsFlowCoordinator.swift */,
 				A2435C5A2055ABAD00EC990F /* Fuel.entitlements */,
 				A2B7C89A1FC526100012167F /* AppDelegate.swift */,
@@ -395,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2B7C89F1FC526100012167F /* AddStopViewController.swift in Sources */,
+				A235DB8426C4C932005905FF /* NavDrawerViewController.swift in Sources */,
 				A2B7C89B1FC526100012167F /* AppDelegate.swift in Sources */,
 				A26FCEAE21AF95D100D9CE41 /* CKDatabase+Extensions.swift in Sources */,
 				A2B7C89D1FC526100012167F /* OverviewViewController.swift in Sources */,
@@ -406,6 +413,7 @@
 				A2AB9520202E84410012D8B4 /* AddStopPresenter.swift in Sources */,
 				A25DDFFB201AEB84000F34CB /* FABView.swift in Sources */,
 				A27BC0DA2018575D00E94BD2 /* Extensions.swift in Sources */,
+				A235DB8226C4C8DE005905FF /* RootViewController.swift in Sources */,
 				A2BFDB75269E81870006A38C /* StopsFlowCoordinator.swift in Sources */,
 				A2ED71B12690EA9F00993182 /* RootCoordinator.swift in Sources */,
 				A2A69BE1200DB595006DBED8 /* StopDetailViewController.swift in Sources */,
