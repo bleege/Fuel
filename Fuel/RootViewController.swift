@@ -8,11 +8,16 @@
 
 import UIKit
 
-class RootViewController: UIViewController {
+class RootViewController: UINavigationController {
 
+    private let navDrawer = NavDrawerViewController()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        isNavigationBarHidden = true
+        
+        self.view.backgroundColor = .yellow
         // Do any additional setup after loading the view.
     }
     

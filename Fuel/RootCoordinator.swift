@@ -11,18 +11,14 @@ import UIKit
 
 class RootCoordinator: Coordinator {
 
-    let navigationController: UINavigationController = {
-        let nav = UINavigationController()
-        nav.isNavigationBarHidden = true
-        return nav
-    }()
+    let rootViewController = RootViewController()
     
     func start() {
         showStopsFlow()
     }
     
     private func showStopsFlow() {
-        let stops = StopsFlowCoordinator(navigationController)
+        let stops = StopsFlowCoordinator(rootViewController)
         stops.start()
     }
     
