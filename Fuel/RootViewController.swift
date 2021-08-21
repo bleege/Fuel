@@ -8,19 +8,57 @@
 
 import UIKit
 
-class RootViewController: UINavigationController {
+class RootViewController: UIViewController {
 
     private let navDrawer = NavDrawerViewController()
+    
+    private let navController: UINavigationController = {
+        let navController = UINavigationController()
+        navController.isNavigationBarHidden = true
+        navController.view.backgroundColor = .yellow
+        navController.view.translatesAutoresizingMaskIntoConstraints = false
+        return navController
+    }()
+    
+    private var leadingNavDrawerAnchor: NSLayoutConstraint?
         
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        isNavigationBarHidden = true
         
         self.view.backgroundColor = .yellow
         // Do any additional setup after loading the view.
+
+        addChild(navController)
+        navController.didMove(toParent: self)
+        view.addSubview(navController.view)
+        
+        addChild(navDrawer)
+        navDrawer.didMove(toParent: self)
+        view.addSubview(navDrawer.view)
+        
+        leadingNavDrawerAnchor = navDrawer.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -200)
+        
+        NSLayoutConstraint.activate([
+            navDrawer.view.topAnchor.constraint(equalTo: view.topAnchor),
+            navDrawer.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            navDrawer.view.widthAnchor.constraint(equalToConstant: 200.0),
+            leadingNavDrawerAnchor!,
+            navController.view.topAnchor.constraint(equalTo: view.topAnchor),
+            navController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            navController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            navController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
     }
     
-
+    override func viewDidAppear(_ animated: Bool) {
+        leadingNavDrawerAnchor?.constant = 0
+    }
+    
+    func startNewFlow(with viewController: UIViewController) {
+        navController.viewControllers.removeAll()
+        navController.viewControllers.append(viewController)
+    }
+    
 
 }

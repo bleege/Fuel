@@ -18,7 +18,7 @@ class StopsFlowCoordinator: Coordinator {
     }
     
     func start() {
-        self.rootViewController?.viewControllers = [OverviewViewController()]
+        self.rootViewController?.startNewFlow(with: OverviewViewController())
     }
     
 }

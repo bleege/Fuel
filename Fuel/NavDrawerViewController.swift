@@ -14,6 +14,7 @@ class NavDrawerViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .blue
+        view.translatesAutoresizingMaskIntoConstraints = false
     }
     
 }
