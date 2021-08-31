@@ -12,6 +12,13 @@ class RootViewController: UIViewController {
 
     private let navDrawer = NavDrawerViewController()
     
+    private let backgroundMaskView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.85)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private let navController: UINavigationController = {
         let navController = UINavigationController()
         navController.isNavigationBarHidden = true
@@ -31,10 +38,13 @@ class RootViewController: UIViewController {
         addChild(navController)
         navController.didMove(toParent: self)
         view.addSubview(navController.view)
-        
+
+        view.addSubview(backgroundMaskView)
+
         addChild(navDrawer)
         navDrawer.didMove(toParent: self)
         view.addSubview(navDrawer.view)
+        
         
         leadingNavDrawerAnchor = navDrawer.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -200)
         
@@ -46,7 +56,11 @@ class RootViewController: UIViewController {
             navController.view.topAnchor.constraint(equalTo: view.topAnchor),
             navController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             navController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            navController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            navController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundMaskView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundMaskView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundMaskView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundMaskView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
     }
