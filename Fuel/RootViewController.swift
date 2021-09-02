@@ -78,7 +78,10 @@ class RootViewController: UIViewController {
     func hideNavDrawer() {
         UIView.animate(withDuration: 1.0, animations: {
             self.leadingNavDrawerAnchor?.constant = -200.0
+            self.backgroundMaskView.backgroundColor = UIColor.black.withAlphaComponent(0.0)
             self.view.layoutIfNeeded()
+        }, completion: {_ in 
+            self.backgroundMaskView.removeFromSuperview()
         })
     }
 
