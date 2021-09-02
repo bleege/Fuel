@@ -20,9 +20,12 @@ class RootViewController: UIViewController {
         return view
     }()
     
-    private let navController: UINavigationController = {
+    private lazy var navController: UINavigationController = {
         let navController = UINavigationController()
-        navController.isNavigationBarHidden = true
+        navController.delegate = self
+        navController.navigationBar.isTranslucent = true
+        navController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navController.navigationBar.shadowImage = UIImage()
         navController.view.backgroundColor = .yellow
         navController.view.translatesAutoresizingMaskIntoConstraints = false
         return navController
@@ -75,14 +78,42 @@ class RootViewController: UIViewController {
     }
 
     @objc
+    func showNavDrawer() {
+        self.view.insertSubview(backgroundMaskView, belowSubview: navDrawer.view)
+        NSLayoutConstraint.activate([
+            backgroundMaskView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundMaskView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundMaskView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundMaskView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        UIView.animate(withDuration: 1.0, animations: {
+            self.leadingNavDrawerAnchor?.constant = 0.0
+            self.backgroundMaskView.backgroundColor = UIColor.black.withAlphaComponent(0.85)
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    @objc
     func hideNavDrawer() {
         UIView.animate(withDuration: 1.0, animations: {
             self.leadingNavDrawerAnchor?.constant = -200.0
             self.backgroundMaskView.backgroundColor = UIColor.black.withAlphaComponent(0.0)
             self.view.layoutIfNeeded()
-        }, completion: {_ in 
+        }, completion: {_ in
             self.backgroundMaskView.removeFromSuperview()
         })
     }
 
+}
+
+extension RootViewController: UINavigationControllerDelegate {
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if viewController.navigationItem.leftBarButtonItem == nil {
+            let navButton = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(showNavDrawer))
+            viewController.navigationItem.leftBarButtonItem = navButton
+        }
+    }
+    
 }
