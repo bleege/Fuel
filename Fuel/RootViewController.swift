@@ -14,7 +14,7 @@ class RootViewController: UIViewController {
     
     private lazy var backgroundMaskView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.85)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.0)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideNavDrawer)))
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -49,7 +49,7 @@ class RootViewController: UIViewController {
         navDrawer.didMove(toParent: self)
         view.addSubview(navDrawer.view)
         
-        leadingNavDrawerAnchor = navDrawer.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        leadingNavDrawerAnchor = navDrawer.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -200.0)
         
         NSLayoutConstraint.activate([
             navDrawer.view.topAnchor.constraint(equalTo: view.topAnchor),
@@ -67,11 +67,7 @@ class RootViewController: UIViewController {
         ])
         
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        leadingNavDrawerAnchor?.constant = 0
-    }
-    
+        
     func startNewFlow(with viewController: UIViewController) {
         navController.viewControllers.removeAll()
         navController.viewControllers.append(viewController)
