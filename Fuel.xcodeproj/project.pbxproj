@@ -189,10 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				A245ADF226E7D68000014A5F /* AppFiles */,
-				A2ED71B22690EAB500993182 /* Coordinator.swift */,
-				A2ED71B02690EA9F00993182 /* RootCoordinator.swift */,
-				A235DB8126C4C8DE005905FF /* RootViewController.swift */,
-				A235DB8326C4C932005905FF /* NavDrawerViewController.swift */,
+				A2DBE90926E7D89200F8B58C /* RootUI */,
 				A2BFDB74269E81870006A38C /* StopsFlowCoordinator.swift */,
 				A2C842F01FEF5B330068BFAC /* OverviewContract.swift */,
 				A2EFB6281FEB60A300AE7A98 /* OverviewPresenter.swift */,
@@ -249,6 +246,17 @@
 				A2B7C8CB1FC5337C0012167F /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A2DBE90926E7D89200F8B58C /* RootUI */ = {
+			isa = PBXGroup;
+			children = (
+				A2ED71B22690EAB500993182 /* Coordinator.swift */,
+				A2ED71B02690EA9F00993182 /* RootCoordinator.swift */,
+				A235DB8126C4C8DE005905FF /* RootViewController.swift */,
+				A235DB8326C4C932005905FF /* NavDrawerViewController.swift */,
+			);
+			path = RootUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
