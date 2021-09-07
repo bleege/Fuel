@@ -83,7 +83,7 @@ class RootViewController: UIViewController {
             backgroundMaskView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        UIView.animate(withDuration: 1.0, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.leadingNavDrawerAnchor?.constant = 0.0
             self.backgroundMaskView.backgroundColor = UIColor.black.withAlphaComponent(0.85)
             self.view.layoutIfNeeded()
@@ -92,7 +92,7 @@ class RootViewController: UIViewController {
     
     @objc
     func hideNavDrawer() {
-        UIView.animate(withDuration: 1.0, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.leadingNavDrawerAnchor?.constant = -200.0
             self.backgroundMaskView.backgroundColor = UIColor.black.withAlphaComponent(0.0)
             self.view.layoutIfNeeded()
