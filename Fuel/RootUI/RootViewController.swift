@@ -107,8 +107,15 @@ extension RootViewController: UINavigationControllerDelegate {
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if viewController.navigationItem.leftBarButtonItem == nil {
-            let navButton = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(showNavDrawer))
-            viewController.navigationItem.leftBarButtonItem = navButton
+            let menuBtn = UIButton(type: .custom)
+            menuBtn.frame = CGRect(x: 0.0, y: 0.0, width: 20, height: 20)
+            menuBtn.setImage(UIImage(named:"hamburger-menu"), for: .normal)
+            menuBtn.addTarget(self, action: #selector(showNavDrawer), for: UIControl.Event.touchUpInside)
+
+            let menuBarItem = UIBarButtonItem(customView: menuBtn)
+            menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 24).isActive = true
+            menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 24).isActive = true
+            viewController.navigationItem.leftBarButtonItem = menuBarItem
         }
     }
     
