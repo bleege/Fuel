@@ -26,7 +26,6 @@ class RootViewController: UIViewController {
         navController.navigationBar.isTranslucent = true
         navController.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navController.navigationBar.shadowImage = UIImage()
-        navController.view.backgroundColor = .yellow
         navController.view.translatesAutoresizingMaskIntoConstraints = false
         return navController
     }()

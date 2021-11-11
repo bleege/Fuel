@@ -14,7 +14,6 @@ class NavDrawerViewController: UIViewController {
         let table = UITableView()
         table.dataSource = self
         table.delegate = self
-        table.backgroundColor = UIColor.systemPink
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
