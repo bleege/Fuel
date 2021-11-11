@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 class RootViewController: UIViewController {
 
@@ -30,12 +31,28 @@ class RootViewController: UIViewController {
         return navController
     }()
     
+    private let hamburgerButton: UIButton = {
+        let menuBtn = UIButton(type: .custom)
+        menuBtn.frame = CGRect(x: 0.0, y: 0.0, width: 20, height: 20)
+        menuBtn.setImage(UIImage(named:"hamburger-menu"), for: .normal)
+        return menuBtn
+    }()
+    
+    private lazy var hamburgerButtonItem: UIBarButtonItem = {
+        let menuBarItem = UIBarButtonItem(customView: hamburgerButton)
+        menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        return menuBarItem
+    }()
+    
+    private var cancellables = Set<AnyCancellable>()
+    
     private var leadingNavDrawerAnchor: NSLayoutConstraint?
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.backgroundColor = .yellow
+        bindPublishers()
+
         // Do any additional setup after loading the view.
 
         addChild(navController)
@@ -67,6 +84,12 @@ class RootViewController: UIViewController {
         
     }
         
+    private func bindPublishers() {
+        hamburgerButton.tapPublisher.sink(receiveValue: { [weak self] _ in
+            self?.showNavDrawer()
+        }).store(in: &cancellables)
+    }
+    
     func startNewFlow(with viewController: UIViewController) {
         navController.viewControllers.removeAll()
         navController.viewControllers.append(viewController)
@@ -106,15 +129,7 @@ extension RootViewController: UINavigationControllerDelegate {
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if viewController.navigationItem.leftBarButtonItem == nil {
-            let menuBtn = UIButton(type: .custom)
-            menuBtn.frame = CGRect(x: 0.0, y: 0.0, width: 20, height: 20)
-            menuBtn.setImage(UIImage(named:"hamburger-menu"), for: .normal)
-            menuBtn.addTarget(self, action: #selector(showNavDrawer), for: UIControl.Event.touchUpInside)
-
-            let menuBarItem = UIBarButtonItem(customView: menuBtn)
-            menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 24).isActive = true
-            menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 24).isActive = true
-            viewController.navigationItem.leftBarButtonItem = menuBarItem
+            viewController.navigationItem.leftBarButtonItem = hamburgerButtonItem
         }
     }
     
