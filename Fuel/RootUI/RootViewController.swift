@@ -11,7 +11,7 @@ import Combine
 
 class RootViewController: UIViewController {
 
-    private let navDrawer = NavDrawerViewController()
+    let navDrawer = NavDrawerViewController()
     
     private lazy var backgroundMaskView: UIView = {
         let view = UIView()
@@ -85,9 +85,15 @@ class RootViewController: UIViewController {
     }
         
     private func bindPublishers() {
-        hamburgerButton.tapPublisher.sink(receiveValue: { [weak self] _ in
-            self?.showNavDrawer()
-        }).store(in: &cancellables)
+        hamburgerButton.tapPublisher
+            .sink(receiveValue: { [weak self] _ in
+                self?.showNavDrawer()
+            }).store(in: &cancellables)
+        
+        navDrawer.navDrawerItemSelectedPublisher
+            .sink(receiveValue: { [weak self] menuIndex in
+                self?.hideNavDrawer()
+            }).store(in: &cancellables)
     }
     
     func startNewFlow(with viewController: UIViewController) {

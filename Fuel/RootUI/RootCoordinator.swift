@@ -6,15 +6,28 @@
 //  Copyright © 2021 Brad Leege. All rights reserved.
 //
 
-import Foundation
+import Combine
 import UIKit
 
 class RootCoordinator: Coordinator {
 
     let rootViewController = RootViewController()
     
+    private var cancellables = Set<AnyCancellable>()
+    
     func start() {
+        bindPublishers()
         showStopsFlow()
+    }
+    
+    private func bindPublishers() {
+        rootViewController.navDrawer.navDrawerItemSelectedPublisher
+            .sink(receiveValue: { [weak self] menuIndex in
+                if menuIndex == 0 {
+                    self?.showStopsFlow()
+                }
+            })
+            .store(in: &cancellables)
     }
     
     private func showStopsFlow() {
