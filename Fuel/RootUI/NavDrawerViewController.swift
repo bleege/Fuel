@@ -6,10 +6,15 @@
 //  Copyright © 2021 Brad Leege. All rights reserved.
 //
 
+import Combine
 import UIKit
 
 class NavDrawerViewController: UIViewController {
 
+    let navDrawerItemSelectedPublisher = PassthroughSubject<Int, Never>()
+    
+    private let menuItems = ["Stops"]
+    
     private lazy var menuTable: UITableView = {
         let table = UITableView()
         table.dataSource = self
@@ -43,13 +48,13 @@ class NavDrawerViewController: UIViewController {
 
 extension NavDrawerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return menuItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-        cell.textLabel?.text = "Overview"
+        cell.textLabel?.text = menuItems[indexPath.row]
         
         return cell
     }
@@ -57,5 +62,9 @@ extension NavDrawerViewController: UITableViewDataSource {
 
 extension NavDrawerViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        navDrawerItemSelectedPublisher.send(indexPath.row)
+    }
     
 }
