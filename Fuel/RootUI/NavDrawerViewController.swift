@@ -14,10 +14,12 @@ class NavDrawerViewController: UIViewController {
         let table = UITableView()
         table.dataSource = self
         table.delegate = self
+        table.separatorStyle = .none
+        table.tableHeaderView = NavDrawerTableHeader()
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewHierarchy()
@@ -41,11 +43,15 @@ class NavDrawerViewController: UIViewController {
 
 extension NavDrawerViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        cell.textLabel?.text = "Overview"
+        
+        return cell
     }
 }
 
