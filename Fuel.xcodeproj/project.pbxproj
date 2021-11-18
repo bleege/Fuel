@@ -32,6 +32,7 @@
 		A276BE82200C6FB20069CCA8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A276BE81200C6FB20069CCA8 /* CoreLocation.framework */; };
 		A27BC0DA2018575D00E94BD2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27BC0D92018575D00E94BD2 /* Extensions.swift */; };
 		A29046842745F02700AC558D /* NavDrawerTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29046832745F02700AC558D /* NavDrawerTableHeader.swift */; };
+		A29046862745FF6A00AC558D /* NavDrawerTableFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29046852745FF6A00AC558D /* NavDrawerTableFooter.swift */; };
 		A2A69BE1200DB595006DBED8 /* StopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A69BE0200DB595006DBED8 /* StopDetailViewController.swift */; };
 		A2AB951E202E82EE0012D8B4 /* AddStopContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB951D202E82EE0012D8B4 /* AddStopContract.swift */; };
 		A2AB9520202E84410012D8B4 /* AddStopPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB951F202E84410012D8B4 /* AddStopPresenter.swift */; };
@@ -95,6 +96,7 @@
 		A276BE81200C6FB20069CCA8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A27BC0D92018575D00E94BD2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A29046832745F02700AC558D /* NavDrawerTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavDrawerTableHeader.swift; sourceTree = "<group>"; };
+		A29046852745FF6A00AC558D /* NavDrawerTableFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavDrawerTableFooter.swift; sourceTree = "<group>"; };
 		A2A69BE0200DB595006DBED8 /* StopDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopDetailViewController.swift; sourceTree = "<group>"; };
 		A2AB951D202E82EE0012D8B4 /* AddStopContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStopContract.swift; sourceTree = "<group>"; };
 		A2AB951F202E84410012D8B4 /* AddStopPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStopPresenter.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				A235DB8126C4C8DE005905FF /* RootViewController.swift */,
 				A235DB8326C4C932005905FF /* NavDrawerViewController.swift */,
 				A29046832745F02700AC558D /* NavDrawerTableHeader.swift */,
+				A29046852745FF6A00AC558D /* NavDrawerTableFooter.swift */,
 			);
 			path = RootUI;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				A235DB8226C4C8DE005905FF /* RootViewController.swift in Sources */,
 				A2BFDB75269E81870006A38C /* StopsFlowCoordinator.swift in Sources */,
 				A29046842745F02700AC558D /* NavDrawerTableHeader.swift in Sources */,
+				A29046862745FF6A00AC558D /* NavDrawerTableFooter.swift in Sources */,
 				A2ED71B12690EA9F00993182 /* RootCoordinator.swift in Sources */,
 				A2A69BE1200DB595006DBED8 /* StopDetailViewController.swift in Sources */,
 				A2AB951E202E82EE0012D8B4 /* AddStopContract.swift in Sources */,

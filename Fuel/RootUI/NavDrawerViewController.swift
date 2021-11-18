@@ -21,6 +21,7 @@ class NavDrawerViewController: UIViewController {
         table.delegate = self
         table.separatorStyle = .none
         table.tableHeaderView = NavDrawerTableHeader()
+        table.tableFooterView = NavDrawerTableFooter()
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
