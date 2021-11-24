@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         container = setupDependencyInjection()
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = rootCoordinator.navigationController
+        window?.rootViewController = rootCoordinator.rootViewController
         window?.makeKeyAndVisible()
 
         rootCoordinator.start()

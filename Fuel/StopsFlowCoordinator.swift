@@ -11,14 +11,14 @@ import UIKit
 
 class StopsFlowCoordinator: Coordinator {
 
-    weak var navigationController: UINavigationController?
+    weak var rootViewController: RootViewController?
     
-    init(_ navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    init(_ rootViewController: RootViewController) {
+        self.rootViewController = rootViewController
     }
     
     func start() {
-        self.navigationController?.viewControllers = [OverviewViewController()]
+        self.rootViewController?.startNewFlow(with: OverviewViewController())
     }
     
 }
