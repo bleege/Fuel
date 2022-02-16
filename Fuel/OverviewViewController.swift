@@ -163,7 +163,7 @@ class OverviewViewController: UIViewController, OverviewContractView, MKMapViewD
             return pin
         }))
         if (!mapRect.isNull) {
-            let padding = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
+            let padding = UIEdgeInsets(top: 75, left: 75, bottom: 75, right: 75)
             mapView.setVisibleMapRect(mapRect, edgePadding: padding, animated: true)
         }
     }
