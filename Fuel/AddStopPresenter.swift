@@ -68,6 +68,7 @@ class AddStopPresenter: AddStopContractPresenter {
                 .sink(receiveCompletion: { completion in
                     switch completion {
                     case .failure(let error):
+                        self.view?.displayError(message: "Error Adding Fule Stop: \(error.localizedDescription)")
                         os_log(.error, log: Log.general, "Error Adding Fuel Stop: %@", error.localizedDescription)
                     case .finished:
                         break

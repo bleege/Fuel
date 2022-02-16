@@ -276,10 +276,20 @@ class AddStopViewController: UIViewController, AddStopContractView {
         if (self.presentingViewController != nil) {
             os_log(.info, log: Log.general, "presentingViewController is not null")
             
-            if let navVC = self.presentingViewController as? UINavigationController,
+            let navVC = self.presentingViewController?.children.first(where: {
+                if let _ = $0 as? UINavigationController {
+                    return true
+                }
+                return false
+            })
+            
+            if let navVC = navVC as? UINavigationController,
                let ovc = navVC.topViewController as? OverviewViewController {
                 ovc.addFuelStopToTable(fuelStop: record)
                 dismiss()
+            } else {
+                os_log(.error, log: Log.general, "Unable to dismiss form after save.")
+                displayError(message: "Unable to dismiss form after save completed.")
             }
         }
     }
