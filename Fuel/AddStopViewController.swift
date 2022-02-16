@@ -383,7 +383,7 @@ class AddStopViewController: UIViewController, AddStopContractView {
     }
     
     func stripDollarSign(string: String) -> String {
-            return string.replacingOccurrences(of: "$", with: "")
+        return string.replacingOccurrences(of: "$", with: "")
     }
     
     private func updatePricePerGallonTextField() {
